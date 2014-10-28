@@ -6,3 +6,14 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+
+Sublime.sublime-project
+Sublime.sublime-workspace
+app/config/local/database.php
+app/config/local/database.php
+app/config/local/database.php
+app/config/local/database.php
+app/config/local/database.php
+app/config/local/database.php
+app/config/local/database.php
+bootstrap/start.php
