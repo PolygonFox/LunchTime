@@ -14,7 +14,9 @@ class AddShoppinglistTable extends Migration {
 	{
 		Schema:create('shoppinglist', function($table){
 			$table->increments('id');
-			$table->
+			$table->boolean('locked')->default->(false);
+			$table->integer('user_id');
+			$table->dateTime('date');
 		});
 	}
 
@@ -25,7 +27,7 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema:drop('schoppinglist');
 	}
 
 }
