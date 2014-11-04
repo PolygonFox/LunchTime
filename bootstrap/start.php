@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	// Dump de naam van je laptop hier, zodat je in de local environment komt.
-	'local' => array('Sebastiaan-TOSH', 'Mark-Werk', 'sander-pc', 'SARAGOZA-PC'),
+	'local' => array('Sebastiaan-TOSH', 'Mark-Werk', 'Sander', 'SARAGOZA-PC'),
 
 ));
 
