@@ -26,7 +26,7 @@ class AddUserTable extends Migration {
 
 
 
-			
+
 		});
 	}
 
