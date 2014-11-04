@@ -16,7 +16,7 @@ class AddShoppinglistTable extends Migration {
 			$table->increments('id');
 			$table->boolean('locked')->default(false);
 			$table->integer('user_id');
-			$table->dateTime('date');
+			$table->timestamps();
 		});
 	}
 
