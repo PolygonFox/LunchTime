@@ -12,7 +12,10 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema:create('shoppinglist', function($table){
+			$table->increments('id');
+			$table->
+		});
 	}
 
 	/**
