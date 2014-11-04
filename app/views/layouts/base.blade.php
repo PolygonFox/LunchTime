@@ -1,6 +1,6 @@
 <!doctype html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/style.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/css.css')}}">
 	</head>
 	<body>
 		@yield('content')
