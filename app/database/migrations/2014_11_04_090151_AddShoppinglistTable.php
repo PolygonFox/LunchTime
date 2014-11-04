@@ -12,7 +12,7 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema:create('shoppinglist', function($table){
+		Schema::create('shoppinglist', function($table){
 			$table->increments('id');
 			$table->boolean('locked')->default(false);
 			$table->integer('user_id');

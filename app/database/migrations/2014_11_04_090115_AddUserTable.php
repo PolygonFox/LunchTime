@@ -12,21 +12,13 @@ class AddUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema:create('users', function($table){
+		Schema::create('users', function($table){
 			$table->increments('id');
 			$table->string('email', 255);
 			$table->string('password', 1024);
 			$table->boolean('admin')->default(false);
 			$table->boolean('blocked')->default(false);
 			$table->string('key', 255);
-
-
-
-
-
-
-
-
 		});
 	}
 

@@ -12,7 +12,7 @@ class AddItemsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('items', functoin($table)){
+		Schema::create('items', function($table){
 
 			$table->increments("id");
 			$table->string("name", 32);

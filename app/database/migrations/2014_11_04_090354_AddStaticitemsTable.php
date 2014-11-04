@@ -12,10 +12,10 @@ class AddStaticitemsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema:create('staticitems', function($table){
+		Schema::create('staticitems', function($table){
 			$table->increments('id');
 			$table->string('name', 255);
-			$table->string('amount',);
+			$table->integer('amount');
 			$table->integer('user_id');
 		});
 	}
