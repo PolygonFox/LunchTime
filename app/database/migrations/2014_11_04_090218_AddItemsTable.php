@@ -12,9 +12,16 @@ class AddItemsTable extends Migration {
 	 */
 	public function up()
 	{
-		//
-	}
+		Schema::table('items', functoin($table)){
 
+			$table->increments("id");
+			$table->string("name", 32);
+			$table->integer("amount");
+			$table->integer("shoppinglist_id");
+			$table->integer("user_id");
+
+		});
+	}
 	/**
 	 * Reverse the migrations.
 	 *
@@ -22,7 +29,6 @@ class AddItemsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop("items");
 	}
-
 }
