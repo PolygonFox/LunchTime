@@ -17,4 +17,18 @@ class UserController extends BaseController {
 		}
 		return View::make('account.login');
 	}
+
+	public function showEdit()
+	{
+		$user = Auth::User();
+		return View::make('account.edit');
+	}
+
+	public function edit()
+	{
+		$input = Input::all();
+		dd($input);
+
+		return View::make('account.edit');
+	}
 }
