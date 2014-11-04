@@ -27,7 +27,7 @@ class AddCheckitemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema:drop('checkitems');
+		Schema::drop('checkitems');
 	}
 
 }

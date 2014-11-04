@@ -27,7 +27,7 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema:drop('schoppinglist');
+		Schema::drop('shoppinglist');
 	}
 
 }

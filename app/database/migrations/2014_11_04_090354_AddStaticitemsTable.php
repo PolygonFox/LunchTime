@@ -27,7 +27,7 @@ class AddStaticitemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema:drop('staticitems');
+		Schema::drop('staticitems');
 	}
 
 }
