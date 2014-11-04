@@ -20,3 +20,5 @@ Route::get('/login', 'UserController@showLogin');
 Route::post('/login', 'UserController@login');
 Route::get('/account/edit', 'UserController@showEdit');
 Route::post('/account/edit', 'UserController@edit');
+Route::get('/account/new', 'UserController@showNew');
+Route::post('/account/new', 'UserController@new');

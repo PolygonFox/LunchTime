@@ -31,4 +31,14 @@ class UserController extends BaseController {
 
 		return View::make('account.edit');
 	}
+
+	public function showNew()
+	{
+		return View::make('account.new');
+	}
+
+	public function new()
+	{
+
+	}
 }
