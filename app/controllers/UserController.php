@@ -42,7 +42,7 @@ class UserController extends BaseController {
 						$user->save();
 					}
 					else{
-						$errors[] = "Het oude wachtwoord is niet onjuist.";
+						$errors[] = "Het oude wachtwoord is onjuist.";
 					}
 				}
 				else{
