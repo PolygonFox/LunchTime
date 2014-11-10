@@ -24,3 +24,12 @@ input {
   display: inline-block;
   float: left;
 }
+li{
+  list-style-type: none;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 550px;
+  height: 200px;
+}
