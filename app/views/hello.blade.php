@@ -37,7 +37,7 @@
 </head>
 <body>
 
-<h1>(<a href="{{URL::route('new')}}"> Nieuw lijst</a>)</h1>
+<h1>(<a href="{{URL::to('new')}}"> Nieuw lijst</a>)</h1>
 
 
 	
