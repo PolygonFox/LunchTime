@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-LunchTime - Login
+Login
 @stop
 
 @section('content')
