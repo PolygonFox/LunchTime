@@ -1,6 +1,4 @@
 @extends('layouts.main')
-
-
 @section('vulling')
 		{{{ isset($message ) ? $message : '' }}}
 		<a href="{{URL::to('')}}">Overzicht</a>
