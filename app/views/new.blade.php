@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-			<h1>Maak en nieuw boodschappenlijst</h1>
+			<h1>Maak een nieuw boodschappenlijst</h1>
 			
 		
 			
