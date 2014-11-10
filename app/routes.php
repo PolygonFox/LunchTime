@@ -24,5 +24,4 @@ Route::group(array('before' => 'auth'), function()
 	/*	Shopping List */
 	Route::get('/new', 'ShoppinglistController@getNew');
 	Route::post('/new', 'ShoppinglistController@postNew');
-	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@getIndex'));
 });
