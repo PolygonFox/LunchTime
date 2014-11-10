@@ -59,7 +59,7 @@ class UserController extends BaseController {
 		return View::make('account.edit')->withErrors($errors);
 	}
 
-	public function showNew()
+	public function showNewuser()
 	{
 		return View::make('account.new');
 	}
