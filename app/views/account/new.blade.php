@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-LunchTime - Maak nieuw account
+Maak nieuw account
 @stop
 
 @section('content')
