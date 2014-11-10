@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('vulling')
-		{{{ isset($message ) ? $message : '' }}}
+		
 		<a href="{{URL::to('')}}">Overzicht</a>
 		<a href="{{URL::to('account')}}">Mijn Account</a>
 		@if(Auth::User()->admin)
@@ -8,6 +8,7 @@
 		@endif
 		<a href="{{URL::to('logout')}}">Uitloggen</a>
 		<div class='content'>
+			{{{ isset($message ) ? $message : '' }}}
 			@yield('content')
 		</div>
 @stop
