@@ -48,6 +48,13 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('beheerder', function(){
+	if(!Auth::User()->admin)
+	{
+		return App::abort(403, 'Gij zeit geen beheerder!');
+	}
+});
+
 
 Route::filter('auth.basic', function()
 {

@@ -5,8 +5,8 @@ LunchTime - Login
 @stop
 
 @section('content')
-<h1>Halloo !!!</h1>
-
+<h1>Inloggen</h1>
+{{{ isset($message ) ? $message : '' }}}
 {{Form::open()}}
 {{Form::label('email','Email')}}
 {{Form::text('email')}}
@@ -14,5 +14,4 @@ LunchTime - Login
 {{Form::password('password')}}
 {{Form::submit('Login')}}
 {{Form::close()}}
-
 @stop

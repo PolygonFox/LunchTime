@@ -21,7 +21,10 @@ class UserController extends BaseController {
 		Auth::logout();
 		return Redirect::intended("login");
 	}
-
+	public function show()
+	{
+		return View::make('account.show')->withUser(Auth::User());
+	}
 	public function showEdit()
 	{
 		$user = Auth::User();
@@ -56,7 +59,10 @@ class UserController extends BaseController {
 		else{
 			$errors[] = "Er zijn een of meerdere velden niet ingevuld.";
 		}
-		return View::make('account.edit')->withErrors($errors);
+		if(count($errors))
+			return View::make('account.edit')->withErrors($errors);
+		else
+			return Redirect::intended('/account');
 	}
 
 	public function showNewuser()
