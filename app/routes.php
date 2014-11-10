@@ -18,6 +18,7 @@ Route::get('/', function()
 
 Route::get('/login', 'UserController@showLogin');
 Route::post('/login', 'UserController@login');
+Route::get('/logout', 'UserController@logout');
 Route::get('/account/edit', 'UserController@showEdit');
 Route::post('/account/edit', 'UserController@edit');
 Route::get('/account/new', 'UserController@showNew');

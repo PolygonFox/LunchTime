@@ -9,13 +9,17 @@ class UserController extends BaseController {
 
 	public function login(){
 		$input = Input::only('email', 'password');
-
 		if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
 		{
 		    echo 'succes!';
 		    return View::make('hello');
 		}
 		return View::make('account.login');
+	}
+
+	public function logout(){
+		Auth::logout();
+		return Redirect::intended("login");
 	}
 
 	public function showEdit()
@@ -54,7 +58,6 @@ class UserController extends BaseController {
 		}
 		return View::make('account.edit')->withErrors($errors);
 	}
-
 
 	public function showNew()
 	{
