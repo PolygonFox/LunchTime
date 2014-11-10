@@ -11,10 +11,9 @@ class UserController extends BaseController {
 		$input = Input::only('email', 'password');
 		if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
 		{
-		    echo 'succes!';
-		    return View::make('hello');
+		    return View::make('hello')->with('message', 'Login gelukt');
 		}
-		return View::make('account.login');
+		return View::make('account.login')->with('message', 'Login mislukt');
 	}
 
 	public function logout(){
