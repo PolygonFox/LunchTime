@@ -7,8 +7,9 @@ public function showlist(){
 }
 
 public function getNew(){
+	$shoppinglists=Shoppinglist::all();
 
-	return View::make('new');
+	return View::make('new')->withShoppinglists($shoppinglists);
 
 }
 public function postNew(){
