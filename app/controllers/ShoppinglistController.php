@@ -2,8 +2,9 @@
 
 class ShoppinglistController extends BaseController {
 
-public function showlist(){
-
+public function show($id){
+	$shoppinglist = Shoppinglist::find($id);
+	return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
 }
 
 public function getNew(){
@@ -19,7 +20,7 @@ public function postNew(){
 	$shoppinglist->save();
 
 	
-	return Redirect::intended('/');
+	return Redirect::intended('/boodschappenlijsten');
 }
 
 public function lock($id){
