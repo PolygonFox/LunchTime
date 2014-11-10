@@ -13,10 +13,9 @@
 
 			<ul>
 				@foreach($shoppinglists as $shoppinglist)
-				<li>{{ date('d.m.Y',strtotime($shoppinglist->created_at)) }}</li>
+				<li>{{ date('d.m.Y',strtotime($shoppinglist->created_at)) }}(<a href="{{URL::to('new')}}">Voeg Item Toe</a>)</li>
 				@endforeach
 			</ul>
-
 @stop
 	
 
