@@ -32,5 +32,6 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('/account/new', 'UserController@newuser');
 		Route::get('/logout', 'UserController@logout');
 		Route::get('/beheer', 'UserController@beheer');
+		Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
 	});
 });
