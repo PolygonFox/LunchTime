@@ -17,6 +17,7 @@ public function postNew(){
 
 
 	$shoppinglist = new shoppinglist;
+	$shoppinglist->user_id = Auth::User()->id;
 	$shoppinglist->save();
 
 	
