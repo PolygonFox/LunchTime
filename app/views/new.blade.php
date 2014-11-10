@@ -13,7 +13,7 @@
 
 			<ul>
 				@foreach($shoppinglists as $shoppinglist)
-				<li>{{$shoppinglist->created_at}}</li>
+				<li>{{ date('d.m.Y',strtotime($shoppinglist->created_at)) }}</li>
 				@endforeach
 			</ul>
 
