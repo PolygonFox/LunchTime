@@ -66,8 +66,9 @@ class UserController extends BaseController {
 
 	public function newuser()
 	{
+		$input = Input::all();
 		$validator = Validator::make(
-	    Input::all(),
+	    $input,
 	    array(
 	        'email' => 'required|email|unique:users',
 	        'password' => 'required|min:8',
@@ -78,5 +79,14 @@ class UserController extends BaseController {
 	    	return View::make('account.new')->withErrors($validator);
 	    }
 	    //return View::make('account.new', $failed);
+	    if(!isset($input['admin'])){$input['admin'] = 0;}
+	    DB::table('users')->insert(
+    		array('email' => $input['email'], 'admin' => $input['admin'], 'password' => Hash::make($input['password']))
+    	);
+    	return Redirect::to('beheer');
+	}
+
+	public function beheer(){
+		return "beheer";
 	}
 }
