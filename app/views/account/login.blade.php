@@ -8,9 +8,9 @@ LunchTime - Login
 <h1>Inloggen</h1>
 {{Form::open()}}
 {{Form::label('email','Email')}}
-{{Form::text('email')}}
+{{Form::email('email')}}<br>
 {{Form::label('password','Wachtwoord')}}
-{{Form::password('password')}}
+{{Form::password('password')}}<br>
 {{Form::submit('Login')}}
 {{Form::close()}}
 @stop

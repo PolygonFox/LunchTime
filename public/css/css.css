@@ -1,8 +1,26 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	
-	
-	
-	
+	font-family:arial;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    padding-top: 20px;
+}
+
+input{
+	margin-top: 15px;
+	border: 1px solid black;
+	padding:5px;
+	margin-left: 10px;
+}
+
+}
+input {
+  display: inline-block;
+  float: left;
 }
