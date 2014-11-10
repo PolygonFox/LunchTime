@@ -1,6 +1,6 @@
 <?php
 
-class Item extends Eloquent {
+class CheckItem extends Eloquent {
 
 	public $timestamps = false;
 

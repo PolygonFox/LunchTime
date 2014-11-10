@@ -1,6 +1,6 @@
 <?php
 
-class Item extends Eloquent {
+class StaticItem extends Eloquent {
 
 	public $timestamps = false;
 
