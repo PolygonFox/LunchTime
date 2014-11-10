@@ -4,6 +4,6 @@
 		<title>LunchTime - @yield('title')</title>
 	</head>
 	<body>
-		@yield('vulling');
+		@yield('vulling')
 	</body>
 </html>
