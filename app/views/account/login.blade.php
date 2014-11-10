@@ -1,12 +1,11 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('title')
-Login
+LunchTime - Login
 @stop
 
-@section('content')
+@section('vulling')
 <h1>Inloggen</h1>
-{{{ isset($message ) ? $message : '' }}}
 {{Form::open()}}
 {{Form::label('email','Email')}}
 {{Form::text('email')}}

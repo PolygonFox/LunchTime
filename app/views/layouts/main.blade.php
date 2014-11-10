@@ -1,10 +1,9 @@
-<html>
+<!doctype html>
 	<head>
-		<title>Hello MotherFucker</title>
-		<link rel="stylesheet" href="{{ URL::asset('css/style.css')}}">
-	<head>
-
+		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/css.css')}}">
+		<title>LunchTime - @yield('title')</title>
+	</head>
 	<body>
-
+		@yield('vulling');
 	</body>
-<html>
+</html>

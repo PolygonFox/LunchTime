@@ -1,9 +1,7 @@
-<!doctype html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/css.css')}}">
-		<title>LunchTime - @yield('title')</title>
-	</head>
-	<body>
+@extends('layouts.main')
+
+
+@section('vulling')
 		{{{ isset($message ) ? $message : '' }}}
 		<a href="{{URL::to('')}}">Overzicht</a>
 		<a href="{{URL::to('account')}}">Mijn Account</a>
@@ -14,5 +12,4 @@
 		<div class='content'>
 			@yield('content')
 		</div>
-	</body>
-</html>
+@stop
