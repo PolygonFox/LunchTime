@@ -6,11 +6,11 @@ Boodschappenlijst
 
 @section('content')
 <h1>Boodschappenlijst van {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
+<a href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">Toggle Lock</a>
 <ul>
 	@foreach($shoppinglist->item as $item)
 	<li>
 		{{$item->amount}}x {{$item->name}}
-		<a href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/item/{$item->id}")}}">Vergrendelen</a>
 		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}")}}">Wijzigen</a>
 		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}/verwijderen")}}">Verwijderen</a>
 	</li>
