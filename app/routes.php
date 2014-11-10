@@ -15,8 +15,8 @@ Route::group(array('before' => 'auth'), function()
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
-	Route::get('/account/new', 'UserController@showNew');
-	Route::post('/account/new', 'UserController@new');
+	Route::get('/account/new', 'UserController@showNewuser');
+	Route::post('/account/new', 'UserController@newuser');
 	Route::get('/logout', 'UserController@logout');
 
 	/*	Shopping List */

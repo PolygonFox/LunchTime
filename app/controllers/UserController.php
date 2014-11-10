@@ -64,9 +64,19 @@ class UserController extends BaseController {
 		return View::make('account.new');
 	}
 
-	public function newn()
+	public function newuser()
 	{
-
+		$validator = Validator::make(
+	    Input::all(),
+	    array(
+	        'email' => 'required|email|unique:users',
+	        'password' => 'required|min:8',
+	        'repeatpassword' => 'required|same:password'
+	    ));
+	    $failed = $validator->failed();if ($validator->fails())
+	    {
+	    	return View::make('account.new')->withErrors($validator);
+	    }
+	    //return View::make('account.new', $failed);
 	}
-
 }

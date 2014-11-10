@@ -7,6 +7,10 @@ LunchTime - Maak nieuw account
 @section('content')
 <h1>Nieuw account aanmaken</h1>
 
+{{$errors->first('email')}}<br>
+{{$errors->first('password')}}<br>
+{{$errors->first('repeatpassword')}}<br>
+
 {{Form::open()}}
 
 {{Form::label('email','Email')}}
@@ -18,7 +22,7 @@ LunchTime - Maak nieuw account
 {{Form::label('repeatpassword','Herhaal Wachtwoord')}}
 {{Form::password('repeatpassword')}}
 <br/>
-{{Form::label('repeatpassword','Herhaal Wachtwoord')}}
+{{Form::label('admin','Beheerder')}}
 {{Form::checkbox('admin', '1');}}
 <br/>
 {{Form::submit('Maak nieuw account')}}
