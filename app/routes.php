@@ -19,6 +19,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
 	Route::get('/boodschappenlijsten', 'ShoppinglistController@getNew');
 	Route::post('/new', 'ShoppinglistController@postNew');
+	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
 
 	Route::get('/', function()
 	{

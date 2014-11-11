@@ -36,8 +36,17 @@ public function lock($id){
 	$list->save();
 	return Redirect::to('boodschappenlijst/'. $id);
 }
-
-
+ 
+public function newItem($id){
+	$input= Input::all();
+	$item = new Item();
+	$item->name = $input['New_item'];
+	$item->amount = $input['amount'];
+	$item->user_id = Auth::User()->id;
+	$item->shoppinglist_id = $id;
+	$item->save();
+	return Redirect::to('/boodschappenlijst/' . $id);
+}
 
 }
 ?>
