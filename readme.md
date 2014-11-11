@@ -11,12 +11,18 @@ This guide will be a fast setup guide.
 3. Download the project from github.
 4. Open cmd, navigate to the project folder.
 5. Run the following command:
-	composer update
+
+    ```composer update```
+
 6. Maak een mysql database aan met de naam "LunchTime"
 7. Open cmd, navigate to the project folder then run the following commands:
-	php artisan migrate:install
-	php artisan migrate
-	php artisan db:seed
+
+	```php artisan migrate:install```
+	
+	```php artisan migrate```
+
+	```php artisan db:seed```
+	
 8. You are done installing. Enjoy our project!
 
 ### License
