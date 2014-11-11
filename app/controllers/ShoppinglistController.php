@@ -10,9 +10,8 @@ public function show($id){
 
 public function delete($lijst_id, $item_id)
 {
-
 	Item::destroy($item_id);
-	return Redirect::intended("/boodschappenlijst/{$lijst_id}");
+	return "Ja!";
 }
 
 public function getNew()
@@ -48,6 +47,17 @@ public function newItem($id){
 	$item->shoppinglist_id = $id;
 	$item->save();
 	return Redirect::to('/boodschappenlijst/' . $id);
+}
+
+// Ajax
+public function editItem($lijst_id, $id)
+{
+	$data = Input::all();
+	$item = Item::find($id);
+	$item->name = $data['name'];
+	$item->amount = $data['amount'];
+	$item->save();
+	return "Success";
 }
 
 }

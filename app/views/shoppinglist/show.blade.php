@@ -4,6 +4,8 @@ Boodschappenlijst
 @stop
 @section("head")
 		<script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
+		<script type="text/javascript" src="{{URL::asset('js/Shoppinglist.js')}}"></script>
+		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 @stop
 @section('content')
 <h1>Boodschappenlijst van {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
@@ -14,20 +16,25 @@ Boodschappenlijst
 		Ontgrendel
 	@endif
 </a>
-<ul>
-	@foreach($shoppinglist->item as $item)
-	<li>
-		{{$item->amount}}x {{$item->name}} {{$item->user->email}}
-		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}")}}"><i class="fa fa-pencil"></i>
-</a>
-		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}/verwijderen")}}" onClick="WeetUHetZeker('{{$item->name}}');">Verwijderen</a>
-	</li>
+<table class='shoppinglist'>
+	<tr><th>Aantal</td><th>Naam</td><th>Gebruiker</td><th>Wijzigen</td><th>Verwijderen</td></tr>
+
+	@foreach($shoppinglist->item as $i => $item)
+	<tr data-id="{{$item->id}}">
+		<td>{{$item->amount}}x</td>
+		<td>{{$item->name}}</td>
+		<td>{{$item->user->email}}</td>
+		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
+		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
+	</tr>
 	@endforeach
-	<li>
+	<tr>
 		{{Form::open()}}
-		{{Form::text('amount', null, array('placeholder' => 'Hoeveel'))}}
-		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item'))}}
-		{{Form::submit('Toevoegen'); Form::close();}}
-	</li>
-</ul>
+		<td>{{Form::number('amount', null, array('placeholder' => 'Aantal'))}}</td>
+		<td>{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item'))}}</td>
+		<td>{{Form::submit('Toevoegen'); Form::close();}}</td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
 @stop
