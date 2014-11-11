@@ -19,7 +19,7 @@ ConfirmBox.prototype.Confirm = function(message, returnCallback){
 }
 
 ConfirmBox.prototype.Delete = function (item_name, returnCallback){
-	this.Confirm("Are you sure you want to delete '" + item_name + "'?", returnCallback);
+	this.Confirm("Weet je zeker dat je '" + item_name + "' wilt verwijderen?", returnCallback);
 }
 
 ConfirmBox.prototype.TouchDelete = function (item_name, url, done){
@@ -27,7 +27,6 @@ ConfirmBox.prototype.TouchDelete = function (item_name, url, done){
 		url = document.url;
 	this.Delete(item_name, function(val){
 		if(val){
-
 				$.get(url, function(data){
 				if(done != undefined)
 					done();
