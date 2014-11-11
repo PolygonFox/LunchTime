@@ -28,16 +28,8 @@ public function postNew(){
 
 	
 	return Redirect::intended('/boodschappenlijsten');
-	}
-
-	public function lock($id){
-		$list = Shoppinglist::find($id);
-		if($list->locked == 1){ $list->locked = 0; }
-		else{ $list->locked = 1; }
-		$list->save();
-		return Redirect::to('boodschappenlijst/'. $id);
-	}
 }
+
 public function lock($id){
 	$list = Shoppinglist::find($id);
 	if($list->locked == 1){ $list->locked = 0; }
