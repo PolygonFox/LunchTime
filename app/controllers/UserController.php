@@ -11,7 +11,7 @@ class UserController extends BaseController {
 		$input = Input::only('email', 'password');
 		if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
 		{
-		    return View::make('hello')->with('message', 'Login gelukt');
+		    return Redirect::to('');
 		}
 		return View::make('account.login')->with('message', 'Login mislukt');
 	}
@@ -83,7 +83,6 @@ class UserController extends BaseController {
 	    {
 	    	return View::make('account.new')->withErrors($validator);
 	    }
-	    //return View::make('account.new', $failed);
 	    if(!isset($input['admin'])){$input['admin'] = 0;}
 	    DB::table('users')->insert(
     		array('email' => $input['email'], 'admin' => $input['admin'], 'password' => Hash::make($input['password']))
