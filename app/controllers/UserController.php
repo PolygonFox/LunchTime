@@ -8,17 +8,16 @@ class UserController extends BaseController {
 	}
 
 	public function login(){
-		$input = Input::only('email', 'password');
-		if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
+		if (Auth::attempt(Input::only('email', 'password')))
 		{
-		    return Redirect::to('');
+		    return Redirect::to('/');
 		}
 		return View::make('account.login')->with('message', 'Login mislukt');
 	}
 
 	public function logout(){
 		Auth::logout();
-		return Redirect::intended("login");
+		return Redirect::to("/");
 	}
 	public function show()
 	{
@@ -34,33 +33,21 @@ class UserController extends BaseController {
 	{
 		$input = Input::all();
 		$user = Auth::User();
-		$errors = [];
-
-		if(isset($input['new_password'][0][0]) && isset($input['new_password'][1][0]) && isset($input['old_password'][0])){
-			if(isset($input['new_password'][0][8]) && isset($input['new_password'][1][8])){
-				if($input['new_password'][0] == $input['new_password'][1]){
-					if(Auth::validate(array('email' => $user->email, 'password' => $input['old_password']))){
-						$user->password = Hash::make($input['new_password'][0]);
-						$user->save();
-					}
-					else{
-						$errors[] = "Het oude wachtwoord is onjuist.";
-					}
-				}
-				else{
-					$errors[] = "Het nieuwe wachtwoord komt niet overeen met het herhalingswachtwoord.";
-				}
-			}
-			else{
-				$errors[] = "Het nieuwe wachtwoord moet minimaal 8 karakters bevatten.";
-			}
+		$validator = Validator::make(
+	    $input,
+	    array(
+	    	'old_password' => 'required',
+	        'new_password' => 'required|min:8',
+	        'new_password_repeat' => 'required|same:new_password'
+	    ));
+	    $failed = $validator->failed();
+	    if ($validator->fails()){
+	    	return View::make('account.edit')->withErrors($validator);
+	    }
+		if(Auth::validate(array('email' => $user->email, 'password' => $input['old_password']))){
+			$user->password = Hash::make($input['new_password']);
+			$user->save();
 		}
-		else{
-			$errors[] = "Er zijn een of meerdere velden niet ingevuld.";
-		}
-		if(count($errors))
-			return View::make('account.edit')->withErrors($errors);
-		else
-			return Redirect::intended('/account');
+		return Redirect::to('/account');
 	}
 }
