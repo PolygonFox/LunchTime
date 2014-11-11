@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/css.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/simple-sidebar.css')}}" >
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}" >
+		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/font-awesome.min.css')}}" >
 		@yield('head')
 		<title>LunchTime - @yield('title')</title>
 	</head>
