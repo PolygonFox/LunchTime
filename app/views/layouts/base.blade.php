@@ -1,18 +1,42 @@
 @extends('layouts.main')
 @section('vulling')
 
-	<div class="menu_ver">
-		{{{ isset($message ) ? $message : '' }}}
-		<ul>
-		<li><a class="menu_a" href="{{URL::to('')}}">Overzicht</a></li>
-		<li><a class="menu_a" href="{{URL::to('account')}}">Mijn Account</a></li>
+        <!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">
+                lunchDoos
+            </a>
+        </li>
+		<li>
+			<a href="{{URL::to('')}}">Overzicht</a>
+		</li>
+		<li>
+			<a href="{{URL::to('account')}}">Mijn Account</a>
+		</li>
 		@if(Auth::User()->admin)
-		<li><a class="menu_a" href="{{URL::to('beheer')}}">Beheer</a></li>
+		<li>
+			<a href="{{URL::to('beheer')}}">Beheer</a>
+		</li>
 		@endif
-		<li><a class="menu_a" href="{{URL::to('logout')}}">Uitloggen</a></li>
-		<ul>
-	</div>
-		<div class='content'>
-			@yield('content')
+		<li>
+			<a href="{{URL::to('logout')}}">Uitloggen</a>
+		</li>
+	<ul>
+</div>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+				{{{ isset($message ) ? $message : '' }}}
+				@yield('content')
+			</div>
 		</div>
+	</div>
+</div>
 @stop

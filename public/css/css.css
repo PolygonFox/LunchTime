@@ -12,47 +12,15 @@ body{
 }
 label{
     display: inline-block;
-    float: left;
-    clear: left;
+    float:left;
     width: 250px;
     text-align: right;
     padding-top: 20px;
 }
 
 input{
-	margin-top: 15px;
+	margin-top: 35px;
 	border: 1px solid black;
 	padding:5px;
 	margin-left: 10px;
-}
-div.main_container{
-	background-color: white;
-	height: 100%;
-	box-shadow: 10px 10px 5px #888888;
-	border
-}
-}
-input {
-  float: left;
-}
-.menu_hor{
-	background-color: grey;
-	float:right;
-}
-div.menu_ver{
-	background: grey;
-	float:left;
-	padding: 5px;
-	height: 100%;
-}
-li{
-	padding: 20px;
-}
-a.menu_a{
-	color: white;
-	text-decoration: none;
-}
-a.menu_a:hover{
-	color: white;
-	text-decoration: none;
 }
