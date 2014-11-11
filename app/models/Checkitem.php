@@ -3,6 +3,7 @@
 class CheckItem extends Eloquent {
 
 	public $timestamps = false;
+	public $table = 'checkitems';
 
 	public function user()
 	{

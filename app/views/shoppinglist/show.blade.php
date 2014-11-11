@@ -16,7 +16,7 @@ Boodschappenlijst
 <ul>
 	@foreach($shoppinglist->item as $item)
 	<li>
-		{{$item->amount}}x {{$item->name}}
+		{{$item->amount}}x {{$item->name}} {{$item->user->email}}
 		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}")}}">Wijzigen</a>
 		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}/verwijderen")}}">Verwijderen</a>
 	</li>

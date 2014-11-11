@@ -4,6 +4,7 @@ class ShoppinglistController extends BaseController {
 
 public function show($id){
 	$shoppinglist = Shoppinglist::find($id);
+	$shoppinglist->user = User::where('user_id');
 	return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
 }
 

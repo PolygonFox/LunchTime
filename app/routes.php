@@ -21,6 +21,11 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
 
+	/* Checkitem List */
+	Route::get('/controleitems', 'CheckItemsController@show');
+	Route::post('/controleitems', 'CheckItemsController@newItem');
+	Route::get('/controleitems/del/{id}', 'CheckItemsController@delete');
+
 	Route::get('/', function()
 	{
 		return View::make('hello');
