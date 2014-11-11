@@ -36,7 +36,7 @@
             	@if(isset($message))
             		@if(is_array($message))
             			@foreach($message as $msg)
-            				{{$message}}
+            				{{$msg}}
             			@endforeach
             		@else
             			{{$message}}
