@@ -21,6 +21,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijsten', 'ShoppinglistController@getNew');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
+	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
+	Route::post('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@saveItem');
 
 	/* Checkitem List */
 	Route::get('/controleitems', 'CheckItemsController@show');
