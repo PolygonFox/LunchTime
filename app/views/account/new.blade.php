@@ -5,7 +5,7 @@ Maak nieuw account
 @stop
 
 @section('content')
-<h1>Nieuw account aanmaken</h1>
+<h1>Nieuwe gebruiker aanmaken</h1>
 
 {{$errors->first('email')}}<br>
 {{$errors->first('password')}}<br>
