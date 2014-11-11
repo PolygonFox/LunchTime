@@ -3,6 +3,13 @@
 	padding: 0px;
 	font-family:arial;
 }
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	background-image: url('../img/bg.png');
+}
 label{
     display: inline-block;
     float: left;
@@ -18,18 +25,34 @@ input{
 	padding:5px;
 	margin-left: 10px;
 }
-
+div.main_container{
+	background-color: white;
+	height: 100%;
+	box-shadow: 10px 10px 5px #888888;
+	border
+}
 }
 input {
-  display: inline-block;
   float: left;
 }
+.menu_hor{
+	background-color: grey;
+	float:right;
+}
+div.menu_ver{
+	background: grey;
+	float:left;
+	padding: 5px;
+	height: 100%;
+}
 li{
-  list-style-type: none;
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px;
-  text-align: center;
-  width: 550px;
-  height: 200px;
+	padding: 20px;
+}
+a.menu_a{
+	color: white;
+	text-decoration: none;
+}
+a.menu_a:hover{
+	color: white;
+	text-decoration: none;
 }
