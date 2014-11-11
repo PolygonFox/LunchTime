@@ -33,7 +33,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-				{{{ isset($message ) ? $message : '' }}}
+            	@if(isset($message))
+            		@if(is_array($message))
+            			@foreach($message as $msg)
+            				{{$message}}
+            			@endforeach
+            		@else
+            			{{$message}}
+            		@endif
+            	@endif
 				@yield('content')
 			</div>
 		</div>
