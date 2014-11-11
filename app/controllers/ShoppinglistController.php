@@ -50,5 +50,17 @@ public function newItem($id){
 	return Redirect::to('/boodschappenlijst/' . $id);
 }
 
+public function editItem($lijst_id,$item_id){
+	$item = Item::find($item_id);
+	return View::make('shoppinglist.edit')->withItem($item);
+}
+public function saveItem($lijst_id,$item_id){
+	$input = Input::all();
+	$item = Item::find($item_id);
+	$item->name = $input['name'];
+	$item->amount = $input['amount'];
+	$item->save();
+	return Redirect::to('/boodschappenlijst/' . $lijst_id);
+}
 }
 ?>
