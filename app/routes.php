@@ -13,6 +13,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
 	Route::get('/account', 'UserController@show');
+	Route::get('/logout', 'UserController@logout');
 
 		/*	Shopping List */
 	Route::get('/boodschappenlijst/{id}', 'ShoppinglistController@show');
@@ -28,10 +29,10 @@ Route::group(array('before' => 'auth'), function()
 	/* Admin Only*/
 	Route::group(array('before' =>'beheerder'), function()
 	{
-		Route::get('/account/new', 'UserController@showNewuser');
-		Route::post('/account/new', 'UserController@newuser');
-		Route::get('/logout', 'UserController@logout');
-		Route::get('/beheer', 'UserController@beheer');
+		Route::get('/beheer/GebruikerToevoegen', 'AdminController@showNewuser');
+		Route::post('/beheer/GebruikerToevoegen', 'AdminController@newuser');
+		Route::get('/beheer', 'AdminController@overview');
+		Route::get('/beheer/user/{id}/delete', 'AdminController@deleteUser');
 		Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
 	});
 });
