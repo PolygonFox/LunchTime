@@ -11,7 +11,7 @@ public function show($id){
 public function delete($lijst_id, $item_id)
 {
 
-	$shoppinglist = Shoppinglist::destroy($item_id);
+	Item::destroy($item_id);
 	return Redirect::intended("/boodschappenlijst/{$lijst_id}");
 }
 

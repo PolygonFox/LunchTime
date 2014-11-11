@@ -1,9 +1,10 @@
 @extends('layouts.base')
-
 @section('title')
 Boodschappenlijst
 @stop
-
+@section("head")
+		<script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
+@stop
 @section('content')
 <h1>Boodschappenlijst van {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
 <a href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
@@ -19,7 +20,7 @@ Boodschappenlijst
 		{{$item->amount}}x {{$item->name}} {{$item->user->email}}
 		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}")}}"><i class="fa fa-pencil"></i>
 </a>
-		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}/verwijderen")}}">Verwijderen</a>
+		<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}/item/{$item->id}/verwijderen")}}" onClick="WeetUHetZeker('{{$item->name}}');">Verwijderen</a>
 	</li>
 	@endforeach
 	<li>
