@@ -1,6 +1,5 @@
 function ConfirmBox(){
 	this.callback = this.DefaultCallback;
-
 }
 
 ConfirmBox.prototype.DefaultCallback = function(value){

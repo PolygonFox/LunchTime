@@ -40,13 +40,24 @@ public function lock($id){
  
 public function newItem($shoppinglist_id){
 	$input= Input::all();
+
+	$validator = Validator::make($input, array('Naam' => 'required', 'Hoeveelheid' => 'required'));
+	if($validator->fails()){
+		return$validator->messages()->first();
+	}
+	if(!Input::has('Confirm')){
+		$lookalike = Item::where('name', 'LIKE', '%'.$input['Naam'].'%')->first();
+		if($lookalike)
+			return "duplicated||{$lookalike->name}";
+	}
 	$item = new Item();
-	$item->name = $input['name'];
-	$item->amount = $input['amount'];
+	$item->name = $input['Naam'];
+	$item->amount = $input['Hoeveelheid'];
 	$item->user_id = Auth::User()->id;
 	$item->shoppinglist_id = $shoppinglist_id;
 	$item->save();
-	return "Success||" . Auth::User()->email;
+
+	return "Success||" . Auth::User()->email . "||" . $item->id;
 }
 
 

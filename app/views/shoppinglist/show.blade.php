@@ -21,7 +21,7 @@ Boodschappenlijst
 
 	@foreach($shoppinglist->item as $i => $item)
 	<tr data-id="{{$item->id}}">
-		<td>{{$item->amount}}x</td>
+		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>
 		<td>{{$item->user->email}}</td>
 		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
