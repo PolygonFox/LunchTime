@@ -10,8 +10,9 @@ public function show($id){
 
 public function delete($lijst_id, $item_id)
 {
-	Item::destroy($item_id);
-	return "Ja!";
+
+	$shoppinglist = Shoppinglist::destroy($item_id);
+	return Redirect::intended("/boodschappenlijst/{$lijst_id}");
 }
 
 public function getNew()
@@ -38,26 +39,15 @@ public function lock($id){
 	return Redirect::to('boodschappenlijst/'. $id);
 }
  
-public function newItem($shoppinglist_id){
+public function newItem($id){
 	$input= Input::all();
 	$item = new Item();
-	$item->name = $input['name'];
+	$item->name = $input['New_item'];
 	$item->amount = $input['amount'];
 	$item->user_id = Auth::User()->id;
-	$item->shoppinglist_id = $shoppinglist_id;
+	$item->shoppinglist_id = $id;
 	$item->save();
-	return "Success||" . Auth::User()->email;
-}
-
-
-public function editItem($lijst_id, $id)
-{
-	$data = Input::all();
-	$item = Item::find($id);
-	$item->name = $data['name'];
-	$item->amount = $data['amount'];
-	$item->save();
-	return "Success";
+	return Redirect::to('/boodschappenlijst/' . $id);
 }
 
 public function editItem($lijst_id,$item_id){

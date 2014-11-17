@@ -36,17 +36,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-            	<div class='messages_bar'>
-	            	@if(isset($message))
-	            		@if(is_array($message))
-	            			@foreach($message as $msg)
-	            				<div>{{$msg}}</div>
-	            			@endforeach
-	            		@else
-	            			<div>{{$message}}</div>
-	            		@endif
-	            	@endif
-            	</div>
+            	@if(isset($message))
+            		@if(is_array($message))
+            			@foreach($message as $msg)
+            				{{$msg}}
+            			@endforeach
+            		@else
+            			{{$message}}
+            		@endif
+            	@endif
 				@yield('content')
 			</div>
 		</div>
