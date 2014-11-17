@@ -87,3 +87,4 @@ input{
 	border: 1px solid #ccc;
 	background-color: #FFF;
 }
+div.msg_error{background: #F27777; color: white;}
