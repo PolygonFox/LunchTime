@@ -13,9 +13,6 @@
 			<a href="{{URL::to('')}}">Overzicht</a>
 		</li>
 		<li>
-			<a href="{{URL::to('/controleitems')}}">Controle Items</a>
-		</li>
-		<li>
 			<a href="{{URL::to('account')}}">Mijn Account</a>
 		</li>
 		@if(Auth::User()->admin)
@@ -36,15 +33,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-            	@if(isset($message))
-            		@if(is_array($message))
-            			@foreach($message as $msg)
-            				{{$msg}}
-            			@endforeach
-            		@else
-            			{{$message}}
-            		@endif
-            	@endif
+            	<div class='messages_bar'>
+	            	@if(isset($message))
+	            		@if(is_array($message))
+	            			@foreach($message as $msg)
+	            				<div>{{$msg}}</div>
+	            			@endforeach
+	            		@else
+	            			<div>{{$message}}</div>
+	            		@endif
+	            	@endif
+            	</div>
 				@yield('content')
 			</div>
 		</div>
