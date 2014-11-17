@@ -16,7 +16,7 @@ class AddItemsTable extends Migration {
 
 			$table->increments("id");
 			$table->string("name", 32);
-			$table->integer("amount");
+			$table->string("amount", 32);
 			$table->integer("shoppinglist_id");
 			$table->integer("user_id");
 
