@@ -38,18 +38,18 @@ public function lock($id){
 	return Redirect::to('boodschappenlijst/'. $id);
 }
  
-public function newItem($id){
+public function newItem($shoppinglist_id){
 	$input= Input::all();
 	$item = new Item();
-	$item->name = $input['New_item'];
+	$item->name = $input['name'];
 	$item->amount = $input['amount'];
 	$item->user_id = Auth::User()->id;
-	$item->shoppinglist_id = $id;
+	$item->shoppinglist_id = $shoppinglist_id;
 	$item->save();
-	return Redirect::to('/boodschappenlijst/' . $id);
+	return "Success||" . Auth::User()->email;
 }
 
-// Ajax
+
 public function editItem($lijst_id, $id)
 {
 	$data = Input::all();

@@ -3,6 +3,7 @@ var currentRow = null;
 jQuery(document).ready(function(){
 	$(".shoppinglist .button_edit").click(function(){showEditItem(this);});
 	$(".shoppinglist .button_delete").click(function(){deleteItem(this)});
+	$(".shoppinglist .button_add").click(function(){addItem(this)});
 });
 
 function hideCurrentRow(fields)
@@ -40,7 +41,7 @@ function editItem()
 {
 	// Check if we are currently editting.
 	if(currentRow == null){
-		return throwError("There is nothing to edit :\\");
+		return throwError("Error: Je kunt geen wijzigingen opslaan als u niets aan het bewerken bent.");
 	}
 	else{
 		var input = currentRow.children();
@@ -53,4 +54,25 @@ function editItem()
 			else throwError("Kan geen verbinding met de server maken. Probeer het later opnieuw.");
 		});	
 	}
+}
+function addItem(clickedButton)
+{
+	var row = $(clickedButton).parent().parent();
+
+	var amount = $(".input_amount").val();
+	var itemname = $(".input_newname").val();
+
+	$.post(document.URL, {name: itemname, amount: amount}).done(function(data){
+
+		res = data.split("||");
+
+		if(res[0] == "Success")
+			throwInfo("Het item '"+ itemname +"' is succesvol toegevoegd. (" + res[1] + ")");
+		else
+			throwError(res[0]);
+
+		$("<tr><td>" + amount + "</td><td>" + itemname + "</td><td>" + res[1] + "</td><td><i class='button_edit sudo-button fa fa-2x fa-pencil'></i></td><td><i class='button_delete fa fa-2x fa-trash sudo-button'></i></td></tr>").insertBefore($(row));
+		$(".shoppinglist .button_edit").click(function(){showEditItem(this);});
+		$(".shoppinglist .button_delete").click(function(){deleteItem(this)});
+	});
 }

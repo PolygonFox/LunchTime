@@ -17,7 +17,7 @@ Boodschappenlijst
 	@endif
 </a>
 <table class='shoppinglist'>
-	<tr><th>Aantal</td><th>Naam</td><th>Gebruiker</td><th>Wijzigen</td><th>Verwijderen</td></tr>
+	<tr><th>Hoeveelheid</td><th>Naam</td><th>Gebruiker</td><th>Wijzigen</td><th>Verwijderen</td></tr>
 
 	@foreach($shoppinglist->item as $i => $item)
 	<tr data-id="{{$item->id}}">
@@ -28,13 +28,14 @@ Boodschappenlijst
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
 	</tr>
 	@endforeach
-	<tr>
 		{{Form::open()}}
-		<td>{{Form::number('amount', null, array('placeholder' => 'Aantal'))}}</td>
-		<td>{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item'))}}</td>
-		<td>{{Form::submit('Toevoegen'); Form::close();}}</td>
+	<tr>
+		<td>{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}</td>
+		<td>{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}</td>
+		<td><i class="button_add fa fa-2x fa-plus-circle sudo-button" ></td>
 		<td></td>
 		<td></td>
 	</tr>
+	{{Form::close();}}
 </table>
 @stop

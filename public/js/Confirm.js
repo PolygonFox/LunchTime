@@ -12,7 +12,6 @@ ConfirmBox.prototype.Confirm = function(message, returnCallback){
 	$("#ConfirmBox").addClass("active");
 	$("#ConfirmBox div").removeClass("active");
 	if(returnCallback == undefined)	{
-		alert("defualt");
 		returnCallback = this.DefaultCallback;
 	}
 	this.callback = returnCallback;
