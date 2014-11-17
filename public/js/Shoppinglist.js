@@ -38,7 +38,7 @@ function showEditItem(clickedButton){
 	currentRow = row;
 }
 function editItem()
-{ 
+{
 	// Check if we are currently editting.
 	if(currentRow == null){
 		return throwError("Error: Je kunt geen wijzigingen opslaan als u niets aan het bewerken bent.");
