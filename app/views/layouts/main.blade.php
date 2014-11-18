@@ -4,7 +4,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/css.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/simple-sidebar.css')}}" >
-		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}" >
+		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.css')}}" >
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/font-awesome.min.css')}}" >
 		<script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 		@yield('head')

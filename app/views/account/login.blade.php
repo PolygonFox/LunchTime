@@ -5,12 +5,15 @@ LunchTime - Login
 @stop
 
 @section('vulling')
-<h1>Inloggen</h1>
-{{Form::open()}}
-{{Form::label('email','Email')}}
-{{Form::email('email')}}<br>
-{{Form::label('password','Wachtwoord')}}
-{{Form::password('password')}}<br>
-{{Form::submit('Login')}}
+
+{{Form::open( array('class' => 'login_form'))}}
+	<h1 class="login">Inloggen</h1>
+{{Form::email('email', null, array('placeholder' => 'Email', 'class' => 'login'))}}<br>
+{{Form::password('password', array('placeholder' => 'Password', 'class' => 'login'))}}<br>
+
+	@foreach ($errors->all() as $error)
+		<p class="error">{{ $error}}</p>
+	@endforeach
+{{Form::submit('Login', array('class' => 'close_input'))}}
 {{Form::close()}}
 @stop

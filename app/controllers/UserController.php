@@ -2,18 +2,30 @@
 
 class UserController extends BaseController {
 
-	public function showLogin()
-	{
+	public function getLogin(){
 		return View::make('account.login');
 	}
 
-	public function login(){
-		$input = Input::only('email', 'password');
-		if (Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
-		{
-		    return Redirect::to('');
+	public function postLogin(){
+		$rules = array('email' => 'required', 'password' => 'required');
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()){
+			return Redirect::to('login')->withErrors($validator);
 		}
-		return View::make('account.login')->with('message', 'Login mislukt');
+
+		$auth = Auth::attempt(array(
+			'email' => Input::get('email'),
+			'password' => Input::get('password')
+		), false);
+
+		if (!$auth){
+			return Redirect::to('login')->withErrors(array(
+				'Verkeerde wachtwoord en/of Username'
+		));
+		}
+
+		return Redirect::to('/');
 	}
 
 	public function logout(){

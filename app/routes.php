@@ -2,8 +2,8 @@
 
 
 
-Route::get('/login', 'UserController@showLogin');
-Route::post('/login', 'UserController@login');
+Route::get('/login', array('as' => 'login', 'uses' => 'UserController@getLogin'))->before('guest');
+Route::post('login', array('uses' => 'UserController@postLogin'))->before('csrf');
 
 /* Protected */
 Route::group(array('before' => 'auth'), function()

@@ -8,7 +8,6 @@ html{
 }
 body{
 	height: 100%;
-	background-image: url('../img/bg.png');
 }
 label{
     display: inline-block;
@@ -16,13 +15,48 @@ label{
     width: 250px;
     text-align: right;
     padding-top: 20px;
+    width: 450px;
 }
-
-input{
-	margin-top: 35px;
-	border: 1px solid black;
-	padding:5px;
+p.error{
+	color:red;
+	border: 1px solid red;
+	width: 20%;
+	margin-top: 10px;
+	padding: 10px;
+	border-radius: 6px;
 	margin-left: 10px;
+	width: 300px;
+	text-align: center;
+}
+form.login_form{
+	margin-left: 10%;
+	padding:10%;
+	width:55%;
+}
+h1.login{
+	color: #3b4148;
+	margin-left: 22%;
+}
+input.login{
+	margin-top: 10px;
+	border: 1px solid #fff;
+	padding:5px;
+	padding-left: 11px;
+	text-align: center;
+	margin-left: 10px;
+	border-radius: 6px;
+	width: 300px;
+	border: 1px solid #3b4148;
+}
+input.close_input{
+	color: white;
+	padding:10px;
+	background-color: #FF0066;
+	border: 1px solid #FF0066;
+	margin-top: 10px;
+	width: 300px;
+	margin-left: 10px;
+	border-radius: 6px;
 }
 
 #ConfirmBox{
@@ -88,3 +122,9 @@ input{
 	background-color: #FFF;
 }
 div.msg_error{background: #F27777; color: white;}
+
+form.login{
+	width:55%;
+	margin-left: auto;
+	margin-right: auto;
+}

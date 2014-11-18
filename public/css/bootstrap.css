@@ -12,6 +12,7 @@ html {
 }
 body {
   margin: 0;
+  background: #3b4148;
 }
 article,
 aside,
@@ -904,7 +905,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color:#fff;
 }
 input,
 button,
@@ -6306,6 +6307,11 @@ button.close {
 @media (min-width: 1200px) {
   .hidden-lg {
     display: none !important;
+  }
+}
+@media (min-width: 700px){
+  a.btn_default{
+    color:green;
   }
 }
 .visible-print {
