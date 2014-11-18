@@ -5,6 +5,12 @@
 Route::get('/login', 'UserController@showLogin');
 Route::post('/login', 'UserController@login');
 
+/* Forgot Password */
+Route::get('/account/forgot', 'UserController@showForgot');
+Route::post('/account/forgot', 'UserController@Forgot');
+Route::get('/account/forgot/{string}', 'UserController@showReset');
+Route::post('/account/forgot/{string}', 'UserController@Reset');
+
 /* Protected */
 Route::group(array('before' => 'auth'), function()
 {
@@ -22,6 +28,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijsten', 'ShoppinglistController@getNew');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
+	Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
 
 	/* Checkitem List */
 	Route::get('/controleitems', 'CheckItemsController@show');
@@ -41,6 +48,5 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('/beheer/GebruikerToevoegen', 'AdminController@newuser');
 		Route::get('/beheer', 'AdminController@overview');
 		Route::get('/beheer/user/{id}/delete', 'AdminController@deleteUser');
-		Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
 	});
 });
