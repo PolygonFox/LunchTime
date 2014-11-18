@@ -3,7 +3,6 @@
 class ShoppinglistController extends BaseController {
 
 public function show($id){
-
 	$shoppinglist = Shoppinglist::find($id);
 	return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
 }
@@ -21,13 +20,20 @@ public function getNew()
 }
 
 public function postNew(){
-
-
 	$shoppinglist = new shoppinglist;
 	$shoppinglist->user_id = Auth::User()->id;
 	$shoppinglist->save();
+	$statics = Staticitem::all();
+	foreach($statics as $static){
+		$item = new Item();
+		$item->user_id = 0;
+		$item->shoppinglist_id = $shoppinglist->id;
+		$item->name = $static->name;
+		$item->amount = $static->amount;
+		$item->save();
+	}
 
-	return Redirect::intended('/boodschappenlijsten');
+	return Redirect::intended('/boodschappenlijst/'. $shoppinglist->id);
 }
 
 public function lock($id){
