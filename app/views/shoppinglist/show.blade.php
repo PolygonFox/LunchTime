@@ -23,7 +23,13 @@ Boodschappenlijst
 	<tr data-id="{{$item->id}}">
 		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>
-		<td>{{$item->user->email}}</td>
+		<td>
+			@if(isset($item->user->email))
+				{{$item->user->email}}
+			@else
+				-
+			@endif
+		</td>
 		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
 	</tr>
