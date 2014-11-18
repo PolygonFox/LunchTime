@@ -39,6 +39,8 @@ public function lock($id){
 }
  
 public function newItem($shoppinglist_id){
+	if(!Shoppinglist::find($shoppinglist_id)->locked)
+	{
 	$input= Input::all();
 
 	$validator = Validator::make($input, array('Naam' => 'required', 'Hoeveelheid' => 'required'));
@@ -50,6 +52,9 @@ public function newItem($shoppinglist_id){
 		if($lookalike)
 			return "duplicated||{$lookalike->name}";
 	}
+
+
+	
 	$item = new Item();
 	$item->name = $input['Naam'];
 	$item->amount = $input['Hoeveelheid'];
@@ -58,6 +63,9 @@ public function newItem($shoppinglist_id){
 	$item->save();
 
 	return "Success||" . Auth::User()->email . "||" . $item->id;
+	}
+	else
+		return "Deze boodschappenlijst is vergrendeld.";
 }
 
 
@@ -69,6 +77,19 @@ public function editItem($lijst_id, $id)
 	$item->amount = $data['amount'];
 	$item->save();
 	return "Success";
+}
+
+public function toggleItemCheck($lijst_id, $id)
+{
+	$item = Item::find($id);
+	if($item->shoppinglist_id == $lijst_id)	{
+		$item->checked = !$item->checked;
+		$item->save();
+		return 'Success||' . $item->checked;
+	}
+	else{
+		return "Dit item staat niet op deze boodschappenlijst.";
+	}
 }
 
 }

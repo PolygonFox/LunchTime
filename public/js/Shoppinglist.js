@@ -19,7 +19,7 @@ function deleteItem(clickedButton){
 	confirmBox.TouchDelete($(elements[1]).text(), document.URL + '/item/'+item_id+'/verwijderen', function(){
 			$(row).remove();
 			throwInfo("Het item '" + $(elements[1]).text() + "' is succesvol verwijderd.");
-	 });
+	});
 }
 function showEditItem(clickedButton){
 	var row = $(clickedButton).parent().parent();
