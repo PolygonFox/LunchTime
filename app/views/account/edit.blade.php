@@ -17,11 +17,11 @@ Wachtwoord Wijzigen
 {{Form::label('old_password','Oud wachtwoord:')}}
 {{Form::password('old_password')}}<br>
 
-{{Form::label('new_password[0]','Nieuw wachtwoord:')}}
-{{Form::password('new_password[0]')}}<br>
+{{Form::label('new_password','Nieuw wachtwoord:')}}
+{{Form::password('new_password')}}<br>
 
-{{Form::label('new_password[1]','Herhaal wachtwoord:')}}
-{{Form::password('new_password[1]')}}
+{{Form::label('new_password_repeat','Herhaal wachtwoord:')}}
+{{Form::password('new_password_repeat')}}
 
 {{Form::submit('Wijzigen')}}
 {{Form::close()}}

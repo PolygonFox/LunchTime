@@ -36,7 +36,9 @@ class AdminController extends BaseController {
 	}
 	public function deleteUser($id)
 	{
-		User::destroy($id);
+		$user = User::find($id);
+		$user->blocked = true;
+		$user->save();
 		return Redirect::to('beheer');
 	}
 }

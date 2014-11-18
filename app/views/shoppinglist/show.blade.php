@@ -4,7 +4,11 @@ Boodschappenlijst
 @stop
 @section("head")
 		<script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
-		<script type="text/javascript" src="{{URL::asset('js/Shoppinglist.js')}}"></script>
+		@if(!$shoppinglist->locked)
+			<script type="text/javascript" src="{{URL::asset('js/Shoppinglist.js')}}"></script>
+		@else
+			<script type="text/javascript" src="{{URL::asset('js/Check.js')}}"></script>
+		@endif
 		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 @stop
 @section('content')
@@ -17,25 +21,36 @@ Boodschappenlijst
 	@endif
 </a>
 <table class='shoppinglist'>
-	<tr><th>Hoeveelheid</td><th>Naam</td><th>Gebruiker</td><th>Wijzigen</td><th>Verwijderen</td></tr>
-
+	<tr><th>Hoeveelheid</td><th>Naam</td><th>Gebruiker</td>
+		@if(!$shoppinglist->locked)
+		<th>Wijzigen</td><th>Verwijderen</td></tr>
+		@endif
 	@foreach($shoppinglist->item as $i => $item)
-	<tr data-id="{{$item->id}}">
+	<tr data-id="{{$item->id}}"
+
+		@if($item->checked && $shoppinglist->locked)
+			class="active"
+		@endif
+		>
 		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>
-		<td>{{$item->user->email}}</td>
+		<td>
+			@if(isset($item->user->email))
+				{{$item->user->email}}
+			@else
+				-
+			@endif
+		</td>
+		@if(!$shoppinglist->locked)
 		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
+		@endif
 	</tr>
 	@endforeach
-		{{Form::open()}}
-	<tr>
-		<td>{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}</td>
-		<td>{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}</td>
-		<td><i class="button_add fa fa-2x fa-plus-circle sudo-button" ></td>
-		<td></td>
-		<td></td>
-	</tr>
-	{{Form::close();}}
 </table>
+	@if(!$shoppinglist->locked)
+		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}
+		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}
+		<i class="button_add fa fa-2x fa-plus-circle sudo-button"></i>
+	@endif
 @stop

@@ -5,7 +5,7 @@ class CheckItemsController extends BaseController {
 	public function show(){
 		$checklist = Checkitem::all();
 		$checklist->user = User::where('user_id');
-		return View::make('CheckItems.show')->withChecklist($checklist);
+		return View::make('checkitems.show')->withChecklist($checklist);
 	}
 
 	public function delete($id)
