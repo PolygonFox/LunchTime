@@ -2,7 +2,7 @@ var currentRow = null;
 jQuery(document).ready(function(){
 	$(".shoppinglist .button_edit").click(function(){showEditItem(this);});
 	$(".shoppinglist .button_delete").click(function(){deleteItem(this)});
-	$(".shoppinglist .button_add").click(function(){addItem(this)});
+	$(".button_add").click(function(){addItem(this)});
 });
 function hideCurrentRow(fields){
 	$(fields[0]).html($(fields[0]).children("input").val());
@@ -61,7 +61,7 @@ var amount = $(".input_amount").val();
 var itemname = $(".input_newname").val();
 res = data.split("||");
 if(res[0] == "Success"){
-	$("<tr data-id='"+res[2]+"'><td>" + amount + "</td><td>" + itemname + "</td><td>" + res[1] + "</td><td><i class='button_edit sudo-button fa fa-2x fa-pencil'></i></td><td><i class='button_delete fa fa-2x fa-trash sudo-button'></i></td></tr>").insertBefore($('.shoppinglist tr:last-child'));
+	$(".shoppinglist").append("<tr data-id='"+res[2]+"'><td>" + amount + "</td><td>" + itemname + "</td><td>" + res[1] + "</td><td><i class='button_edit sudo-button fa fa-2x fa-pencil'></i></td><td><i class='button_delete fa fa-2x fa-trash sudo-button'></i></td></tr>");
 	$(".shoppinglist .button_edit").click(function(){showEditItem(this);});
 	$(".shoppinglist .button_delete").click(function(){deleteItem(this)});
 	$(".input_amount").val("");

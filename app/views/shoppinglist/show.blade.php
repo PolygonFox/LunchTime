@@ -28,14 +28,8 @@ Boodschappenlijst
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
 	</tr>
 	@endforeach
-		{{Form::open()}}
-	<tr>
-		<td>{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}</td>
-		<td>{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}</td>
-		<td><i class="button_add fa fa-2x fa-plus-circle sudo-button" ></td>
-		<td></td>
-		<td></td>
-	</tr>
-	{{Form::close();}}
 </table>
+		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}
+		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}
+		<i class="button_add fa fa-2x fa-plus-circle sudo-button"></i>
 @stop
