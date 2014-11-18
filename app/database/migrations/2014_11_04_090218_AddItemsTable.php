@@ -13,13 +13,12 @@ class AddItemsTable extends Migration {
 	public function up()
 	{
 		Schema::create('items', function($table){
-
 			$table->increments("id");
 			$table->string("name", 32);
 			$table->string("amount", 32);
 			$table->integer("shoppinglist_id");
+			$table->boolean("checked");
 			$table->integer("user_id");
-
 		});
 	}
 	/**
