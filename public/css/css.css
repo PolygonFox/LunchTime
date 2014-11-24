@@ -104,6 +104,7 @@ input.close_input{
 .shoppinglist input[type=number]{width: 70px;}
 .shoppinglist tr td{padding: 5px; background-color: #FFF; border-bottom: 1px solid #CCC;text-align: center; cursor: pointer;}
 .shoppinglist tr.active td{text-decoration: line-through; background-color: #85FF5C; color: #444;}
+.shoppinglist tr.active2 td{background-color: #85FF5C; color: #444;}
 .disabled{color: #CCC;}
 .sudo-button{
 	cursor: pointer;

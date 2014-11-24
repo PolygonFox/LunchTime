@@ -16,15 +16,15 @@ class CheckItemsController extends BaseController {
 	 
 	public function newItem(){
 		$input= Input::all();
-		if(empty($input['amount']) || empty($input['new_item'])){
-			return Redirect::to('/controleitems');
+		if(empty($input['Hoeveelheid']) || empty($input['Naam'])){
+			return "Velden mogen niet leeg zijn.";
 		}
 		$item = new Checkitem();
-		$item->name = $input['new_item'];
-		$item->amount = $input['amount'];
+		$item->name = $input['Naam'];
+		$item->amount = $input['Hoeveelheid'];
 		$item->user_id = Auth::User()->id;
 		$item->save();
-		return Redirect::to('/controleitems');
+		return "Success||". Auth::User()->email ."||". $item->id;
 	}
 
 	public function add($id){
@@ -35,7 +35,7 @@ class CheckItemsController extends BaseController {
 		$item->shoppinglist_id = $list['id'];
 		$item->amount = $checkitem->amount;
 		$item->save();
-		return Redirect::to('/controleitems');
+		return "Success";
 	}
 }
 ?>

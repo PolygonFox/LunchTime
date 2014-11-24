@@ -39,6 +39,12 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('/', 'HomeController@show');
 
+	/* Staticitem List*/
+	Route::get('/standaarditems', 'StaticItemsController@show');
+	Route::post('/standaarditems', 'StaticItemsController@newItem');
+	Route::get('/standaarditems/del/{id}', 'StaticItemsController@delete');
+	Route::get('/standaarditems/add/{id}', 'StaticItemsController@add');
+
 	/* Admin Only*/
 	Route::group(array('before' =>'beheerder'), function()
 	{
