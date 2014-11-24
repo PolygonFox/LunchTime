@@ -26,7 +26,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
 	Route::post('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
-	Route::get('/boodschappenlijsten', 'ShoppinglistController@getNew');
+	Route::get('/', 'ShoppinglistController@getNew');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
 	Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
@@ -37,7 +37,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/controleitems/del/{id}', 'CheckItemsController@delete');
 	Route::get('/controleitems/add/{id}', 'CheckItemsController@add');
 
-	Route::get('/', 'HomeController@show');
+	//Route::get('/', 'HomeController@show');
 
 	/* Staticitem List*/
 	Route::get('/standaarditems', 'StaticItemsController@show');
