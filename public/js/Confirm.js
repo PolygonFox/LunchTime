@@ -26,8 +26,9 @@ ConfirmBox.prototype.TouchDelete = function (item_name, url, done){
 	this.Delete(item_name, function(val){
 		if(val){
 				$.get(url, function(data){
-				if(done != undefined)
+				if(done != undefined){
 					done();
+				}
 			});
 		}
 	});

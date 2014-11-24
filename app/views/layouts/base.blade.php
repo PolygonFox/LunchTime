@@ -16,6 +16,9 @@
 			<a href="{{URL::to('controleitems')}}">Controle Items</a>
 		</li>
 		<li>
+			<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
+		</li>
+		<li>
 			<a href="{{URL::to('account')}}">Mijn Account</a>
 		</li>
 		@if(Auth::User()->admin)
