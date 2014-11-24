@@ -11,7 +11,7 @@ class StaticItemsController extends BaseController {
 	public function delete($id)
 	{
 		$staticlist = Staticitem::destroy($id);
-		return Redirect::to("/standarditems");
+		return "Oke";
 	}
 	
 	public function newItem(){
