@@ -5,12 +5,10 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand">
-            <a href="#">
-                lunchDoos
-            </a>
+            <a href="{{URL::to('/')}}">LunchTime</a>
         </li>
 		<li>
-			<a href="{{URL::to('')}}">Overzicht</a>
+			<a href="{{URL::to('/')}}">Overzicht</a>
 		</li>
 		<li>
 			<a href="{{URL::to('controleitems')}}">Controle Items</a>
