@@ -37,6 +37,7 @@ class UserController extends BaseController {
 	{
 		return View::make('account.show')->withUser(Auth::User());
 	}
+
 	public function showEdit()
 	{
 		$user = Auth::User();

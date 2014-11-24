@@ -14,10 +14,11 @@ Route::post('/account/forgot/{string}', 'UserController@Reset');
 /* Protected */
 Route::group(array('before' => 'auth'), function()
 {
-
+	Route::get('/account/edit', 'UserController@showEdit');
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
+	Route::get('/account/show', 'UserController@return');
 	Route::get('/account', 'UserController@show');
 	Route::get('/logout', 'UserController@logout');
 

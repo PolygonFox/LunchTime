@@ -9,11 +9,6 @@ html{
 body{
 	height: 100%;
 }
-label{
-    width: 250px;
-    padding-top: 20px;
-    width: 450px;
-}
 p.error{
 	color:red;
 	border: 1px solid red;
@@ -34,6 +29,17 @@ h1.login{
 	color: #3b4148;
 	margin-left: 22%;
 }
+input.main_inp{
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 1px solid black;
+	padding: 3px;
+	font-size: 15px;
+	width: 100%;
+	max-width: 400px;
+	text-align: center
+	transition: all 400ms ease-in;
+}
 input.login{
 	margin-top: 10px;
 	border: 1px solid #fff;
@@ -45,6 +51,9 @@ input.login{
 	width: 300px;
 	border: 1px solid #3b4148;
 }
+input.checkbox{
+	float:left;
+}
 input.close_input{
 	color: white;
 	padding:10px;
@@ -54,6 +63,16 @@ input.close_input{
 	width: 300px;
 	margin-left: 10px;
 	border-radius: 6px;
+}
+input.main_btn{
+	color: white;
+	padding:10px;
+	background-color: #FF0066;
+	border: 1px solid #FF0066;
+	margin-top: 10px;
+	width: 100%;
+	max-width: 400px;
+	border-radius: 5px;
 }
 
 #ConfirmBox{

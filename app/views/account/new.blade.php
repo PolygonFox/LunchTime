@@ -11,21 +11,18 @@ Maak nieuw account
 {{$errors->first('password')}}<br>
 {{$errors->first('repeatpassword')}}<br>
 
-{{Form::open()}}
+{{Form::open(array('class' => 'new'))}}
 
-{{Form::label('email','Email')}}
-{{Form::text('email')}}
+{{Form::text('email', null, array('placeholder' => 'Email', 'class' => 'main_inp'))}}
 <br/>
-{{Form::label('password','Wachtwoord')}}
-{{Form::password('password')}}
+{{Form::password('password', array('placeholder' => 'Wachtwoord', 'class' => 'main_inp'))}}
 <br/>
-{{Form::label('repeatpassword','Herhaal Wachtwoord')}}
-{{Form::password('repeatpassword')}}
+{{Form::password('repeatpassword', array('placeholder' => 'Herhaal Wachtwoord', 'class' => 'main_inp'))}}
 <br/>
 {{Form::label('admin','Beheerder')}}
-{{Form::checkbox('admin', '1');}}
+{{Form::checkbox('admin', '1')}}
 <br/>
-{{Form::submit('Maak nieuw account')}}
+{{Form::submit('Maak nieuw account', array( 'class' => 'main_btn'))}}
 {{Form::close()}}
 
 @stop
