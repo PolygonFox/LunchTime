@@ -16,6 +16,23 @@ public function delete($lijst_id, $item_id)
 public function getNew()
 {
 	$shoppinglists = Shoppinglist::all();
+	foreach($shoppinglists as $x => $shoppinglist){
+	foreach($shoppinglists as $y => $compareList)
+	{
+		// Als we deze datum al hebben vergeleken, dan skippen we.
+		if(isset($shoppinglist->detailed))
+			continue;
+		// We gaan niet 2 dezelfde dingen vergelijken
+		if($x != $y){
+			// Als de datums overeenkomen 
+			if(date('dmy', strtotime($shoppinglist->created_at)) == date('dmy', strtotime($compareList->created_at)))	 {
+				// Markeer de lijst zodat de datum wordt weergegeven in de View.
+				$compareList->detailed = $shoppinglist->detailed = true;
+			}
+		}
+	}
+	}
+
 	return View::make('new')->withShoppinglists($shoppinglists);
 }
 
