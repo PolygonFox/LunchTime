@@ -10,10 +10,7 @@ body{
 	height: 100%;
 }
 label{
-    display: inline-block;
-    float:left;
     width: 250px;
-    text-align: right;
     padding-top: 20px;
     width: 450px;
 }
@@ -124,4 +121,7 @@ form.login{
 	width:55%;
 	margin-left: auto;
 	margin-right: auto;
+}
+li.email{
+	color: white;
 }

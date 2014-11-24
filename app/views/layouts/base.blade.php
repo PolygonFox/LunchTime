@@ -9,6 +9,9 @@
                 lunchDoos
             </a>
         </li>
+        <li class="email">
+        	{{ Auth::User()->email }}
+        </li>
 		<li>
 			<a href="{{URL::to('')}}">Overzicht</a>
 		</li>

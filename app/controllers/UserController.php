@@ -16,12 +16,13 @@ class UserController extends BaseController {
 
 		$auth = Auth::attempt(array(
 			'email' => Input::get('email'),
-			'password' => Input::get('password')
+			'password' => Input::get('password'),
+			'blocked' => 0
 		), false);
 
 		if (!$auth){
 			return Redirect::to('login')->withErrors(array(
-				'Verkeerde wachtwoord en/of Username'
+				'Verkeerde wachtwoord en/of Username <br> Of je account is geblokt'
 		));
 		}
 

@@ -20,7 +20,10 @@ class HomeController extends BaseController {
 		return View::make('home');
 	}
 	
-	
+	public function show()
+	{
+		return View::make('hello')->withUser(Auth::User());
+	}
 	
 	
 	

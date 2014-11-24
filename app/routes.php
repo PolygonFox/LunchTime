@@ -37,10 +37,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/controleitems/del/{id}', 'CheckItemsController@delete');
 	Route::get('/controleitems/add/{id}', 'CheckItemsController@add');
 
-	Route::get('/', function()
-	{
-		return View::make('hello');
-	});
+	Route::get('/', 'HomeController@show');
 
 	/* Admin Only*/
 	Route::group(array('before' =>'beheerder'), function()
