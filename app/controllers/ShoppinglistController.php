@@ -33,7 +33,7 @@ public function postNew(){
 		$item->save();
 	}
 
-	return Redirect::intended('/boodschappenlijst/'. $shoppinglist->id);
+	return Redirect::to('/boodschappenlijst/'. $shoppinglist->id);
 }
 
 public function lock($id){
