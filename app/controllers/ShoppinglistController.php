@@ -15,7 +15,7 @@ public function delete($lijst_id, $item_id)
 
 public function getNew()
 {
-	$shoppinglists = Shoppinglist::all();
+	$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->get();
 	foreach($shoppinglists as $x => $shoppinglist){
 	foreach($shoppinglists as $y => $compareList)
 	{
@@ -71,7 +71,7 @@ public function newItem($shoppinglist_id){
 		return$validator->messages()->first();
 	}
 	if(!Input::has('Confirm')){
-		$lookalike = Item::where('name', 'LIKE', '%'.$input['Naam'].'%')->first();
+		$lookalike = Item::where('name', 'LIKE', '%'.$input['Naam'].'%')->where('shoppinglist_id','=',$shoppinglist_id)->first();
 		if($lookalike)
 			return "duplicated||{$lookalike->name}";
 	}

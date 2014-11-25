@@ -1,5 +1,8 @@
 @extends('layouts.base')
 
+@section('title')
+	Boodschappenlijsten
+@stop
 @section('content')
 			<h1>Maak een nieuwe boodschappenlijst</h1>	
 			{{Form::open(array('url' => URL::to('/new')))}}
