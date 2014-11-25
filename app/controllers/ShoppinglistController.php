@@ -71,7 +71,7 @@ public function newItem($shoppinglist_id){
 		return$validator->messages()->first();
 	}
 	if(!Input::has('Confirm')){
-		$lookalike = Item::where('name', 'LIKE', '%'.$input['Naam'].'%')->first();
+		$lookalike = Item::where('name', 'LIKE', '%'.$input['Naam'].'%')->where('shoppinglist_id','=',$shoppinglist_id)->first();
 		if($lookalike)
 			return "duplicated||{$lookalike->name}";
 	}
