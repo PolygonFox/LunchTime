@@ -15,7 +15,7 @@ class AddCheckitemsTable extends Migration {
 			Schema::create('checkitems', function($table){
 			$table->increments('id');
 			$table->string('name', 255);
-			$table->integer('amount');
+			$table->string('amount', 255);
 			$table->integer('user_id');
 		});
 	}
