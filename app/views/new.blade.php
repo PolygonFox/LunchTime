@@ -5,7 +5,7 @@
 			{{Form::open(array('url' => URL::to('/new')))}}
 				<p><input type="submit" value="Nieuwe lijst"/></p>
 			{{Form::close()}}
-			<ul>
+			<ul class='overview'>
 				@foreach($shoppinglists as $shoppinglist)
 				<li><a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}")}}">Boodschappenlijst van 
 					@if($shoppinglist->detailed)
