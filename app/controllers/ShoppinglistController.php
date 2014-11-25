@@ -15,7 +15,7 @@ public function delete($lijst_id, $item_id)
 
 public function getNew()
 {
-	$shoppinglists = Shoppinglist::all();
+	$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->get();
 	foreach($shoppinglists as $x => $shoppinglist){
 	foreach($shoppinglists as $y => $compareList)
 	{
