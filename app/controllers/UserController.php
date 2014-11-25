@@ -77,9 +77,10 @@ class UserController extends BaseController {
 		$user = User::where('email', $input['email'])->First();
 		$user->key = $input['key'];
 		$user->save();
-		Mail::send('emails.reset', array('key' => $input['key']), function($message)
+		$sendto = $user->email;
+		Mail::send('emails.reset', array('key' => $input['key']), function($message) use ($sendto)
 		{
-		    $message->to('me@nightduty.nl', 'me@nightduty.nl')->from('LunchTime@G51.nl')->subject('Wachtwoord reset LunchTime');
+		    $message->to($sendto, $sendto)->from('LunchTime@G51.nl')->subject('Wachtwoord reset LunchTime');
 		});
 		return "Wachtwoord reset verstuurd";
 	}
