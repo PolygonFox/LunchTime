@@ -37,6 +37,7 @@ class UserController extends BaseController {
 	{
 		return View::make('account.show')->withUser(Auth::User());
 	}
+
 	public function showEdit()
 	{
 		$user = Auth::User();
@@ -47,33 +48,63 @@ class UserController extends BaseController {
 	{
 		$input = Input::all();
 		$user = Auth::User();
-		$errors = [];
+		$validator = Validator::make(
+	    $input,
+	    array(
+	    	'old_password' => 'required',
+	        'new_password' => 'required|min:8',
+	        'new_password_repeat' => 'required|same:new_password'
+	    ));
+	    $failed = $validator->failed();
+	    if ($validator->fails()){
+	    	return View::make('account.edit')->withErrors($validator);
+	    }
+		if(Auth::validate(array('email' => $user->email, 'password' => $input['old_password']))){
+			$user->password = Hash::make($input['new_password']);
+			$user->save();
+		}
+		return Redirect::to('/account');
+	}
 
-		if(isset($input['new_password'][0][0]) && isset($input['new_password'][1][0]) && isset($input['old_password'][0])){
-			if(isset($input['new_password'][0][8]) && isset($input['new_password'][1][8])){
-				if($input['new_password'][0] == $input['new_password'][1]){
-					if(Auth::validate(array('email' => $user->email, 'password' => $input['old_password']))){
-						$user->password = Hash::make($input['new_password'][0]);
-						$user->save();
-					}
-					else{
-						$errors[] = "Het oude wachtwoord is onjuist.";
-					}
-				}
-				else{
-					$errors[] = "Het nieuwe wachtwoord komt niet overeen met het herhalingswachtwoord.";
-				}
-			}
-			else{
-				$errors[] = "Het nieuwe wachtwoord moet minimaal 8 karakters bevatten.";
-			}
+	public function showForgot(){
+		return View::make('account.forgot');
+	}
+	public function Forgot(){
+		$input = Input::all();
+		$input['key'] = str_random(8);
+		$validator = Validator::make($input, array('key' => 'required|unique:users'));
+		if($validator->Fails()){ return View::make('account.forgot')->withMessage('Something went wrong, Please try again.'); }
+		$user = User::where('email', $input['email'])->First();
+		$user->key = $input['key'];
+		$user->save();
+		Mail::send('emails.reset', array('key' => $input['key']), function($message)
+		{
+		    $message->to('me@nightduty.nl', 'me@nightduty.nl')->from('LunchTime@G51.nl')->subject('Wachtwoord reset LunchTime');
+		});
+		return "Wachtwoord reset verstuurd";
+	}
+	public function showReset($string){
+		$user = User::where('key', $string)->First();
+		if(!isset($user->email)){return "Sorry deze resetlink werkt niet meer.";}
+		return View::make('account.reset');
+	}
+	public function reset($string){
+		$input = Input::all();
+		$user = User::where('key', $string)->First();
+		$validator = Validator::make(
+	    $input,
+	    array(
+	        'new_password' => 'required|min:8',
+	        'new_password_repeat' => 'required|same:new_password'
+	    ));
+	    $failed = $validator->failed();
+	    if ($validator->fails()){
+	    	return View::make('account.reset')->withErrors($validator);
+	    }
+		if(isset($user->email)){
+			$user->password = Hash::make($input['new_password']);
+			$user->save();
 		}
-		else{
-			$errors[] = "Er zijn een of meerdere velden niet ingevuld.";
-		}
-		if(count($errors))
-			return View::make('account.edit')->withErrors($errors);
-		else
-			return Redirect::intended('/account');
+		return Redirect::to('/login');
 	}
 }
