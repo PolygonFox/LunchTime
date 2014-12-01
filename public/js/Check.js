@@ -3,6 +3,8 @@ $(document).ready(function(){
 		checkItem($(this).data("id"), this);
 	});
 });
+
+// Check an item.
 function checkItem(item_id, row)
 {
 	$.get(document.URL + '/item/' + item_id + '/check').done(function(response){

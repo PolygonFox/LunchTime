@@ -5,6 +5,7 @@ Boodschappenlijst
 @section("head")
 		<script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
 		@if(!$shoppinglist->locked)
+			<script type="text/javascript" src="{{URL::asset('js/EditTable.js')}}"></script>
 			<script type="text/javascript" src="{{URL::asset('js/Shoppinglist.js')}}"></script>
 		@else
 			<script type="text/javascript" src="{{URL::asset('js/Check.js')}}"></script>

@@ -5,12 +5,14 @@ Controle Items
 @stop
 @section("head")
 		<script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
+		<script type="text/javascript" src="{{URL::asset('js/EditTable.js')}}"></script>
+
 		<script type="text/javascript" src="{{URL::asset('js/Checkitems.js')}}"></script>
 		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 @stop
 
 @section('content')
-	<h1>Controle items.</h1>
+	<h1>Controle items</h1>
 	<table class='shoppinglist'>
 	<tr><th>Hoeveelheid</td><th>Naam</td><th>Gebruiker</td><th>Verwijderen</td><th>Toevoegen aan lijst</td></tr>
 	@foreach($checklist as $i => $item)
