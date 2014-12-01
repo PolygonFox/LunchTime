@@ -1,7 +1,7 @@
 <?php
 
 
-
+/* login */
 Route::get('/login', array('as' => 'login', 'uses' => 'UserController@getLogin'))->before('guest');
 Route::post('login', array('uses' => 'UserController@postLogin'))->before('csrf');
 
@@ -14,7 +14,6 @@ Route::post('/account/forgot/{string}', 'UserController@Reset');
 /* Protected */
 Route::group(array('before' => 'auth'), function()
 {
-	Route::get('/account/edit', 'UserController@showEdit');
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
@@ -22,12 +21,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/account', 'UserController@show');
 	Route::get('/logout', 'UserController@logout');
 
-		/*	Shopping List */
+	/*	Shopping List */
 	Route::get('/boodschappenlijst/{id}', 'ShoppinglistController@show');
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
 	Route::post('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
-	Route::get('/', 'ShoppinglistController@getNew');
+	Route::get('/', 'ShoppinglistController@showShoppinglists');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
 	Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
@@ -37,8 +36,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/controleitems', 'CheckItemsController@newItem');
 	Route::get('/controleitems/del/{id}', 'CheckItemsController@delete');
 	Route::get('/controleitems/add/{id}', 'CheckItemsController@add');
-
-	//Route::get('/', 'HomeController@show');
 
 	/* Staticitem List*/
 	Route::get('/standaarditems', 'StaticItemsController@show');

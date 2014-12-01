@@ -2,18 +2,20 @@
 
 class AdminController extends BaseController {
 
+	//Show list of all the users
 	public function overview()
 	{
 		$users = User::all();
-
 		return View::make('admin.overview')->withUsers($users);
 	}
 
+	//Show new user form
 	public function showNewuser()
 	{
 		return View::make('account.new');
 	}
 
+	//Create a new user
 	public function newuser()
 	{
 		$input = Input::all();
@@ -28,12 +30,19 @@ class AdminController extends BaseController {
 	    {
 	    	return View::make('account.new')->withErrors($validator);
 	    }
+	    //If checkbox issn't set default value set to 0
 	    if(!isset($input['admin'])){$input['admin'] = 0;}
-	    DB::table('users')->insert(
-    		array('email' => $input['email'], 'admin' => $input['admin'], 'password' => Hash::make($input['password']))
-    	);
+
+    	$user = new User();
+    	$user->email = $input['email'];
+    	$user->admin = $input['admin'];
+    	$user->password = Hask::make($input['password']);
+    	$user->save();
+
     	return Redirect::to('beheer');
 	}
+
+	//Disable a user, This does not remove the user from the database!
 	public function deleteUser($id)
 	{
 		$user = User::find($id);
