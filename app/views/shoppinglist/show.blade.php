@@ -16,9 +16,9 @@ Boodschappenlijst
 <h1>Boodschappen lijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
 <a class="lock" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
 	@if($shoppinglist->locked == 0)
-		<i class="fa fa-unlock"></i>           Vergrendel
+		<i class="fa fa-unlock">   Vergrendel</i>
 	@else
-		<i class="fa fa-lock"></i>           Ontgrendeld
+		<i class="fa fa-lock">   Ontgrendel</i>
 	@endif
 </a>
 <table class='table-responsive shoppinglist'>
