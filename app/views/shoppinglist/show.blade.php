@@ -39,10 +39,7 @@ Boodschappenlijst
 				-
 			@endif
 		</td>
-		@if(!$shoppinglist->locked)
-		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
-		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
-		@endif
+
 	</tr>
 	@endforeach
 </table>

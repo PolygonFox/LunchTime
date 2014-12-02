@@ -7,6 +7,8 @@ $(document).ready(function(){
 // Check an item.
 function checkItem(item_id, row)
 {
+	// Toggle van te voren alvast de class zodat de user instant feedback krijgt.
+	$(row).toggleClass('active');
 	$.get(document.URL + '/item/' + item_id + '/check').done(function(response){
 		response = response.split('||');
 		if(response[0] == "Success"){

@@ -107,10 +107,14 @@ class ShoppinglistController extends BaseController {
 	{
 		$data = Input::all();
 		$item = Item::find($id);
-		$item->name = $data['name'];
-		$item->amount = $data['amount'];
+		if(isset($data['name']))
+			$item->name = $data['name'];
+		
+		if(isset($data['amount']))	
+			$item->amount = $data['amount'];
+		
 		$item->save();
-		return "Success";
+		return "Success||" . $item->name;
 	}
 
 	//Toggle checked items on the list.
