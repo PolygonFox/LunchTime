@@ -15,6 +15,7 @@ LunchTime - Login
 		<p class="error">{{ $error}}</p>
 	@endforeach
 {{Form::submit('Login', array('class' => 'close_input'))}}
-{{Form::close()}}
+
 <a href='{{URL::to('account/forgot')}}'>Wachtwoord Vergeten</a>
+{{Form::close()}}
 @stop
