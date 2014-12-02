@@ -50,5 +50,6 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('/beheer/GebruikerToevoegen', 'AdminController@newuser');
 		Route::get('/beheer', 'AdminController@overview');
 		Route::get('/beheer/user/{id}/delete', 'AdminController@deleteUser');
+		Route::get('/beheer/user/{id}/activate', 'AdminController@activateUser');
 	});
 });

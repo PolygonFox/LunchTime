@@ -100,13 +100,17 @@ input.main_btn{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	width: 300px;
+	width: 92%;
+	text-align: center;
+	max-width: 380px;
 }
 .fa-lock{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	width: 300px;
+	width: 92%;
+	max-width: 380px;
+	text-align: center;
 }
 .lock{
 	color: white;
@@ -121,9 +125,10 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
-.lock a{
-	margin-bottom: 150px;
+.lock:hover{
+	background-color: #222;
 	color: white;
+	text-decoration: none;
 }
 #ConfirmBox{
 	width: 400px;
