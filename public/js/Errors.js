@@ -25,7 +25,7 @@ function Message(msg, Class){
 
 // Verwijdert de laatste message en roept de functie messagesLeft aan.
 function removeLastMessage(){
-	var message = $(".messages_bar div:last-child");
+	var message = $(".messages_bar div:first-child");
 	$(message).addClass('deactivated');
 	setTimeout(function(){
 		message.remove();
