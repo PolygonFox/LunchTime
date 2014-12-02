@@ -24,7 +24,7 @@ class UserController extends BaseController {
 		//return login if details are not legit
 		if (!$auth){
 			return Redirect::to('login')->withErrors(array(
-				'Verkeerde wachtwoord en/of gebruikersnaam <br> Of je account is geblokkeerd'
+				'Verkeerde wachtwoord en/of email <br> Of je account is geblokkeerd'
 		));
 		}
 		//redirect to home when login is legit

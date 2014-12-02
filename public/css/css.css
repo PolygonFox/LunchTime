@@ -96,19 +96,34 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
-.lock{
-	color: #E8E819;
-	padding:10px;
-	background-color: yellow;
-	border: 1px solid yellow;
+.fa-unlock{
+	margin-top: 20px;
+	margin-bottom: 20px;
 	margin-top: 10px;
-	margin-bottom: 15px;
+	width: 300px;
+}
+.fa-lock{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	width: 300px;
+}
+.lock{
+	color: white;
+	padding:10px;
+	text-align: left;
+	font-family: arial;
+	background-color: #4D4D4D;
+	border: 1px solid #4D4D4D;
+	margin-top: 10px;
+	margin-bottom: 40px;
 	width: 100%;
 	max-width: 400px;
 	border-radius: 5px;
 }
 .lock a{
-	color: #6B6B66;
+	margin-bottom: 150px;
+	color: white;
 }
 #ConfirmBox{
 	width: 400px;
