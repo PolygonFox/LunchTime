@@ -183,14 +183,17 @@ input.main_btn{
 	cursor: pointer;
 }
 
-.messages_bar{}
+.messages_bar{min-height: 80px;}
 .messages_bar div{
 	padding: 10px;
 	border: 1px solid #ccc;
 	background-color: #FFF;
+	opacity: 1;
+	transition: opacity 1s linear;
 }
-div.msg_error{background: #F27777; color: white;}
+.messages_bar div.deactivated{opacity: 0;}
 
+div.msg_error{background: #F27777; color: white; }
 form.login{
 	width:55%;
 	margin-left: auto;
