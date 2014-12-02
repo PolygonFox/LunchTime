@@ -33,7 +33,7 @@ var itemname = $(".input_newname").val();
 res = data.split("||");
 if(res[0] == "Success"){
 	// Adds a new row to the table with the values of the new item.
-	$(".shoppinglist").append("<tr data-id='"+res[2]+"'><td>" + amount + "</td><td>" + itemname + "</td><td></td><td><i class='button_edit sudo-button fa fa-2x fa-pencil'></i></td><td><i class='button_delete fa fa-2x fa-trash sudo-button'></i></td></tr>");
+	$(".shoppinglist").append("<tr data-id='"+res[2]+"'><td>" + amount + "</td><td>" + itemname + "</td><td>" + res[1] + "</td><td><i class='button_edit sudo-button fa fa-2x fa-pencil'></i></td><td><i class='button_delete fa fa-2x fa-trash sudo-button'></i></td></tr>");
 	$(".shoppinglist .button_edit").click(function(){showEditItem(this);});
 	$(".shoppinglist .button_delete").click(function(){deleteItem(this)});
 	$(".input_amount").val("");

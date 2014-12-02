@@ -125,9 +125,10 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
-.lock a{
-	margin-bottom: 150px;
+.lock:hover{
+	background-color: #222;
 	color: white;
+	text-decoration: none;
 }
 #ConfirmBox{
 	width: 400px;

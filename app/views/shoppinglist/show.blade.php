@@ -33,6 +33,12 @@ Boodschappenlijst
 		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>
 		<td>
+			@if(isset($item->user['email']))
+				{{$item->user['email']}}
+			@else
+				-
+			@endif
+		</td>
 		@if(!$shoppinglist->locked)
 		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
