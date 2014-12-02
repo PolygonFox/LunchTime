@@ -16,7 +16,10 @@ Controle Items
 	<table class='table-responsive shoppinglist'>
 	<tr><th>Hoeveelheid</td><th>Naam</td></td><th>Toevoegen aan lijst</td></tr>
 	@foreach($checklist as $i => $item)
-	<tr data-id="{{$item->id}}">
+	<tr data-id="{{$item->id}}"
+	@if($item->active)
+	class="active"
+	@endif >
 		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>	
 		<td><i class="button_addtolist fa fa-2x fa-plus-square sudo-button" title="Toevoegen aan Nieuwe Lijst"></i></td>
