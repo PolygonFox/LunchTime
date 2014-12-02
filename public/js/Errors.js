@@ -25,7 +25,11 @@ function Message(msg, Class){
 
 // Verwijdert de laatste message en roept de functie messagesLeft aan.
 function removeLastMessage(){
-	$(".messages_bar div:last-child").remove();
+	var message = $(".messages_bar div:first-child");
+	$(message).addClass('deactivated');
+	setTimeout(function(){
+		message.remove();
+	}, 1000);
 	messagesLeft();
 }
 
@@ -38,7 +42,7 @@ $(document).ready(function(){
 function setTimer(){
 	timer = setTimeout(function(){
 		removeLastMessage();
-	}, 2000);
+	}, 5000);
 }
 
 // Vernieuwd de timeout.
