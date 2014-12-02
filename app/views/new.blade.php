@@ -4,7 +4,8 @@
 	Boodschappenlijsten
 @stop
 @section('content')
-			<h1>Maak een nieuwe boodschappen lijst</h1>	
+
+			<h1>Maak een nieuwe boodschappen lijst</h1>	 {{ e(Input::old('email')) }}
 			{{Form::open(array('url' => URL::to('/new')))}}
 				<p><input type="submit" class="submit_input"value="Nieuwe lijst"/></p>
 			{{Form::close()}}
