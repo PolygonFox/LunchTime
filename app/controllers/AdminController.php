@@ -6,7 +6,7 @@ class AdminController extends BaseController {
 	public function overview()
 	{
 		$users = User::all();
-		return View::make('admin.overview')->withUsers($users);
+		return View::make('admin.overview')->withUsers($users)->withMessage(Session::get('Message'));
 	}
 
 	//Show new user form
@@ -48,7 +48,16 @@ class AdminController extends BaseController {
 		$user = User::find($id);
 		$user->blocked = true;
 		$user->save();
-		return Redirect::to('beheer');
+		return Redirect::to('beheer')->with("Message", $user->email . " is nu geblokkeerd.");
+	}
+
+	//Activate a user, Unblock the user.
+	public function activateUser($id)
+	{
+		$user = User::find($id);
+		$user->blocked = false;
+		$user->save();
+		return Redirect::to('beheer')->with("Message", $user->email . " is nu geactiveerd.");
 	}
 }
 ?>

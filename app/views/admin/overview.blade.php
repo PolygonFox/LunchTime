@@ -17,7 +17,11 @@
 				@else
 					Nee
 				@endif
-			</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'>Verwijderen</a></td></tr>
+				@if($user->blocked == 0)
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'>Blokkeer</a></td></tr>
+				@else
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'>Activeer</a></td></tr>
+				@endif
 			@endforeach
 		</table>
 	</div>
