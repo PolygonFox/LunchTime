@@ -13,7 +13,7 @@ Boodschappenlijst
 		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 @stop
 @section('content')
-<h1>Boodschappenlijst van {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
+<h1>Boodschappen lijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
 <a href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
 	@if($shoppinglist->locked == 0)
 		Vergrendel
@@ -21,11 +21,8 @@ Boodschappenlijst
 		Ontgrendel
 	@endif
 </a>
-<table class='shoppinglist'>
-	<tr><th>Hoeveelheid</td><th>Naam</td><th>Gebruiker</td>
-		@if(!$shoppinglist->locked)
-		<th>Wijzigen</td><th>Verwijderen</td></tr>
-		@endif
+<table class='table-responsive shoppinglist'>
+	<tr><th>Hoeveelheid</td><th>Naam</td>
 	@foreach($shoppinglist->item as $i => $item)
 	<tr data-id="{{$item->id}}"
 
@@ -36,12 +33,6 @@ Boodschappenlijst
 		<td>{{$item->amount}}</td>
 		<td>{{$item->name}}</td>
 		<td>
-			@if(isset($item->user->email))
-				{{$item->user->email}}
-			@else
-				-
-			@endif
-		</td>
 		@if(!$shoppinglist->locked)
 		<td><i class="button_edit sudo-button fa fa-2x fa-pencil"></i></td>
 		<td><i class="button_delete fa fa-2x fa-trash sudo-button"></i></td>
@@ -50,8 +41,8 @@ Boodschappenlijst
 	@endforeach
 </table>
 	@if(!$shoppinglist->locked)
-		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount'))}}
-		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname'))}}
-		<i class="button_add fa fa-2x fa-plus-circle sudo-button"></i>
+		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
+		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>
+		<button class="button_add submit_input sudo-button">Voeg Toe!</button>
 	@endif
 @stop

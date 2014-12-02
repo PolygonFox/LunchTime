@@ -40,6 +40,27 @@ input.main_inp{
 	text-align: center
 	transition: all 400ms ease-in;
 }
+input.item_inp{
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 1px solid black;
+	text-align: center;
+	padding: 3px;
+	font-size: 15px;
+	width: 100%;
+	max-width: 400px;
+	text-align: center
+	transition: all 400ms ease-in;
+}
+.submit_input{
+	color: white;
+	padding:10px;
+	background-color: #FF0066;
+	border: 1px solid #FF0066;
+	max-width: 400px;
+	width: 100%;
+	border-radius: 6px;
+}
 input.login{
 	margin-top: 10px;
 	border: 1px solid #fff;
@@ -64,6 +85,7 @@ input.close_input{
 	margin-left: 10px;
 	border-radius: 6px;
 }
+
 input.main_btn{
 	color: white;
 	padding:10px;
@@ -74,7 +96,20 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
-
+.lock{
+	color: #E8E819;
+	padding:10px;
+	background-color: yellow;
+	border: 1px solid yellow;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	width: 100%;
+	max-width: 400px;
+	border-radius: 5px;
+}
+.lock a{
+	color: #6B6B66;
+}
 #ConfirmBox{
 	width: 400px;
 	height: 200px;
@@ -120,9 +155,12 @@ input.main_btn{
 	
 	border-collapse: collapse;
 }
-.shoppinglist th{ padding: 5px; color: white;background-color: #000;text-align: center;}
+.shoppinglist{
+	margin-bottom: 3%;
+}
+.shoppinglist th{ padding: 7px;text-align: center;}
 .shoppinglist input[type=number]{width: 70px;}
-.shoppinglist tr td{padding: 5px; background-color: #FFF; border-bottom: 1px solid #CCC;text-align: center; cursor: pointer;}
+.shoppinglist tr td{padding: 5px; background-color: #FFF; border-top: 1px solid #CCC;text-align: center; cursor: pointer; margin-bottom: 5px;}
 .shoppinglist tr.active td{text-decoration: line-through; background-color: #85FF5C; color: #444;}
 .shoppinglist tr.active2 td{background-color: #85FF5C; color: #444;}
 .disabled{color: #CCC;}
@@ -148,8 +186,11 @@ li.email{
 }
 .overview{
 	list-style: none;
-	width: 500px;
 	border: 1px solid #CCC;
+	width: 100%;
+	max-width: 400px;
+	border-radius: 5px;
+	text-align: center;
 
 }
 .overview li{

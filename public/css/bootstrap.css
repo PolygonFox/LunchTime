@@ -2249,14 +2249,17 @@ table th[class*="col-"] {
 .table-responsive {
   min-height: .01%;
   overflow-x: auto;
+  max-width: 400px;
+  width: 100%;
 }
 @media screen and (max-width: 767px) {
   .table-responsive {
+    max-width: 400px;
     width: 100%;
+    margin-left: 0;
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
   }
   .table-responsive > .table {
     margin-bottom: 0;

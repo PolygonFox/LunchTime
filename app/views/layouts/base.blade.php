@@ -11,10 +11,10 @@
         	{{ Auth::User()->email }}
         </li>
 		<li>
-			<a href="{{URL::to('/')}}">Overzicht</a>
+			<a href="{{URL::to('/')}}">Boodschappen Lijstjes</a>
 		</li>
 		<li>
-			<a href="{{URL::to('controleitems')}}">Controle Items</a>
+			<a href="{{URL::to('controleitems')}}">Items Ter Controle</a>
 		</li>
 		<li>
 			<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
