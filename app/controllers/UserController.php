@@ -13,7 +13,7 @@ class UserController extends BaseController {
 		$validator = Validator::make(Input::all(), $rules);
 		//return login if inputs dont match the rules
 		if ($validator->fails()){
-			return Redirect::to('login')->withErrors($validator);
+			return View::make('account.login')->withErrors($validator);
 		}
 
 		$auth = Auth::attempt(array(
@@ -23,7 +23,7 @@ class UserController extends BaseController {
 		), false);
 		//return login if details are not legit
 		if (!$auth){
-			return Redirect::to('login')->withErrors(array(
+			return View::make('account.login')->withErrors(array(
 				'Verkeerde wachtwoord en/of email <br> Of je account is geblokkeerd'
 		));
 		}
