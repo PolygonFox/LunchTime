@@ -36,7 +36,7 @@ class AdminController extends BaseController {
     	$user = new User();
     	$user->email = $input['email'];
     	$user->admin = $input['admin'];
-    	$user->password = Hask::make($input['password']);
+    	$user->password = Hash::make($input['password']);
     	$user->save();
 
     	return Redirect::to('beheer');
