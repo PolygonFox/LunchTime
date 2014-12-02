@@ -14,11 +14,11 @@ Boodschappenlijst
 @stop
 @section('content')
 <h1>Boodschappen lijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
-<a href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
+<a class="lock" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
 	@if($shoppinglist->locked == 0)
-		Vergrendel
+		<i class="fa fa-unlock"></i>           Vergrendel
 	@else
-		Ontgrendel
+		<i class="fa fa-lock"></i>           Ontgrendeld
 	@endif
 </a>
 <table class='table-responsive shoppinglist'>
