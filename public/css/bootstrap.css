@@ -12,7 +12,6 @@ html {
 }
 body {
   margin: 0;
-  background: #3b4148;
 }
 article,
 aside,
@@ -905,7 +904,6 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color:#fff;
 }
 input,
 button,
@@ -1903,6 +1901,8 @@ pre code {
   }
   .col-lg-12 {
     width: 100%;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 15px;
   }
   .col-lg-11 {
     width: 91.66666667%;

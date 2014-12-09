@@ -1,0 +1,40 @@
+#wrapper{
+	padding-left:0px;
+}
+body{
+	background-image: url('../img/bg2.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+
+}
+div.login{
+	background-color: rgba(51,51,51,0.4);
+	text-align: center;
+	border-radius: 27px;
+	margin: 0 auto;
+	width: 350px;
+	margin-top: 6%;
+	padding-top: 2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-bottom: 3%;
+}
+.login_H{
+	color: rgb(230,230,230);
+	margin: 0;
+}
+form.login{
+	width:55%;
+	margin-left: auto;
+	margin-right: auto;
+}
+input.login{
+	margin-top: 10px;
+	border: 1px solid #fff;
+	padding:5px;
+	padding-left: 11px;
+	text-align: center;
+	border-radius: 6px;
+	width: 300px;
+	border: 1px solid #3b4148;
+}

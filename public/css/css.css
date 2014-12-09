@@ -1,3 +1,4 @@
+
 *{
 	margin: 0px;
 	padding: 0px;
@@ -6,28 +7,26 @@
 html{
 	height: 100%;
 }
-body{
-	height: 100%;
+li{
+	list-style-type: none;
+}
+
+li.shop{
+	background-color: rgba(130, 130, 130,0.6);
 }
 p.error{
-	color:red;
+	color:white;
 	border: 1px solid red;
+	background-color: red;
 	width: 20%;
 	margin-top: 10px;
 	padding: 10px;
 	border-radius: 6px;
-	margin-left: 10px;
 	width: 300px;
 	text-align: center;
 }
-form.login_form{
-	margin-left: 10%;
-	padding:10%;
-	width:55%;
-}
 h1.login{
 	color: #3b4148;
-	margin-left: 22%;
 }
 input.main_inp{
 	margin-bottom: 15px;
@@ -61,20 +60,6 @@ input.item_inp{
 	width: 100%;
 	border-radius: 6px;
 }
-input.login{
-	margin-top: 10px;
-	border: 1px solid #fff;
-	padding:5px;
-	padding-left: 11px;
-	text-align: center;
-	margin-left: 10px;
-	border-radius: 6px;
-	width: 300px;
-	border: 1px solid #3b4148;
-}
-input.checkbox{
-	float:left;
-}
 input.close_input{
 	color: white;
 	padding:10px;
@@ -82,10 +67,8 @@ input.close_input{
 	border: 1px solid #FF0066;
 	margin-top: 10px;
 	width: 300px;
-	margin-left: 10px;
 	border-radius: 6px;
 }
-
 input.main_btn{
 	color: white;
 	padding:10px;
@@ -96,6 +79,28 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
+input.checkbox{
+	float:left;
+}
+
+.main_a{
+	color: white;
+	text-decoration: none;
+}
+.main_a:hover{
+	color: white;
+	text-decoration: none;
+}
+.main_btn{
+	color: white;
+	padding:10px;
+	background-color: #4d4d4d;
+	border: 1px solid #4d4d4d;
+	margin-top: 10px;
+	width: 300px;
+	border-radius: 6px;
+}
+
 .fa-unlock{
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -112,7 +117,8 @@ input.main_btn{
 	max-width: 380px;
 	text-align: center;
 }
-.lock{
+
+.alt{
 	color: white;
 	padding:10px;
 	text-align: left;
@@ -125,11 +131,31 @@ input.main_btn{
 	max-width: 400px;
 	border-radius: 5px;
 }
-.lock:hover{
+.alt:hover{
 	background-color: #222;
 	color: white;
 	text-decoration: none;
 }
+.alt2{
+	color: white;
+	display: block;
+	padding:10px;
+	text-align: left;
+	font-family: arial;
+	background-color: #4D4D4D;
+	border: 1px solid #4D4D4D;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	width: 100%;
+	max-width: 300px;
+	border-radius: 5px;
+}
+.alt2:hover{
+	background-color: #222;
+	color: white;
+	text-decoration: none;
+}
+
 #ConfirmBox{
 	width: 400px;
 	height: 200px;
@@ -169,10 +195,11 @@ input.main_btn{
 #ConfirmBox div:hover, #ConfirmBox div.active{
 	background-color: #CCC;
 }
+/* End */
 
+/*ShoppingList*/
 .shoppinglist
 {
-	
 	border-collapse: collapse;
 }
 .shoppinglist{
@@ -187,7 +214,9 @@ input.main_btn{
 .sudo-button{
 	cursor: pointer;
 }
+/* End */
 
+/*MessageBar*/
 .messages_bar{min-height: 80px;}
 .messages_bar div{
 	padding: 10px;
@@ -199,14 +228,12 @@ input.main_btn{
 .messages_bar div.deactivated{opacity: 0;}
 
 div.msg_error{background: #F27777; color: white; }
-form.login{
-	width:55%;
-	margin-left: auto;
-	margin-right: auto;
-}
+//////////////
+
 li.email{
 	color: white;
 }
+/*OverView*/
 .overview{
 	list-style: none;
 	border: 1px solid #CCC;
@@ -214,7 +241,6 @@ li.email{
 	max-width: 400px;
 	border-radius: 5px;
 	text-align: center;
-
 }
 .overview li{
 	padding: 5px;
@@ -227,6 +253,7 @@ li.email{
 	background-color: #555;
 }
 .overview a{
+	font-size: 16px;
 	list-style: block;
 	color: black;
 	display: block;
@@ -240,3 +267,4 @@ li.email{
 	color: black;	
 	text-decoration: none;
 }
+/* End */
