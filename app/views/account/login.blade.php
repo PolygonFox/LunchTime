@@ -9,7 +9,7 @@ Login
 @stop
 
 @section('vulling')
-<div class="login">
+<div class="main_page">
 {{Form::open( array('class' => 'login_form'))}}
 	<h1 class="login_H">LunchTime</h1><br>
 	<h3 class="login_H">LogIn</h3>

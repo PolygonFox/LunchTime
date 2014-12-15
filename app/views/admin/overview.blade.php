@@ -7,15 +7,15 @@
 @section('content')
 	<div>
 		<h2>Gebruikers:</h2>
-		<a href="{{URL::to('beheer/GebruikerToevoegen')}}">Gebruiker Toevoegen</a>
-		<table>
-			<tr><th>E-Mail</th><th>Beheerder</th><th>Verwijderen</th></tr>
+		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
+		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
+		<table class="table-responsive">
+			<tr><th>E-Mail</th><th></th><th></th></tr>
 			@foreach($users as $user)
 			<tr><td>{{$user->email}}</td><td>
 				@if($user->admin)
-					Ja
+					<i class="fa fa-key"></i>
 				@else
-					Nee
 				@endif
 				@if($user->blocked == 0)
 					</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'>Blokkeer</a></td></tr>

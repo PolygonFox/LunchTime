@@ -12,6 +12,7 @@ Standaard Items
 
 @section('content')
 	<h1>Standaard items</h1>
+	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 	<table class='table-responsive shoppinglist'>
 	<tr><th>Hoeveelheid</td><th>Naam</td>
 	@foreach($staticlist as $i => $item)

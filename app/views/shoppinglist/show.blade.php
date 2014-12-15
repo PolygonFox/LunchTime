@@ -14,6 +14,7 @@ Boodschappenlijst
 @stop
 @section('content')
 <h1>Boodschappen lijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
+<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
 	@if($shoppinglist->locked == 0)
 		<i class="fa fa-unlock">   Vergrendel</i>

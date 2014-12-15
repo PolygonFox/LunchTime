@@ -5,12 +5,12 @@ body{
 	background-image: url('../img/bg2.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
-
 }
-div.login{
-	background-color: rgba(51,51,51,0.4);
+div.main_page{
+	background-color: rgba(51,51,51,0.5);
 	text-align: center;
-	border-radius: 27px;
+	color: white;
+	border-radius: 10px;
 	margin: 0 auto;
 	width: 350px;
 	margin-top: 6%;
@@ -18,6 +18,16 @@ div.login{
 	padding-left: 2%;
 	padding-right: 2%;
 	padding-bottom: 3%;
+}
+.reset_txt{
+	color:white;
+	width: 300px;
+	background-color: rgba(51,51,51,0.7);
+	padding: 2%;
+	margin-bottom: 5%;
+	text-align: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px; 
 }
 .login_H{
 	color: rgb(230,230,230);
@@ -32,6 +42,7 @@ input.login{
 	margin-top: 10px;
 	border: 1px solid #fff;
 	padding:5px;
+	color:black;
 	padding-left: 11px;
 	text-align: center;
 	border-radius: 6px;
