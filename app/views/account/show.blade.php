@@ -6,8 +6,15 @@ Mijn Account
 
 @section('content')
 <h1>Mijn gegevens</h1>
-<label>E-mail: {{$user->email}}</label><br>
-<label>U heeft de status beheerder.</label><br>
+<label>E-mail: </label><p> {{$user->email}}</p>
+<label>Status: </label><p>
+	@if(Auth::User()->admin)
+		<p>Beheerder.</p>
+	@else
+		<p>Gebruiker.</p>
+	@endif
+</p>
+
 <a href="{{URL::to('account/edit')}}">Wachtwoord wijzigen</a><br>
 @if($user->admin)
 

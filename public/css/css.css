@@ -10,6 +10,9 @@ html{
 li{
 	list-style-type: none;
 }
+p.smaller{
+	font-size: 14px;
+}
 
 li.shop{
 	background-color: rgba(130, 130, 130,0.6);
@@ -90,7 +93,7 @@ input.close_input{
 	border-radius: 6px;
 }
 input.main_btn{
-	color: black;
+	color: white;
 	padding:10px;
 	text-align: center;
 	background-color: #FF0066;
@@ -99,6 +102,20 @@ input.main_btn{
 	width: 100%;
 	max-width: 400px;
 	border-radius: 5px;
+}
+.backbutton{
+	color: white;
+	padding:10px;
+	text-align: center;
+	background-color: #2A7CC0;
+	border: 1px solid #2A7CC0;
+	margin-top: 10px;
+	width: 100%;
+	max-width: 400px;
+	border-radius: 5px;
+}
+.backbutton:a{
+	color: white;
 }
 input.checkbox{
 	float:left;

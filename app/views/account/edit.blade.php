@@ -22,7 +22,7 @@ Wachtwoord Wijzigen
 
 {{Form::submit('Wijzigen', array ('class' => 'main_btn'))}}
 {{Form::close()}}
-<a href="#">Terug</a>
+<a href={{URL::to('account')}}><button class="backbutton">Terug</button></a>
 </div>
 
 @stop
