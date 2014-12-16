@@ -201,6 +201,7 @@ input.checkbox{
 	position: fixed;
 	z-index: 5;
 	border-radius: 5px;
+	border: 3px solid #000;
 	top: calc(100% + 200px);
 	display: none;
 	left: 0;
