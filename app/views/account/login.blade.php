@@ -13,7 +13,7 @@ Login
 {{Form::open( array('class' => 'login_form'))}}
 	<h1 class="login_H">LunchTime</h1><br>
 	<h3 class="login_H">LogIn</h3>
-{{Form::email('email', Input::get('email'), array('placeholder' => 'Email', 'class' => 'login'))}}<br>
+{{Form::email('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'login'))}}<br>
 {{Form::password('password', array('placeholder' => 'Password', 'class' => 'login'))}}<br>
 
 	@foreach ($errors->all() as $error)
