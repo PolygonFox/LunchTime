@@ -9,31 +9,24 @@ class UserController extends BaseController {
 
 	//Check if login details are legit
 	public function postLogin(){
-		$input = Input::all();
 		$rules = array('email' => 'required', 'password' => 'required');
-		$validator = Validator::make($input, $rules);
+		$validator = Validator::make(Input::all(), $rules);
 		//return login if inputs dont match the rules
 		if ($validator->fails()){
-			return Redirect::to('login')->withErrors($validator);
+			return View::make('account.login')->withErrors($validator);
 		}
+
 		$auth = Auth::attempt(array(
-			'email' => $input['email'],
-			'password' => $input['password'],
+			'email' => Input::get('email'),
+			'password' => Input::get('password'),
 			'blocked' => 0
 		), false);
-		//If username is not set then show error
-		$user = User::where('email', $input['email'])->First();
-		if (isset($user->blocked) && $user->blocked==1){
-			return Redirect::to('login')->withErrors('Je account is geblokkeerd');
-		}
 		//return login if details are not legit
 		if (!$auth){
-			return Redirect::to('login')->withErrors(array(
-				'Verkeerde wachtwoord en/of email'
+			return View::make('account.login')->withErrors(array(
+				'Verkeerde wachtwoord en/of email <br> Of je account is geblokkeerd'
 		));
 		}
-
-
 		//redirect to home when login is legit
 		return Redirect::to('/');
 	}
