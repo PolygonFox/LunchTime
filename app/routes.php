@@ -30,7 +30,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
-	Route::get('boodschappenlijst/lock/{id}', 'ShoppinglistController@lock');
+	Route::get('boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
 
 	/* Checkitem List */
 	Route::get('/controleitems', 'CheckItemsController@show');

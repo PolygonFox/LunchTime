@@ -20,7 +20,7 @@ class ShoppinglistController extends BaseController {
 		return "Ja!";
 	}
 
-	//Show alle shoppinglist
+	//Show all shoppinglists
 	public function showShoppinglists()
 	{
 		$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->get();
@@ -63,13 +63,12 @@ class ShoppinglistController extends BaseController {
 		return Redirect::to('/boodschappenlijst/'. $shoppinglist->id);
 	}
 
-	//Lock a shoppinglist
-	public function lock($id){
+	//Locks a shoppinglist
+	public function lock($id, $lockStatus){
 		$list = Shoppinglist::find($id);
-		if($list->locked == 1){ $list->locked = 0; }
-		else{ $list->locked = 1; }
+		$list->locked = ($lockStatus == 0) ? 1 : 0;
 		$list->save();
-		//return to same shoppinglist
+		// Redirect to the same page.
 		return Redirect::to('boodschappenlijst/'. $id);
 	}
 	
