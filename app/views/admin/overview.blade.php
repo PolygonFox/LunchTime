@@ -14,7 +14,7 @@
 			@foreach($users as $user)
 			<tr><td>{{$user->email}}</td><td>
 				@if($user->admin)
-					<i class="fa fa-key"></i>
+					<i class="fa fa-asterisk "></i>
 				@else
 				@endif
 				@if($user->blocked == 0)
@@ -23,6 +23,8 @@
 					</td><td><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'>Activeer</a></td></tr>
 				@endif
 			@endforeach
+
 		</table>
+		<br><p><i class="fa fa-asterisk "></i> = Administrator</p>
 	</div>
 @stop

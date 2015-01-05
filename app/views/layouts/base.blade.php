@@ -1,45 +1,36 @@
 @extends('layouts.main')
 @section('vulling')
 
-        <!-- Sidebar -->
-<div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-            <a href="{{URL::to('/')}}">LunchTime</a>
-        </li>
-        <li class="email">
-        	{{ Auth::User()->email }}
-        </li>
-		<li>
-			<a href="{{URL::to('/')}}">Boodschappen Lijstjes</a>
-		</li>
-		<li>
-			<a href="{{URL::to('controleitems')}}">Items Ter Controle</a>
-		</li>
-		<li>
-			<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
-		</li>
-		<li>
-			<a href="{{URL::to('account')}}">Mijn Account</a>
-		</li>
-		@if(Auth::User()->admin)
-		<li>
-			<a href="{{URL::to('beheer')}}">Beheer</a>
-		</li>
-		@endif
-		<li>
-			<a href="{{URL::to('logout')}}">Uitloggen</a>
-		</li>
-	<ul>
-</div>
-<!-- /#sidebar-wrapper -->
-
-<!-- Page Content -->
-<div id="page-content-wrapper">
-	<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
+	    <ul class="navbar-list">
+	        <li class="navbar-item">
+	            <a href="{{URL::to('/')}}">Home</a>
+	        </li>
+	        <li class="navbar-item">
+	        	{{ Auth::User()->email }}
+	        </li>
+			<li class="navbar-item">
+				<a href="{{URL::to('/')}}">BoodschappenLijsten</a>
+			</li>
+			<li class="navbar-item">
+				<a href="{{URL::to('controleitems')}}">Items Ter Controle</a>
+			</li>
+			<li class="navbar-item">
+				<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
+			</li>
+			<li class="navbar-item">
+				<a href="{{URL::to('account')}}">Mijn Account</a>
+			</li>
+			@if(Auth::User()->admin)
+			<li class="navbar-item">
+				<a href="{{URL::to('beheer')}}">Beheer</a>
+			</li>
+			@endif
+			<li class="navbar-item">
+				<a href="{{URL::to('logout')}}">Uitloggen</a>
+			</li>
+		<ul>
+<div class="container">
+            <div class="one-half column" style="margin-top: 25%">      
             	<div class='messages_bar'>
 	            	@if(isset($message))
 	            		@if(is_array($message))
@@ -54,6 +45,5 @@
 				@yield('content')
 			</div>
 		</div>
-	</div>
 </div>
 @stop
