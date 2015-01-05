@@ -8,6 +8,11 @@ class ShoppinglistController extends BaseController {
 		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
 	}
 
+	public function showLatest(){
+		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
+		return Redirect::to('boodschappenlijst/'. $shoppinglist['id']);
+	}
+
 	//Delete item from a shoppinglist
 	public function delete($lijst_id, $item_id)
 	{
