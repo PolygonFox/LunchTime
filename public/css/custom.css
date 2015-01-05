@@ -41,3 +41,6 @@
   .has-docked-nav .navbar-spacer {
     display: block; }
   /* Re-overiding the width 100% declaration to match size of % based container */
+  .navbar-item-sub{
+    margin-top: 25px;
+  }

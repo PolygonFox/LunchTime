@@ -293,3 +293,20 @@ li.email{
 	color: black;	
 	text-decoration: none;
 }
+li ul{
+	margin-left: 0px;
+	display: none;
+}
+li{
+	position: fixed;}
+li:hover ul{
+	display: block;
+	position: fixed;
+	min-height: 50px;
+	min-width: 170px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	background-color: white;
+	margin-left: none;
+	border-bottom: 1px solid grey;
+};

@@ -5,9 +5,6 @@
 	        <li class="navbar-item">
 	            <a href="{{URL::to('/')}}">Home</a>
 	        </li>
-	        <li class="navbar-item">
-	        	{{ Auth::User()->email }}
-	        </li>
 			<li class="navbar-item">
 				<a href="{{URL::to('boodschappenlijsten')}}">BoodschappenLijsten</a>
 			</li>
@@ -17,8 +14,12 @@
 			<li class="navbar-item">
 				<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
 			</li>
-			<li class="navbar-item navbar-drop">
+			<li class="navbar-item">
 				<a href="{{URL::to('account')}}">Mijn Account</a>
+				<ul>
+					<li>{{ Auth::User()->email }}</li>
+					<li class="navbar-item-sub"><a href="{{URL::to('logout')}}">Uitloggen</a></li>
+				</ul>
 			</li>
 			@if(Auth::User()->admin)
 			<li class="navbar-item">
@@ -26,7 +27,7 @@
 			</li>
 			@endif
 			<li class="navbar-item">
-				<a href="{{URL::to('logout')}}">Uitloggen</a>
+				
 			</li>
 		</ul>
 
