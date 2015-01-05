@@ -13,8 +13,9 @@ class UserController extends BaseController {
 		$rules = array('email' => 'required', 'password' => 'required');
 		$validator = Validator::make($input, $rules);
 		//return login if inputs dont match the rules
+		Input::flashOnly('email');
 		if ($validator->fails()){
-			return Redirect::to('login')->withErrors($validator);
+			return View::make('account.login')->withErrors($validator);
 		}
 		$auth = Auth::attempt(array(
 			'email' => $input['email'],
@@ -28,7 +29,7 @@ class UserController extends BaseController {
 		}
 		//return login if details are not legit
 		if (!$auth){
-			return Redirect::to('login')->withErrors(array(
+			return View::make('account.login')->withErrors(array(
 				'Verkeerde wachtwoord en/of email'
 		));
 		}

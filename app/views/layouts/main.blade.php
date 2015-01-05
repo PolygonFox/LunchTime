@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/skeleton.css')}}" >
 		<link rel="stylesheet" type="text/css" href="{{URL::asset('css/font-awesome.min.css')}}" >
 		<script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
+		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 		@yield('head')
 		<title>LunchTime - @yield('title')</title>
 	</head>
