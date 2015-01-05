@@ -54,7 +54,7 @@
     width: 80%; }
   .column,
   .columns {
-    margin-left: 4%; }
+    margin-left: 25%; }
   .column:first-child,        
   .columns:first-child { 
     margin-left: 0; }
@@ -184,7 +184,6 @@ input[type="button"] {
   white-space: nowrap;
   background-color: transparent;
   border-radius: 4px;
-  margin-left:30px;
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box; }

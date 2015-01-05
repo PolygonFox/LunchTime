@@ -17,7 +17,7 @@ Boodschappenlijst
 <a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}")}}">
 	@if($shoppinglist->locked == 0)
-		<i class="fa fa-unlock">   Vergrendel</i>
+		<i class="fa fa-unlock">   <p>Vergrendel</p></i>
 	@else
 		<i class="fa fa-lock">   Ontgrendel</i>
 	@endif
@@ -51,10 +51,11 @@ Boodschappenlijst
 		@endforeach
 	</tbody>
 </table>
-	@if(!$shoppinglist->locked)
+@if(!$shoppinglist->locked)
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>
-		<button class="button-primary sudo-button">Voeg toe</button><br>
+		<button class="button_add button-primary sudo-button">Voeg Toe!</button><br>
+
 	@endif
 	<a class="button" href="{{URL::to('/')}}">Terug</a>
 @stop

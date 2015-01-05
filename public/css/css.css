@@ -2,7 +2,12 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	font-family:arial;
+}
+p{
+	font-family: Raleway;
+}
+.fa-unlock:before{
+	float:left;
 }
 html{
 	height: 100%;
@@ -20,6 +25,9 @@ li.shop{
 }
 li.email{
 	color:white;
+}
+a{
+	text-decoration: none;
 }
 a.refresh{
 	text-decoration: none;
@@ -62,27 +70,6 @@ input.main_inp_alt{
 	max-width: 400px;
 	text-align: center
 	transition: all 400ms ease-in;
-}
-input.item_inp{
-	margin-bottom: 15px;
-	border-radius: 5px;
-	border: 1px solid black;
-	text-align: center;
-	padding: 3px;
-	font-size: 15px;
-	width: 100%;
-	max-width: 400px;
-	text-align: center
-	transition: all 400ms ease-in;
-}
-.submit_input{
-	color: white;
-	padding:10px;
-	background-color: #FF0066;
-	border: 1px solid #FF0066;
-	max-width: 400px;
-	width: 100%;
-	border-radius: 6px;
 }
 input.close_input{
 	color: white;
@@ -306,4 +293,3 @@ li.email{
 	color: black;	
 	text-decoration: none;
 }
-/* End */
