@@ -17,11 +17,13 @@
     list-style: none;
     margin-bottom: 25px;
     border-bottom: 1px solid rgba(130, 130, 130,0.6);
-    height: 50px; }
+    height: 40px; }
 
   .navbar-item {
     position: relative;
     float: left;
+    padding-top: 1%;
+    margin-right: 4.5%;
     margin-bottom: 0; }
   .navbar-link {
     text-transform: uppercase;
@@ -43,4 +45,7 @@
   /* Re-overiding the width 100% declaration to match size of % based container */
   .navbar-item-sub{
     margin-top: 25px;
+  }
+  .navbar-container{
+    margin-left: 10%;
   }

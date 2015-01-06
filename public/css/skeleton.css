@@ -160,7 +160,8 @@ p {
 a { 
   color: #1EAEDB; }
 a:hover { 
-  color: #0FA0CE; }
+  color: #0FA0CE;
+  text-decoration: underline; }
 
 
 /* Buttons 
@@ -182,7 +183,6 @@ input[type="button"] {
   text-transform: uppercase; 
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
@@ -343,17 +343,6 @@ textarea,
 select,
 fieldset {
   margin-bottom: 1.5rem; }
-pre,
-blockquote,
-form,
-dl,
-figure,
-table,
-p,
-ul,
-ol,
-form {
-  margin-bottom: 2.5rem; }
 p {
   margin-top: 0; }
 
@@ -404,7 +393,31 @@ there.
 
 
 /* Larger than mobile */
-@media (min-width: 400px) {}
+@media (max-width: 800px) {
+  div.one-half.column{
+    margin-left: 0;
+  }
+  h1{
+    font-size: 3.5rem;
+  }
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  width: 100%;
+}
+input[type="email"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  text-align: center;}
+}
 
 /* Larger than phablet (also point when grid becomes active) */
 @media (min-width: 550px) {}

@@ -11,18 +11,17 @@ Login
 @section('vulling')
 <div class="main_page">
 {{Form::open( array('class' => 'login_form'))}}
-	<h1 class="login_H">LunchTime</h1><br>
-	<h3 class="login_H">LogIn</h3>
+	<h1>LunchTime</h1><br>
 {{Form::email('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'login'))}}<br>
-{{Form::password('password', array('placeholder' => 'Password', 'class' => 'login'))}}<br>
+{{Form::password('password', array('placeholder' => 'Password', 'class' => 'login'))}}<br><br><br>
 
 	@foreach ($errors->all() as $error)
 		<p class="error">{{ $error}}</p>
 	@endforeach
-{{Form::submit('Login', array('class' => 'close_input'))}}<br>
+{{Form::submit('Login', array('class' => 'color'))}}<br>
 
 
 {{Form::close()}}
-<a class="main_a" href='{{URL::to('account/forgot')}}'><button class="main_btn"><i class="fa fa-question"></i>                  Wachtwoord Vergeten</button></a>
+<a class="main_a" href='{{URL::to('account/forgot')}}'><button class="color"><p>Wachtwoord Vergeten</p></button></a>
 </div>
 @stop

@@ -13,13 +13,13 @@ Boodschappenlijst
 		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 @stop
 @section('content')
-<h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
+<h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1><i class="icon-signal"></i>
 <a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
 	@if($shoppinglist->locked == 0)
 		<i class="fa fa-unlock">   <p>Vergrendel</p></i>
 	@else
-		<i class="fa fa-lock">   Ontgrendel</i>
+		<i class="fa fa-lock">   <p>Ontgrendel</p></i>
 	@endif
 </a>
 <table class='u-full-width'>
@@ -54,8 +54,8 @@ Boodschappenlijst
 @if(!$shoppinglist->locked)
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>
-		<button class="button_add button-primary sudo-button">Voeg Toe!</button><br>
+		<button class="button_add button-primary sudo-button">Voeg Toe</button><br>
 
 	@endif
-	<a class="button" href="{{URL::to('/')}}">Terug</a>
+	<a class="button" href="{{URL::to('/boodschappenlijsten')}}">Terug</a>
 @stop

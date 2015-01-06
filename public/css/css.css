@@ -19,6 +19,9 @@ li{
 p.smaller{
 	font-size: 14px;
 }
+p.name{
+	cursor: pointer;
+}
 
 li.shop{
 	background-color: rgba(130, 130, 130,0.6);
@@ -47,9 +50,6 @@ p.error{
 	width: 300px;
 	text-align: center;
 }
-h1.login{
-	color: #3b4148;
-}
 input.main_inp{
 	color: black;
 	margin-bottom: 15px;
@@ -71,6 +71,11 @@ input.main_inp_alt{
 	text-align: center
 	transition: all 400ms ease-in;
 }
+.color{
+	width: 100%;
+	background-color: white;
+	font-family: Raleway;
+}
 input.close_input{
 	color: white;
 	padding:10px;
@@ -79,17 +84,6 @@ input.close_input{
 	margin-top: 5%;
 	width: 300px;
 	border-radius: 6px;
-}
-input.main_btn{
-	color: white;
-	padding:10px;
-	text-align: center;
-	background-color: #FF0066;
-	border: 1px solid #FF0066;
-	margin-top: 10px;
-	width: 100%;
-	max-width: 400px;
-	border-radius: 5px;
 }
 .backbutton{
 	color: white;
@@ -296,17 +290,26 @@ li.email{
 li ul{
 	margin-left: 0px;
 	display: none;
+	margin-bottom: 0px;
 }
-li{
-	position: fixed;}
 li:hover ul{
 	display: block;
 	position: fixed;
 	min-height: 50px;
-	min-width: 170px;
+	min-width: 100px;
 	padding-left: 15px;
 	padding-bottom: 15px;
 	background-color: white;
 	margin-left: none;
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid rgba(130, 130, 130,0.6);
+	border-left: 1px solid rgba(130, 130, 130,0.6);
+	border-right: 1px solid rgba(130, 130, 130,0.6);
 };
+
+#wrapper{
+	padding-left:0px;
+}
+
+table{
+	margin-bottom: 2.5rem;
+}
