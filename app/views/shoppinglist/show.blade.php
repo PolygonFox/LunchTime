@@ -22,7 +22,7 @@ Boodschappenlijst
 		<i class="fa fa-lock">   <p>Ontgrendel</p></i>
 	@endif
 </a>
-<table class='u-full-width'>
+<table class='u-full-width shoppinglist'>
 	<thead>
 		<tr>
 			<th>Hoeveelheid</th>

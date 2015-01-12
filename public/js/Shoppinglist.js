@@ -12,7 +12,6 @@ jQuery(document).ready(function(){
 	});
 	$(".button_add").click(function(){addItem(this)});
 
-	$(document)
 });
 
 /**
