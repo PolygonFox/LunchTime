@@ -46,6 +46,10 @@ Route::filter('auth', function()
 			return Redirect::guest('login');
 		}
 	}
+
+	if(Auth::user()->blocked == 1){
+		return Redirect::to('account/blocked');
+	}
 });
 
 Route::filter('beheerder', function(){

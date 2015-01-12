@@ -132,4 +132,15 @@ class UserController extends BaseController {
 		}
 		return Redirect::to('/login');
 	}
+
+	public function showBlocked(){
+
+		if(Auth::check()){
+			if(Auth::user()->blocked === 1){
+				return View::make('account.blocked');
+			}
+		}
+		
+		return Redirect::to('/');
+	}
 }

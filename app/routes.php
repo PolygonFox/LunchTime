@@ -10,6 +10,8 @@ Route::get('/account/forgot', 'UserController@showForgot');
 Route::post('/account/forgot', 'UserController@Forgot');
 Route::get('/account/forgot/{string}', 'UserController@showReset');
 Route::post('/account/forgot/{string}', 'UserController@Reset');
+Route::get('/account/blocked', 'UserController@showBlocked');
+
 
 /* Protected */
 Route::group(array('before' => 'auth'), function()
