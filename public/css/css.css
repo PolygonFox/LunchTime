@@ -9,6 +9,9 @@ p{
 .fa-unlock:before{
 	float:left;
 }
+.fa-lock:before{
+	float:left;
+}
 html{
 	height: 100%;
 }
@@ -258,7 +261,6 @@ li.email{
 .overview{
 	list-style: none;
 	width: 100%;
-	max-width: 400px;
 	border-radius: 5px;
 	text-align: center;
 }
@@ -312,4 +314,15 @@ li:hover ul{
 
 table{
 	margin-bottom: 2.5rem;
+}
+.unblock-us{
+	color: green;
+}
+.block-us{
+	color: red;
+}
+
+p.descr{
+	font-size: 1em;
+	text-align: center;
 }

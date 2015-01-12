@@ -54,7 +54,7 @@
     width: 80%; }
   .column,
   .columns {
-    margin-left: 25%; }
+    margin-left: 20%; }
   .column:first-child,        
   .columns:first-child { 
     margin-left: 0; }
@@ -394,8 +394,15 @@ there.
 
 /* Larger than mobile */
 @media (max-width: 800px) {
+  h1{
+    text-align: center;
+  }
+  .shoppinglist, table{
+    width: 100%;
+  }
   div.one-half.column{
     margin-left: 0;
+    width: 100%;
   }
   h1{
     font-size: 3.5rem;
