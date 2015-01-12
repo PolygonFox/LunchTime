@@ -14,12 +14,8 @@ Boodschappenlijst
 @stop
 @section('content')
 <h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1><i class="icon-signal"></i>
-<<<<<<< HEAD
-<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Ververs</a><br><br>
-=======
 <label>Aangemaakt door: {{$shoppinglist->user->email}}</label>
-<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
->>>>>>> b3fe2eced8cb7e8f82800b58065a48cc70b23918
+<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Ververs</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
 	@if($shoppinglist->locked == 0)
 		<i class="fa fa-lock">   <p>Vergrendel</p></i>
