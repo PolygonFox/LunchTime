@@ -19,7 +19,7 @@
 						{{ date('d M Y',strtotime($shoppinglist->created_at)) }}
 					@endif
 				</p>
-				</a></li>
+				</a>
 				@endforeach
 			</ul>
 @stop

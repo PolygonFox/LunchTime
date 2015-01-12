@@ -10,8 +10,9 @@ Login
 
 @section('vulling')
 <div class="main_page">
-{{Form::open( array('class' => 'login_form'))}}
 	<h1>LunchTime</h1><br>
+{{Form::open( array('class' => 'login_form'))}}
+	
 {{Form::email('email', Input::old('email'), array('placeholder' => 'Email', 'class' => 'login'))}}<br>
 {{Form::password('password', array('placeholder' => 'Password', 'class' => 'login'))}}<br><br><br>
 

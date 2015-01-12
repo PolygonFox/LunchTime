@@ -14,6 +14,7 @@ Controle Items
 @section('content')
 	<h1>Controle Items</h1>
 	<p class="descr">Items die altijd gecontroleerd in de vooraad moeten voor het boodschappen doen</p>
+	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 	<table class='table-responsive shoppinglist'>
 	<tr><th>Hoeveelheid</td><th>Naam</td></td><th>Voeg toe aan lijst</td></tr>
 	@foreach($checklist as $i => $item)
@@ -30,6 +31,6 @@ Controle Items
 </table>
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>
-		<button class="button_add submit_input sudo-button">Voeg Toe!</button>
+		<button class="button_add submit_input sudo-button">Voeg Toe</button>
 @stop
 	

@@ -4,18 +4,18 @@
 	
 	    <ul class="navbar-list"><div class="navbar-container">
 			<li class="navbar-item">
-				<a href="{{URL::to('boodschappenlijsten')}}">BoodschappenLijsten</a>
+				<a href="{{URL::to('boodschappenlijsten')}}">Boodschappenlijsten</a>
 			</li>
 			<li class="navbar-item">
-				<a href="{{URL::to('controleitems')}}">Items Ter Controle</a>
+				<a href="{{URL::to('controleitems')}}">Items ter controle</a>
 			</li>
 			<li class="navbar-item">
-				<a href="{{URL::to('standaarditems')}}">Standaard Items</a>
+				<a href="{{URL::to('standaarditems')}}">Standaard items</a>
 			</li>
 			<li class="navbar-item">
 				<p class="name">{{ Auth::User()->email }}</p>
 				<ul>
-					<li class="navbar-item-sub"><a href="{{URL::to('account')}}">Mijn Account</a></li>
+					<li class="navbar-item-sub"><a href="{{URL::to('account')}}">Mijn account</a></li>
 					<li class="navbar-item-sub"><a href="{{URL::to('logout')}}">Uitloggen</a></li>
 				</ul>
 			</li>

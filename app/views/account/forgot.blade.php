@@ -15,15 +15,10 @@ Wachtwoord Resetten
 		<p>Om je wachtwoord te resetten moet je uw emailadres invullen en op verstuur drukken.</p>
 	</div>
 	{{Form::open()}}
-	{{Form::email('email',"", array('placeholder' => 'Je Email', 'class' => 'main_inp'))}}<br>
-	{{Form::submit('Verstuur', array('class' => 'close_input'))}}
+	{{Form::email('email',"", array('placeholder' => 'Je Email', 'class' => 'main_inp'))}}<br><br><br>
+	{{Form::submit('Verstuur', array('class' => 'color submit_input'))}}
 	{{Form::close()}}
-	<a href='{{URL::to('login')}}'>
-		<button class="main_btn">
-			<i class="fa fa-arrow-left"></i>
-			&nbsp;&nbsp;Terug
-		</button>
-	</a>
+	<a class="button submit_input color" href="{{URL::to('/login')}}">Terug</a>
 </div>
 
 @stop

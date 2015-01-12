@@ -4,20 +4,24 @@
 Nieuw wachtwoord
 @stop
 
+@section('head')
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/login.css')}}" >
+@stop
+
 @section('vulling')
-<div class="changepasscontent">
-<h1>Nieuw Wachtwoord</h1>
+<div class="main_page">
+<h1>Nieuw wachtwoord</h1>
 
 @foreach($errors->all() as $error)
-	<label>Error: {{$error}}</label><br/>
+	<p class="error">Error: {{$error}}</p><br/>
 @endforeach
 
 {{Form::open()}}
 
-{{Form::password('new_password', array('placeholder' => 'Nieuw Wachtwoord'))}}
-{{Form::password('new_password_repeat', array('placeholder' => 'Herhaal Wachtwoord'))}}
+{{Form::password('new_password', array('placeholder' => 'Nieuw wachtwoord', 'class' => 'login'))}}<br>
+{{Form::password('new_password_repeat', array('placeholder' => 'Herhaal wachtwoord', 'class' => 'login'))}}<br>
 
-{{Form::submit('Verstuur')}}
+{{Form::submit('Wachtwoord wijzigen', array('class' => 'color'))}}
 {{Form::close()}}
 </div>
 

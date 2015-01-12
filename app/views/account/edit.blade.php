@@ -5,7 +5,7 @@ Wachtwoord Wijzigen
 @stop
 
 @section('content')
-<div class="changepasscontent">
+<div class="user_data">
 <h1>Wachtwoord Wijzigen</h1>
 
 @foreach($errors->all() as $error)
@@ -20,9 +20,9 @@ Wachtwoord Wijzigen
 
 {{Form::password('new_password_repeat', array ('placeholder' => 'Herhaal Wachtwoord', 'class' => 'main_inp'))}}<br>
 
-{{Form::submit('Wijzigen', array ('class' => 'main_btn'))}}
+{{Form::submit('Wijzigen', array ('class' => 'submit_input'))}}
 {{Form::close()}}
-<a href={{URL::to('account')}}><button class="backbutton">Terug</button></a>
+<a class="button submit_input" href="{{URL::to('/account')}}">Terug</a>
 </div>
 
 @stop

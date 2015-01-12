@@ -37,6 +37,7 @@ a{
 }
 a.refresh{
 	text-decoration: none;
+	margin-left: 45%;
 }
 a.refresh:hover{
 	cursor: pointer;
@@ -46,12 +47,15 @@ p.error{
 	color:white;
 	border: 1px solid red;
 	background-color: red;
-	width: 20%;
+	width: 94%;
 	margin-top: 10px;
 	padding: 10px;
 	border-radius: 6px;
-	width: 300px;
 	text-align: center;
+}
+.submit_input{
+	max-width: 380px;
+	margin-left: 25%;
 }
 input.main_inp{
 	color: black;
@@ -61,7 +65,6 @@ input.main_inp{
 	padding: 3px;
 	font-size: 15px;
 	width: 100%;
-	max-width: 400px;
 	text-align: center
 	transition: all 400ms ease-in;
 }
@@ -73,6 +76,38 @@ input.main_inp_alt{
 	max-width: 400px;
 	text-align: center
 	transition: all 400ms ease-in;
+}
+input.item_inp{
+	margin-left:25%;
+	width:50%;
+	text-align: center;
+}
+.user_man{
+	margin-left: 20%;
+	width:60%;
+}
+.user_man .submit_input{
+	width:100%;
+	margin-left: 0;
+	max-width: none;
+}
+.user_data .submit_input{
+	width:100%;
+	margin-left: 0;
+	max-width: none;
+}
+.main_page .submit_input{
+	width:100%;
+	margin-left: 0;
+	max-width: none;
+}
+.submit_input{
+	width:100%;
+}
+div.user_data{
+	width:55%;
+	text-align: center;
+	margin-left: 25%;
 }
 .color{
 	width: 100%;
@@ -146,8 +181,9 @@ input.checkbox{
 	padding:10px;
 	text-align: left;
 	font-family: arial;
-	background-color: #4D4D4D;
-	border: 1px solid #4D4D4D;
+	background-color: black;
+	border: 1px solid black;
+	margin-left: 25%;
 	margin-top: 10px;
 	margin-bottom: 40px;
 	width: 100%;
@@ -181,7 +217,7 @@ input.checkbox{
 
 #ConfirmBox{
 	width: 400px;
-	height: 200px;
+	height: 225px;
 	background-color: #FFF;
 	position: fixed;
 	z-index: 5;
@@ -228,6 +264,7 @@ input.checkbox{
 }
 .shoppinglist{
 	margin-bottom: 3%;
+	width: 100%;
 }
 .shoppinglist th{ padding: 7px;text-align: center;}
 .shoppinglist input[type=number]{width: 70px;}
@@ -314,6 +351,7 @@ li:hover ul{
 
 table{
 	margin-bottom: 2.5rem;
+	width:100%;
 }
 .unblock-us{
 	color: green;

@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	<div>
+	<div class="user_man">
 		<h2>Gebruikers:</h2>
 		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
