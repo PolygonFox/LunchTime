@@ -25,7 +25,7 @@ function addtolist(clickedButton){
 	$.get(document.URL + "/add/" + item_id, function(string){
 		if(string == "Success"){
 			throwInfo("Item toegevoegd");
-			$(row).addClass("active2");
+			$(row).addClass("active");
 		}
 		else{
 			throwError(string);

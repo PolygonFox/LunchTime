@@ -15,7 +15,8 @@ class CheckItemsController extends BaseController {
 					continue;
 				//we dont have to compare again
 				if($x != $y){
-					//Check if name and amount match with last shoppinglist
+					//Check if name and amount match with last shoppinglist 
+					//
 					if($item->name == $compareList->name && $item->amount == $compareList->amount)	 {
 						// Mark the item with the class active
 						$compareList->active = $item->active = true;
