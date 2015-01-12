@@ -3,9 +3,6 @@
 <div class="container">
 	
 	    <ul class="navbar-list"><div class="navbar-container">
-	        <li class="navbar-item">
-	            <a href="{{URL::to('/')}}">Home</a>
-	        </li>
 			<li class="navbar-item">
 				<a href="{{URL::to('boodschappenlijsten')}}">BoodschappenLijsten</a>
 			</li>

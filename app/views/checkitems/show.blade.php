@@ -13,8 +13,9 @@ Controle Items
 
 @section('content')
 	<h1>Controle Items</h1>
+	<p class="descr">Items die altijd gecontroleerd in de vooraad moeten voor het boodschappen doen</p>
 	<table class='table-responsive shoppinglist'>
-	<tr><th>Hoeveelheid</td><th>Naam</td></td><th>Toevoegen aan lijst</td></tr>
+	<tr><th>Hoeveelheid</td><th>Naam</td></td><th>Voeg toe aan lijst</td></tr>
 	@foreach($checklist as $i => $item)
 	<tr data-id="{{$item->id}}"
 	@if($item->active)

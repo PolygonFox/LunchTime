@@ -14,17 +14,19 @@
 			@foreach($users as $user)
 			<tr><td>{{$user->email}}</td><td>
 				@if($user->admin)
-					<i class="fa fa-asterisk "></i>
+					<i class="fa fa-asterisk "> </i>
 				@else
 				@endif
 				@if($user->blocked == 0)
-					</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'>Blokkeer</a></td></tr>
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'><i class="fa unblock-us fa-user"></i></a></td></tr>
 				@else
-					</td><td><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'>Activeer</a></td></tr>
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'><i class="fa block-us fa-user"></a></td></tr>
 				@endif
 			@endforeach
 
 		</table>
-		<br><p><i class="fa fa-asterisk "></i> = Administrator</p>
+		<br><p><i class="fa fa-asterisk "></i> = Administrator</p><br>
+		<p><i class="fa unblock-us fa-user "></i> = Niet geblokkeerd. Klik op icoon om account te blokkeren</p>
+		<p><i class="fa block-us fa-user "></i> = Geblokkeerd. Klik op icoon om account te activeren</p>
 	</div>
 @stop

@@ -17,7 +17,7 @@ Boodschappenlijst
 <a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
 	@if($shoppinglist->locked == 0)
-		<i class="fa fa-unlock">   <p>Vergrendel</p></i>
+		<i class="fa fa-lock">   <p>Vergrendel</p></i>
 	@else
 		<i class="fa fa-lock">   <p>Ontgrendel</p></i>
 	@endif
