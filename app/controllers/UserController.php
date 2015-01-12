@@ -91,9 +91,11 @@ class UserController extends BaseController {
 		$input = Input::all();
 		$input['key'] = str_random(8);
 		$validator = Validator::make($input, array('key' => 'required|unique:users'));
-		if($validator->Fails()){ return View::make('account.forgot')->withMessage('Something went wrong, Please try again.'); }
+		$error = "Als het account bestaat word er een email naar toegestuurd.";
+		if($validator->Fails()){ return View::make('account.forgot')->withMessage($error); }
 		//Get user and save reset key used in the email
 		$user = User::where('email', $input['email'])->First();
+		if(!$user){ return View::make('account.forgot')->withMessage($error); }
 		$user->key = $input['key'];
 		$user->save();
 		$sendto = $user->email;
@@ -102,7 +104,7 @@ class UserController extends BaseController {
 		{
 		    $message->to($sendto, $sendto)->from('LunchTime@G51.nl')->subject('Wachtwoord reset LunchTime');
 		});
-		return "Wachtwoord reset verstuurd";
+		return View::make('account.forgot')->withMessage($error);;
 	}
 	//Show password reset when forget key is legit
 	public function showReset($string){
