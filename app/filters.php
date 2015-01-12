@@ -48,7 +48,12 @@ Route::filter('auth', function()
 	}
 
 	if(Auth::user()->blocked == 1){
-		return Redirect::to('account/blocked');
+		if(Request::ajax()){
+			return "Dit account is zojuist geblokkeerd.";
+		} else {
+
+			return Redirect::to('account/blocked');
+		}
 	}
 });
 
