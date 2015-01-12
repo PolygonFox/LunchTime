@@ -5,7 +5,6 @@ class StaticItemsController extends BaseController {
 	//Show staticitemlist
 	public function show(){
 		$staticlist = Staticitem::all();
-		$staticlist->user = User::where('user_id');
 		return View::make('staticitems.show')->withStaticlist($staticlist);
 	}
 
