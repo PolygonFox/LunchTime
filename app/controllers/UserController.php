@@ -10,20 +10,20 @@ class UserController extends BaseController {
 	//Check if login details are legit
 	public function postLogin(){
 		$input = Input::all();
-		$rules = array('email' => 'required', 'password' => 'required');
+		$rules = array('e-mail' => 'required', 'wachtwoord' => 'required');
 		$validator = Validator::make($input, $rules);
 		//return login if inputs dont match the rules
-		Input::flashOnly('email');
+		Input::flashOnly('e-mail');
 		if ($validator->fails()){
 			return View::make('account.login')->withErrors($validator);
 		}
 		$auth = Auth::attempt(array(
-			'email' => $input['email'],
-			'password' => $input['password'],
+			'email' => $input['e-mail'],
+			'password' => $input['wachtwoord'],
 			'blocked' => 0
 		), false);
 		//If username is not set then show error
-		$user = User::where('email', $input['email'])->First();
+		$user = User::where('email', $input['e-mail'])->First();
 		if (isset($user->blocked) && $user->blocked==1){
 			return Redirect::to('login')->withErrors('Je account is geblokkeerd');
 		}
