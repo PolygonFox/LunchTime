@@ -14,7 +14,7 @@ Standaard Items
 	<h1>Standaard items</h1>
 	<p class="descr">Items die altijd gekocht moeten worden</p>
 	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
-	<table class='u-full-width'>
+	<table class='u-full-width shoppinglist'>
 	<thead>
 		<tr>
 			<th>Hoeveelheid</th>
