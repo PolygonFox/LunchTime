@@ -334,7 +334,10 @@ input {
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  padding: 0;
+  margin-top: 6px;
+  margin-right: 2%;
+  float: left;
 }
 
 /**

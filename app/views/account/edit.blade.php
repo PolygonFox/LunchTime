@@ -14,11 +14,11 @@ Wachtwoord Wijzigen
 
 {{Form::open()}}
 
-{{Form::password('old_password', array ('placeholder' => 'Oude Wachtwoord', 'class' => 'main_inp'))}}<br>
+{{Form::password('old_password', array ('placeholder' => 'Oude wachtwoord', 'class' => 'main_inp'))}}<br>
 
-{{Form::password('new_password', array ('placeholder' => 'Nieuwe Wachtwoord', 'class' => 'main_inp'))}}<br>
+{{Form::password('new_password', array ('placeholder' => 'Nieuwe wachtwoord', 'class' => 'main_inp'))}}<br>
 
-{{Form::password('new_password_repeat', array ('placeholder' => 'Herhaal Wachtwoord', 'class' => 'main_inp'))}}<br>
+{{Form::password('new_password_repeat', array ('placeholder' => 'Herhaal wachtwoord', 'class' => 'main_inp'))}}<br>
 
 {{Form::submit('Wijzigen', array ('class' => 'submit_input'))}}
 {{Form::close()}}

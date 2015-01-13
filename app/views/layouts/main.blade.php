@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 		<script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
 		@yield('head')
-		<title>LunchTime - @yield('title')</title>
+		<title>Lunchtime - @yield('title')</title>
 	</head>
 	<body>
 		<div id="wrapper">

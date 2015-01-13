@@ -51,13 +51,18 @@ class CheckItemsController extends BaseController {
 	//Add an item to the latest shoppinglist
 	public function add($id){
 		$list = shoppinglist::orderBy('id', 'desc')->First();
+
+		if($list->locked){
+			return "Kan het item niet toevoegen omdat de boodschappenlijst vergrendeld is.";
+		}
+
 		$checkitem = checkitem::find($id);
 		$item = new item;
 		$item->name = $checkitem->name;
 		$item->shoppinglist_id = $list['id'];
 		$item->amount = $checkitem->amount;
 		$item->save();
-		//Return with sting so javascript can handle it on the front
+		//Return a string so javascript can handle it on the front
 		return "Success";
 	}
 }

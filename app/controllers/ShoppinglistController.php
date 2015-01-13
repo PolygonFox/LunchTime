@@ -1,47 +1,30 @@
 <?php
-
 class ShoppinglistController extends BaseController {
 
 	//Show shoppinglist with the requested id
 	public function show($id){
 		$shoppinglist = Shoppinglist::find($id);
-		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
+		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist)->with('disableMessages',true);
 	}
-
+	//Show the latest shoppinglist
 	public function showLatest(){
 		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
-		if($shoppinglist){return Redirect::to('boodschappenlijst/'. $shoppinglist['id']);}
+		if($shoppinglist){
+			return Redirect::to('boodschappenlijst/'. $shoppinglist['id']);
+		}
 		return Redirect::to('boodschappenlijsten');
 	}
 
 	//Delete item from a shoppinglist
-	public function delete($lijst_id, $item_id)
-	{
+	public function delete($lijst_id, $item_id){
 		Item::destroy($item_id);
-		return "Ja!";
+		return "Success";
 	}
 
 	//Show all shoppinglists
-	public function showShoppinglists()
-	{
+	public function showShoppinglists(){
 		$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->get();
-		foreach($shoppinglists as $x => $shoppinglist){
-		foreach($shoppinglists as $y => $compareList)
-		{
-			// Als we deze datum al hebben vergeleken, dan skippen we.
-			if(isset($shoppinglist->detailed))
-				continue;
-			// We gaan niet 2 dezelfde dingen vergelijken
-			if($x != $y){
-				// Als de datums overeenkomen 
-				if(date('dmy', strtotime($shoppinglist->created_at)) == date('dmy', strtotime($compareList->created_at)))	 {
-					// Markeer de lijst zodat de datum wordt weergegeven in de View.
-					$compareList->detailed = $shoppinglist->detailed = true;
-				}
-			}
-		}
-		}
-
+		Shoppinglist::markDetailedTimestamps($shoppinglists);
 		return View::make('new')->withShoppinglists($shoppinglists);
 	}
 
@@ -51,15 +34,7 @@ class ShoppinglistController extends BaseController {
 		$shoppinglist->user_id = Auth::User()->id;
 		$shoppinglist->save();
 		//add all static items to the new list
-		$statics = Staticitem::all();
-		foreach($statics as $static){
-			$item = new Item();
-			$item->user_id = 0;
-			$item->shoppinglist_id = $shoppinglist->id;
-			$item->name = $static->name;
-			$item->amount = $static->amount;
-			$item->save();
-		}
+		$shoppinglist->importStaticItems();
 		//redirect to new shoppinglist
 		return Redirect::to('/boodschappenlijst/'. $shoppinglist->id);
 	}
@@ -75,14 +50,13 @@ class ShoppinglistController extends BaseController {
 	
 	//Add new item to shoppinglist
 	public function newItem($shoppinglist_id){
-		//Check if shoppinglist issnt locked
-		if(!Shoppinglist::find($shoppinglist_id)->locked)
-		{
-		$input= Input::all();
+		//Check if shoppinglist isn't locked
+		if(!Shoppinglist::find($shoppinglist_id)->locked){
+			$input= Input::all();
 
-		$validator = Validator::make($input, array('Naam' => 'required', 'Hoeveelheid' => 'required'));
-		if($validator->fails()){
-			return$validator->messages()->first();
+			$validator = Validator::make($input, array('Naam' => 'required', 'Hoeveelheid' => 'required'));
+			if($validator->fails()){
+				return$validator->messages()->first();
 		}
 		//Check if itemname looks like an other item on the list
 		if(!Input::has('Confirm')){
@@ -90,7 +64,6 @@ class ShoppinglistController extends BaseController {
 			if($lookalike)
 				return "duplicated||{$lookalike->name}";
 		}
-
 
 		//create new item and save the item.
 		$item = new Item();
@@ -108,23 +81,24 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//edit an item.
-	public function editItem($lijst_id, $id)
-	{
+	public function editItem($lijst_id, $id){
 		$data = Input::all();
 		$item = Item::find($id);
-		if(isset($data['name']))
+
+		if(isset($data['name'])){
 			$item->name = $data['name'];
-		
-		if(isset($data['amount']))	
+		}
+
+		if(isset($data['amount'])){
 			$item->amount = $data['amount'];
+		}	
 		
 		$item->save();
 		return "Success||" . $item->name;
 	}
 
 	//Toggle checked items on the list.
-	public function toggleItemCheck($lijst_id, $id)
-	{
+	public function toggleItemCheck($lijst_id, $id){
 		$item = Item::find($id);
 		if($item->shoppinglist_id == $lijst_id)	{
 			$item->checked = !$item->checked;
@@ -135,6 +109,4 @@ class ShoppinglistController extends BaseController {
 			return "Dit item staat niet op deze boodschappenlijst.";
 		}
 	}
-
 }
-?>

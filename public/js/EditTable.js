@@ -1,3 +1,12 @@
+$(document).ready(function(){
+	$('.input_amount, .input_newname').keydown(function(e){
+			if(e.keyCode === 13)
+				addItem($('button_add'));
+	});
+});
+
+
+
 var currentRow = null;
 
 // Updates an item on the server.
@@ -53,6 +62,8 @@ function addItem(clickedButton){
 	var itemname = $(".input_newname").val();
 	$.post(document.URL, {Naam: itemname, Hoeveelheid: amount}).done(function(data){
 		addItemResponse(data);
+		$('.input_amount').focus();
+		document.getElementsByClassName('input_amount')[0].scrollIntoView();
 	});
 }
 
