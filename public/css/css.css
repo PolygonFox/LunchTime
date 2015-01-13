@@ -37,7 +37,6 @@ a{
 }
 a.refresh{
 	text-decoration: none;
-	margin-left: 45%;
 }
 a.refresh:hover{
 	cursor: pointer;
@@ -80,10 +79,11 @@ input.main_inp_alt{
 input.item_inp{
 	margin-left:25%;
 	width:50%;
+	min-width: 380px;
 	text-align: center;
 }
 .user_man{
-	margin-left: 20%;
+	margin:0 auto;
 	width:60%;
 }
 .user_man .submit_input{
@@ -101,13 +101,17 @@ input.item_inp{
 	margin-left: 0;
 	max-width: none;
 }
+
+.madeby{
+	text-align: center;
+}
 .submit_input{
 	width:100%;
 }
 div.user_data{
 	width:55%;
 	text-align: center;
-	margin-left: 25%;
+	margin:0 auto;
 }
 .color{
 	width: 100%;
@@ -177,12 +181,12 @@ input.checkbox{
 }
 
 .alt{
-	color: white;
+	color: #555;
 	padding:10px;
 	text-align: left;
 	font-family: arial;
-	background-color: black;
-	border: 1px solid black;
+	background-color: #bbb;
+	border: 1px solid #bbb;
 	margin-left: 25%;
 	margin-top: 10px;
 	margin-bottom: 40px;
@@ -191,9 +195,8 @@ input.checkbox{
 	border-radius: 5px;
 }
 .alt:hover{
-	background-color: #222;
-	color: white;
-	text-decoration: none;
+	border:1px solid #888;
+	color:inherit;
 }
 .alt2{
 	color: white;
@@ -216,13 +219,14 @@ input.checkbox{
 }
 
 #ConfirmBox{
+	color: #555;
 	width: 400px;
 	height: 225px;
-	background-color: #FFF;
+	background-color: #fff;
 	position: fixed;
 	z-index: 5;
 	border-radius: 5px;
-	border: 3px solid #000;
+	border: 3px solid #888;
 	top: calc(100% + 200px);
 	display: none;
 	left: 0;
@@ -235,8 +239,8 @@ input.checkbox{
 #ConfirmBox h3{
 	margin-top: 0px;
 	padding: 15px;
-	background-color: #000;
-	color: white;
+	background-color: #bbb;
+	color: #555;
 }
 #ConfirmBox p{
 	padding: 10px;
@@ -278,7 +282,7 @@ input.checkbox{
 /* End */
 
 /*MessageBar*/
-.messages_bar{min-height: 80px;}
+.messages_bar{min-height: 50px; }
 .messages_bar div{
 	padding: 10px;
 	border: 1px solid #ccc;

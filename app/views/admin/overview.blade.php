@@ -7,10 +7,10 @@
 @section('content')
 	<div class="user_man">
 		<h2>Gebruikers:</h2>
-		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Refresh</a><br><br>
+		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
 		<table class="table-responsive">
-			<tr><th>E-Mail</th><th></th><th></th></tr>
+			<tr><th>E-mail</th><th></th><th></th></tr>
 			@foreach($users as $user)
 			<tr><td>{{$user->email}}</td><td>
 				@if($user->admin)
@@ -25,7 +25,7 @@
 			@endforeach
 
 		</table>
-		<br><p><i class="fa fa-asterisk "></i> = Administrator</p><br>
+		<br><p><i class="fa fa-asterisk "></i> = Beheerder</p><br>
 		<p><i class="fa unblock-us fa-user "></i> = Niet geblokkeerd. Klik op icoon om account te blokkeren</p>
 		<p><i class="fa block-us fa-user "></i> = Geblokkeerd. Klik op icoon om account te activeren</p>
 	</div>
