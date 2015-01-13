@@ -14,6 +14,9 @@ Wachtwoord Resetten
 		<h1>Wachtwoord Resetten</h1>
 		<p>Om je wachtwoord te resetten moet je uw emailadres invullen en op verstuur drukken.</p>
 	</div>
+	@foreach($errors->all() as $error)
+	<p class="error">Error: {{$error}}</p><br/>
+	@endforeach
 	{{Form::open()}}
 	{{Form::email('email',"", array('placeholder' => 'Je Email', 'class' => 'main_inp'))}}<br><br><br>
 	{{Form::submit('Verstuur', array('class' => 'color submit_input'))}}
