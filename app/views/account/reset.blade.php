@@ -13,7 +13,7 @@ Nieuw wachtwoord
 <h1>Nieuw wachtwoord</h1>
 
 @foreach($errors->all() as $error)
-	<p class="error">Error: {{$error}}</p><br/>
+	<p class="error">{{$error}}</p><br/>
 @endforeach
 
 {{Form::open()}}

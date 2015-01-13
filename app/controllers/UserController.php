@@ -90,12 +90,28 @@ class UserController extends BaseController {
 	public function Forgot(){
 		$input = Input::all();
 		$input['key'] = str_random(8);
-		$validator = Validator::make($input, array('key' => 'required|unique:users'));
+		$validator = Validator::make(
+			$input, 
+			array('key' => 'required|unique:users')
+		);
+
+		$mailValidator = Validator::make(
+			$input,
+			array('email' => 'email|required'),
+			array('email.email' => 'Vul een geldig e-mail adres in.',
+				  'email.required' => 'E-mail is verplicht'
+			)
+		);
+		if($mailValidator->Fails()){
+			return View::make('account.forgot')->withErrors($mailValidator->messages());
+		}
+
 		$error = "Als het account bestaat word er een email naar toegestuurd.";
-		if($validator->Fails()){ return View::make('account.forgot')->withMessage($error); }
+		if($validator->Fails()){ return View::make('account.forgot')->withErrors($error); }
+		
 		//Get user and save reset key used in the email
 		$user = User::where('email', $input['email'])->First();
-		if(!$user){ return View::make('account.forgot')->withMessage($error); }
+		if(!$user){ return View::make('account.forgot')->withErrors($error); }
 		$user->key = $input['key'];
 		$user->save();
 		$sendto = $user->email;
@@ -104,7 +120,7 @@ class UserController extends BaseController {
 		{
 		    $message->to($sendto, $sendto)->from('LunchTime@G51.nl')->subject('Wachtwoord reset LunchTime');
 		});
-		return View::make('account.forgot')->withMessage($error);;
+		return View::make('account.forgot')->withErrors($error);;
 	}
 	//Show password reset when forget key is legit
 	public function showReset($string){
@@ -121,11 +137,18 @@ class UserController extends BaseController {
 	    array(
 	        'new_password' => 'required|min:8',
 	        'new_password_repeat' => 'required|same:new_password'
-	    ));
+	    ),
+	    array(
+	    	'new_password.required' => 'Nieuw wachtwoord is verplicht',
+	    	'new_password.min' => 'Nieuw wachtwoord moet minimaal 8 karakters bevatten',
+	    	'new_password_repeat.required' => 'Herhaal wachtwoord is verplicht',
+	    	'new_password_repeat.same' => 'Wachtwoord en herhaal wachtwoord komen niet overeen'
+	    )
+	    );
 	    $failed = $validator->failed();
 	    //return samepage with errors when inputs are not matching the rules
 	    if ($validator->fails()){
-	    	return View::make('account.reset')->withErrors($validator);
+	    	return View::make('account.reset')->withErrors($validator->messages());
 	    }
 	    //if forget key is legit and new passwords are legit we save it to the user.
 		if(isset($user->email)){
