@@ -31,6 +31,7 @@
 
     <div class="one-half column">      
     	
+    @if(!isset($disableMessages))
     	<div class='messages_bar'>
         	@if(isset($message))
         		@if(is_array($message))
@@ -42,6 +43,7 @@
         		@endif
         	@endif
     	</div>
+    @endif
     	@yield('content')
 	</div>
 </div>

@@ -52,6 +52,17 @@ Boodschappenlijst
 		@endforeach
 	</tbody>
 </table>
+<div class='messages_bar'>
+	@if(isset($message))
+		@if(is_array($message))
+			@foreach($message as $msg)
+				<div>{{$msg}}</div>
+			@endforeach
+		@else
+			<div>{{$message}}</div>
+		@endif
+	@endif
+</div>
 @if(!$shoppinglist->locked)
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>

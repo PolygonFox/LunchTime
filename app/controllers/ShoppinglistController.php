@@ -5,7 +5,7 @@ class ShoppinglistController extends BaseController {
 	//Show shoppinglist with the requested id
 	public function show($id){
 		$shoppinglist = Shoppinglist::find($id);
-		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist);
+		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist)->with('disableMessages',true);
 	}
 
 	public function showLatest(){
