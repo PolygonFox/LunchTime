@@ -63,6 +63,7 @@ function addItem(clickedButton){
 	$.post(document.URL, {Naam: itemname, Hoeveelheid: amount}).done(function(data){
 		addItemResponse(data);
 		$('.input_amount').focus();
+		document.getElementsByClassName('input_amount')[0].scrollIntoView();
 	});
 }
 
