@@ -90,7 +90,10 @@ class UserController extends BaseController {
 	public function Forgot(){
 		$input = Input::all();
 		$input['key'] = str_random(8);
-		$validator = Validator::make($input, array('key' => 'required|unique:users'));
+		$validator = Validator::make(
+			$input, 
+			array('key' => 'required|unique:users')
+		);
 		$error = "Als het account bestaat word er een email naar toegestuurd.";
 		if($validator->Fails()){ return View::make('account.forgot')->withMessage($error); }
 		//Get user and save reset key used in the email
@@ -121,11 +124,18 @@ class UserController extends BaseController {
 	    array(
 	        'new_password' => 'required|min:8',
 	        'new_password_repeat' => 'required|same:new_password'
-	    ));
+	    ),
+	    array(
+	    	'new_password.required' => 'Nieuw wachtwoord is verplicht',
+	    	'new_password.min' => 'Nieuw wachtwoord moet minimaal 8 karakters bevatten',
+	    	'new_password_repeat.required' => 'Herhaal wachtwoord is verplicht',
+	    	'new_password_repeat.same' => 'Wachtwoord en herhaal wachtwoord komen niet overeen'
+	    )
+	    );
 	    $failed = $validator->failed();
 	    //return samepage with errors when inputs are not matching the rules
 	    if ($validator->fails()){
-	    	return View::make('account.reset')->withErrors($validator);
+	    	return View::make('account.reset')->withErrors($validator->messages());
 	    }
 	    //if forget key is legit and new passwords are legit we save it to the user.
 		if(isset($user->email)){
