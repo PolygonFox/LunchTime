@@ -58,9 +58,18 @@ class AdminController extends BaseController {
 	public function deleteUser($id)
 	{
 		$user = User::find($id);
-		$user->blocked = true;
-		$user->save();
-		return Redirect::to('beheer')->with("Message", $user->email . " is nu geblokkeerd.");
+		$message = "";
+		if($user->id == Auth::user()->id)
+		{
+			$message = "U kunt uzelf niet verwijderen.";
+		}
+		else
+		{
+			$message = $user->email . " is nu geblokkeerd.";
+			$user->blocked = true;
+			$user->save();
+		}
+		return Redirect::to('beheer')->with("Message", $message);
 	}
 
 	//Activate a user, Unblock the user.
