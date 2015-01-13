@@ -69,7 +69,14 @@ class UserController extends BaseController {
 	    	'old_password' => 'required',
 	        'new_password' => 'required|min:8',
 	        'new_password_repeat' => 'required|same:new_password'
-	    ));
+	    ),
+		array(
+			'old_password.required' => 'Het oude wachtwoord is verplicht',
+			'new_password.required' => 'Het nieuwe wachtwoord is verplicht',
+			'new_password.min' => 'Het nieuwe wachtwoord moet minimaal 8 karakters bevatten',
+			'new_password_repeat.required' => 'U dient het wachtwoord te herhalen.',
+			'new_password_repeat.same' => 'De nieuwe wachtwoorden komen niet overheen.'
+		));
 	    $failed = $validator->failed();
 	    if ($validator->fails()){
 	    	return View::make('account.edit')->withErrors($validator);
