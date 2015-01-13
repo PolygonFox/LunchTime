@@ -38,7 +38,6 @@
 .column,        
 .columns { 
   width: 100%; 
-  float: left; 
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
@@ -76,7 +75,7 @@
   .one-third.column               { width: 30.6666666667%; }
   .two-thirds.column              { width: 65.3333333333%; }
 
-  .one-half.column                { width: 79%; margin-bottom: 10%;}
+  .one-half.column                { width: 79%; margin-bottom: 10%; margin: 0 auto;}
 
   /* Offsets */
   .offset-by-one.column,
@@ -438,7 +437,11 @@ select {
 }
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+@media (max-width: 1100px) {
+    .navbar-list{
+    border-bottom: none;
+  }
+}
 
 /* Larger than tablet */
 @media (min-width: 750px) {}

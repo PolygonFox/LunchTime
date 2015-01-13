@@ -80,10 +80,11 @@ input.main_inp_alt{
 input.item_inp{
 	margin-left:25%;
 	width:50%;
+	min-width: 380px;
 	text-align: center;
 }
 .user_man{
-	margin-left: 20%;
+	margin:0 auto;
 	width:60%;
 }
 .user_man .submit_input{
@@ -101,13 +102,16 @@ input.item_inp{
 	margin-left: 0;
 	max-width: none;
 }
+.madeby{
+	text-align: center;
+}
 .submit_input{
 	width:100%;
 }
 div.user_data{
 	width:55%;
 	text-align: center;
-	margin-left: 25%;
+	margin:0 auto;
 }
 .color{
 	width: 100%;

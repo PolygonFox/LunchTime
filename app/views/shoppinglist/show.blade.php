@@ -14,7 +14,7 @@ Boodschappenlijst
 @stop
 @section('content')
 <h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1><i class="icon-signal"></i>
-<label>Aangemaakt door: {{$shoppinglist->user->email}}</label>
+<label class="madeby">Aangemaakt door: {{$shoppinglist->user->email}}</label>
 <a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Ververs</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
 	@if($shoppinglist->locked == 0)
