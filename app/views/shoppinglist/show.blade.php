@@ -15,7 +15,7 @@ Boodschappenlijst
 @section('content')
 <h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1><i class="icon-signal"></i>
 <label class="madeby">Aangemaakt door: {{$shoppinglist->user->email}}</label>
-<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Ververs</a><br><br>
+<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 <a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
 	@if($shoppinglist->locked == 0)
 		<i class="fa fa-lock">   <p>Vergrendel</p></i>
@@ -52,7 +52,19 @@ Boodschappenlijst
 		@endforeach
 	</tbody>
 </table>
+<div class='messages_bar'>
+	@if(isset($message))
+		@if(is_array($message))
+			@foreach($message as $msg)
+				<div>{{$msg}}</div>
+			@endforeach
+		@else
+			<div>{{$message}}</div>
+		@endif
+	@endif
+</div>
 @if(!$shoppinglist->locked)
+		<h3>Item toevoegen</h3>
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw Item', 'class' => 'input_newname item_inp'))}}<br>
 		<button class="button_add submit_input sudo-button">Voeg Toe</button><br>

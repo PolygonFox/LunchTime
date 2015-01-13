@@ -268,7 +268,6 @@ select:focus {
   outline: 0; }
 label,
 legend {
-  display: block;
   margin-bottom: .5rem;
   font-weight: 600; }
 fieldset {
@@ -404,6 +403,9 @@ there.
     margin-left: 0;
     width: 100%;
   }
+  .navbar-item{
+     width:100%;
+}
   .submit_input{
     margin-left: 0;
     width: 100%;
@@ -414,6 +416,10 @@ there.
   }
   h1{
     font-size: 3.5rem;
+  }
+  .user_man{
+    width: 100%;
+    margin: 0;
   }
 .button,
 button,
