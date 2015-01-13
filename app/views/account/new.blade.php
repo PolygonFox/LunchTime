@@ -14,8 +14,9 @@ Maak nieuw account
 
 {{Form::email('email', null, array('placeholder' => 'Email', 'class' => 'main_inp'))}}
 
-{{Form::label('admin','Beheerder')}}
 
+{{Form::checkbox('admin', '1')}}
+{{Form::label('admin','Beheerder')}}
 <br/>
 {{Form::submit('Maak nieuw account', array( 'class' => 'submit_input'))}}
 {{Form::close()}}
