@@ -9,7 +9,7 @@ Wachtwoord Wijzigen
 <h1>Wachtwoord Wijzigen</h1>
 
 @foreach($errors->all() as $error)
-	<label>Error: {{$error}}</label><br/>
+	<label>{{$error}}</label><br/>
 @endforeach
 
 {{Form::open()}}
