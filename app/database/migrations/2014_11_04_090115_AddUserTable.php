@@ -19,6 +19,7 @@ class AddUserTable extends Migration {
 			$table->boolean('admin')->default(false);
 			$table->boolean('blocked')->default(false);
 			$table->string('key', 255);
+			$table->string('activation', 255);
 			$table->string('remember_token', 100);
 		});
 	}

@@ -11,6 +11,8 @@ Route::post('/account/forgot', 'UserController@Forgot');
 Route::get('/account/forgot/{string}', 'UserController@showReset');
 Route::post('/account/forgot/{string}', 'UserController@Reset');
 Route::get('/account/blocked', 'UserController@showBlocked');
+Route::get('/account/new/{string}', 'UserController@showNewaccount');
+Route::post('/account/new/{string}', 'UserController@Newaccount');
 
 
 /* Protected */

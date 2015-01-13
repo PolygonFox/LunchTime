@@ -175,4 +175,12 @@ class UserController extends BaseController {
 		
 		return Redirect::to('/');
 	}
+
+	public function showNewaccount($activation){
+		return "New account pagina met activation: " . $activation;
+	}
+
+	public function Newaccount(){
+		return "account post";
+	}	
 }
