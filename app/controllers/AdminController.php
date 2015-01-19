@@ -59,7 +59,7 @@ class AdminController extends BaseController {
 		$message = "";
 		if($user->id == Auth::user()->id)
 		{
-			$message = "U kunt uzelf niet verwijderen.";
+			$message = "U kunt uzelf niet blokkeren.";
 		}
 		else
 		{
