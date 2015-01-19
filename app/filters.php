@@ -60,7 +60,7 @@ Route::filter('auth', function()
 Route::filter('beheerder', function(){
 	if(!Auth::User()->admin)
 	{
-		return App::abort(403, 'Gij zeit geen beheerder!');
+		return App::abort(403, 'Alleen beheerders hebben toegang tot deze pagina.');
 	}
 });
 
