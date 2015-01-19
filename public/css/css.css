@@ -6,11 +6,16 @@
 p{
 	font-family: Raleway;
 }
-.fa-unlock:before{
+.shoplock.fa-lock:before{
 	float:left;
 }
-.fa-lock:before{
+.shoplock.fa-unlock:before{
 	float:left;
+}
+i.fa.listlock.fa-lock{
+	float:left;
+	width:0;
+	padding: 10px;
 }
 html{
 	height: 100%;
@@ -84,7 +89,7 @@ input.item_inp{
 }
 .user_man{
 	margin:0 auto;
-	width:60%;
+	width:65%;
 }
 .user_man .submit_input{
 	width:100%;

@@ -11,7 +11,11 @@
 			{{Form::close()}}
 			<ul class='overview'>
 				@foreach($shoppinglists as $shoppinglist)
-				<li class="shop"><a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}")}}">Boodschappenlijst van:<br>
+				<li class="shop">
+				@if($shoppinglist->locked == 1)
+					<i class="fa listlock fa-lock"></i>
+				@endif
+				<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}")}}">Boodschappenlijst van:<br>
 					<p class="smaller">
 					@if($shoppinglist->detailed)
 						{{ date('d M Y H:i:s',strtotime($shoppinglist->created_at)) }}
@@ -19,6 +23,7 @@
 						{{ date('d M Y',strtotime($shoppinglist->created_at)) }}
 					@endif
 				</p>
+
 				</a>
 				@endforeach
 			</ul>
