@@ -19,23 +19,17 @@ class AdminController extends BaseController {
 	public function newuser()
 	{
 		$input = Input::all();
+		$input['activation'] = str_random(8);
 		$validator = Validator::make(
 		    $input,
 		    array(
 		        'email' => 'required|email|unique:users',
-		        'password' => 'required|min:8',
-		        'repeatpassword' => 'required|same:password'
+		        'activation' => 'required|unique:users'
 	    	),
 	    	array(
-	    		'password.required' => 'Wachtwoord is verplicht.',
-	    		'password.min' => 'Het wachtwoord moet minimaal 8 karakters bevatten.',
-	    		
 	    		'email.required' => 'E-mail is verplicht.',
 	    		'email.unique' => 'Dit e-mail adres is al in gebruik.',
-	    		'email.email' => 'Voer een geldig e-mail adres in.',
-
-	    		'repeatpassword.same' => 'Wachtwoord en herhaal wachtwoord komen niet overeen.',
-	    		'repeatpassword.required' => 'Herhaal wachtwoord is verplicht.'
+	    		'email.email' => 'Voer een geldig e-mail adres in.'
 	    	)
 	    );
 	    $failed = $validator->failed();if ($validator->fails())
@@ -48,9 +42,13 @@ class AdminController extends BaseController {
     	$user = new User();
     	$user->email = $input['email'];
     	$user->admin = $input['admin'];
-    	$user->password = Hash::make($input['password']);
-    	$user->save();
-
+    	$user->activation = $input['activation'];
+    	$sendto = $user->email;
+    	Mail::send('emails.newaccount', array('key' => $input['activation']), function($message) use ($sendto)
+		{
+		    $message->to($sendto, $sendto)->from('LunchTime@G51.nl')->subject('LunchTime account activatie');
+		});
+		$user->save();
     	return Redirect::to('beheer');
 	}
 
@@ -61,7 +59,7 @@ class AdminController extends BaseController {
 		$message = "";
 		if($user->id == Auth::user()->id)
 		{
-			$message = "U kunt uzelf niet verwijderen.";
+			$message = "U kunt uzelf niet blokkeren.";
 		}
 		else
 		{

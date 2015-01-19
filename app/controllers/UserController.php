@@ -175,4 +175,35 @@ class UserController extends BaseController {
 		
 		return Redirect::to('/');
 	}
+
+	public function showNewaccount(){
+		return View::make('account.newaccount');
+	}
+
+	public function Newaccount($activation){
+		$input = Input::all();
+		$validator = Validator::make(
+	    $input,
+	    array(
+	        'wachtwoord' => 'required|min:8',
+	        'wachtwoord2' => 'required|same:wachtwoord'
+	    ),
+		array(
+			'wachtwoord.required' => 'U dient het wachtwoord in te vullen.',
+			'wachtwoord.min' => 'Het wachtwoord moet minimaal 8 karakters bevatten',
+			'wachtwoord2.required' => 'U dient het wachtwoord te herhalen.',
+			'wachtwoord2.same' => 'De wachtwoorden komen niet overheen.'
+		));
+		if ($validator->fails()){
+	    	return View::make('account.newaccount')->withErrors($validator);
+	    }
+	    $user = User::where('activation', $activation)->First();
+	    if(!$user){
+			return View::make('account.newaccount')->withErrors(array("Dit account kan niet worden geactiveerd omdat de key niet klopt."));
+	    }
+	    $user->password = Hash::make($input['wachtwoord']);
+	    $user->activation = "";
+	    $user->save();
+	    return Redirect::to('login')->withErrors(array("Uw account is nu geactiveerd en kan nu worden gebruikt."));
+	}	
 }

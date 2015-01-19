@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Login
+Nieuw account activeren
 @stop
 
 @section('head')
@@ -12,14 +12,14 @@ Login
 <div class="main_page">
 {{Form::open( array('class' => 'login_form'))}}
 	<h1>Lunchtime</h1>
-{{Form::email('e-mail', Input::old('email'), array('placeholder' => 'E-mail', 'class' => 'login'))}}
+	<h5>Activeer account</h5>
 {{Form::password('wachtwoord', array('placeholder' => 'Wachtwoord', 'class' => 'login'))}}
+{{Form::password('wachtwoord2', array('placeholder' => 'Herhaal Wachtwoord', 'class' => 'login'))}}<br>
 	@foreach ($errors->all() as $error)
-		<p class="error">{{ $error}}</p>
+		<p class="error">{{$error}}</p>
 	@endforeach
 	<br>
-{{Form::submit('Inloggen', array('class' => 'color'))}}<br>
+{{Form::submit('Account activeren', array('class' => 'color'))}}
 {{Form::close()}}
-<a class="main_a" href='{{URL::to('account/forgot')}}'><button class="color"><p>Wachtwoord Vergeten?</p></button></a>
 </div>
 @stop
