@@ -15,7 +15,7 @@ Wachtwoord Resetten
 		<p>We sturen u een email met een link om uw wachtwoord te wijzigen.</p>
 	</div>
 	@foreach($errors->all() as $error)
-	<p class="error">Error: {{$error}}</p><br/>
+	<p class="error">{{$error}}</p><br/>
 	@endforeach
 	{{Form::open()}}
 	{{Form::email('email',"", array('placeholder' => 'E-mail', 'class' => 'main_inp'))}}<br><br><br>
