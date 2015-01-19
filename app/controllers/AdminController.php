@@ -80,5 +80,30 @@ class AdminController extends BaseController {
 		$user->save();
 		return Redirect::to('beheer')->with("Message", $user->email . " is nu geactiveerd.");
 	}
+	//Make user Admin.
+	public function makeadmin($id)
+	{
+		$user = User::find($id);
+		$user->admin = true;
+		$user->save();
+		return Redirect::to('beheer')->with("Message", $user->email . " is nu admin.");
+	}
+	//Make a admin user again.
+	public function makeuser($id)
+	{
+		$user = User::find($id);
+		$message = "";
+		if($user->id == Auth::user()->id)
+		{
+			$message = "U kunt uzelf geen gebruiker maken.";
+		}
+		else
+		{
+			$message = $user->email . " is nu geblokkeerd.";
+			$user->admin = false;
+			$user->save();
+		}
+		return Redirect::to('beheer')->with("Message", $message);
+	}
 }
 ?>
