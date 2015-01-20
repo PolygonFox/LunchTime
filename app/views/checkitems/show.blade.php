@@ -14,6 +14,9 @@ Controle Items
 @section('content')
 	<h1>Items ter controle</h1>
 	<p class="descr">Items die altijd gecontroleerd in de vooraad moeten voor het boodschappen doen.</p>
+	@if(isset($nolist))
+	<p class="error">Er staat nog geen boodschappenlijst in het systeem, er zijn functions uitgeschakeld.</p>
+	@endif
 	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 			<h3>Item toevoegen</h3>
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>

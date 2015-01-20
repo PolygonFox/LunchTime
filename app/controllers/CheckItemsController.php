@@ -5,8 +5,8 @@ class CheckItemsController extends BaseController {
 	//Show Checkitem list
 	public function show(){
 		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
-		if(!$shoppinglist){return View::make('checkitems.show')->withChecklist(array())->withErrors(array("Er staat nog geen boodschappenlijst in het systeem, er zijn functions uitgeschakeld."));}
 		$checklist = Checkitem::all();
+		if(!$shoppinglist){return View::make('checkitems.show')->withChecklist($checklist)->withnolist(true);}
 		$checklist->user = User::where('user_id');
 		foreach($shoppinglist->item as $x => $item){
 			foreach($checklist as $y => $compareList)
