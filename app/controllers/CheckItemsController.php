@@ -6,6 +6,7 @@ class CheckItemsController extends BaseController {
 	public function show(){
 		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
 		$checklist = Checkitem::all();
+		if(!$shoppinglist){return View::make('checkitems.show')->withChecklist($checklist)->withnolist(true);}
 		$checklist->user = User::where('user_id');
 		foreach($shoppinglist->item as $x => $item){
 			foreach($checklist as $y => $compareList)
@@ -17,7 +18,7 @@ class CheckItemsController extends BaseController {
 				if($x != $y){
 					//Check if name and amount match with last shoppinglist 
 					//
-					if($item->name == $compareList->name && $item->amount == $compareList->amount)	 {
+					if($item->name == $compareList->name && $item->amount == $compareList->amount){
 						// Mark the item with the class active
 						$compareList->active = $item->active = true;
 					}
