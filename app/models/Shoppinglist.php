@@ -9,6 +9,10 @@ class Shoppinglist extends Eloquent{
 		return $this->hasMany('item');
 	}
 
+	public function organisation(){
+		return $this->belongsTo("Organisation");
+	}
+
 	public function importStaticItems(){
 		$statics = Staticitem::all();
 		foreach($statics as $static){
