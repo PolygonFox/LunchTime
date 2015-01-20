@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddShoppinglistTable extends Migration {
+class AddOrganisationsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,13 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('shoppinglists', function($table){
+		//
+		Schema::create('organisations', function($table){
 			$table->increments('id');
-			$table->boolean('locked')->default(false);
-			$table->integer('user_id');
-			$table->integer('organisation_id');
-			$table->timestamps();
+			$table->string('name', 255);
+			$table->integer('owner_id');
 		});
+
 	}
 
 	/**
@@ -28,7 +28,7 @@ class AddShoppinglistTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('shoppinglists');
+		Schema::drop('organisations');
 	}
 
 }
