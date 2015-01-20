@@ -14,7 +14,7 @@ Controle Items
 @section('content')
 	<h1>Items ter controle</h1>
 	<p class="descr">Items die altijd gecontroleerd in de vooraad moeten voor het boodschappen doen.</p>
-	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
+	<a class="refresh" onClick="window.location.reload()">Verversen</a><br><br>
 			<h3>Item toevoegen</h3>
 		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
 		{{Form::text('New_item', null, array('placeholder' => 'Nieuw item', 'class' => 'input_newname item_inp'))}}<br>

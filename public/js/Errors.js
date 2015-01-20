@@ -1,13 +1,13 @@
 var timer;
 // Roepen de generateMessage aan met een specifieke message en class.
 function throwError(msg){
-	generateMessage("Error: " + msg, 'msg_error');
+	generateMessage("Foutmelding: " + msg, 'msg_error');
 }
 function throwInfo(msg){
 	generateMessage("Info: " + msg, 'msg_info');
 }
 function throwWarning(msg){
-	generateMessage("Warning: " + msg,'msg_warning');
+	generateMessage("Waarschuwing: " + msg,'msg_warning');
 }
 
 // Maakt een Message en roept de functie resetTimer aan.
