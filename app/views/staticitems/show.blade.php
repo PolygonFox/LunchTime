@@ -14,6 +14,21 @@ Standaard Items
 	<h1>Standaarditems</h1>
 	<p class="descr">Items die altijd gekocht moeten worden.</p>
 	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
+	<h3>Item toevoegen</h3>
+	{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
+	{{Form::text('New_item', null, array('placeholder' => 'Nieuw item', 'class' => 'input_newname item_inp'))}}<br>
+		<button class="button_add submit_input sudo-button">Toevoegen</button>
+		<div class='messages_bar'>
+		@if(isset($message))
+			@if(is_array($message))
+				@foreach($message as $msg)
+					<div>{{$msg}}</div>
+				@endforeach
+			@else
+				<div>{{$message}}</div>
+			@endif
+		@endif
+	</div>
 	<table class='u-full-width shoppinglist'>
 	<thead>
 		<tr>
@@ -32,20 +47,5 @@ Standaard Items
 	@endforeach
 </tbody>
 </table>
-	<div class='messages_bar'>
-		@if(isset($message))
-			@if(is_array($message))
-				@foreach($message as $msg)
-					<div>{{$msg}}</div>
-				@endforeach
-			@else
-				<div>{{$message}}</div>
-			@endif
-		@endif
-	</div>
-		<h3>Item toevoegen</h3>
-		{{Form::text('amount', null, array('placeholder' => 'Hoeveelheid', 'class' => 'input_amount item_inp'))}}<br>
-		{{Form::text('New_item', null, array('placeholder' => 'Nieuw item', 'class' => 'input_newname item_inp'))}}<br>
-		<button class="button_add submit_input sudo-button">Toevoegen</button>
 @stop
 	

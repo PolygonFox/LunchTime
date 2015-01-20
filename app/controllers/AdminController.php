@@ -84,7 +84,7 @@ class AdminController extends BaseController {
 		$user = User::find($id);
 		$user->admin = true;
 		$user->save();
-		return Redirect::to('beheer')->with("Message", $user->email . " is nu admin.");
+		return Redirect::to('beheer')->with("Message", $user->email . " is nu beheerder.");
 	}
 	//Make a admin user again.
 	public function makeuser($id)
@@ -97,7 +97,7 @@ class AdminController extends BaseController {
 		}
 		else
 		{
-			$message = $user->email . " is nu geblokkeerd.";
+			$message = $user->email . " is nu gebruiker.";
 			$user->admin = false;
 			$user->save();
 		}

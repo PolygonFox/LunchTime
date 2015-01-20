@@ -75,7 +75,7 @@
   .one-third.column               { width: 30.6666666667%; }
   .two-thirds.column              { width: 65.3333333333%; }
 
-  .one-half.column                { width: 79%; margin-bottom: 10%; margin: 0 auto;}
+  .one-half.column                { width: 65%; margin-bottom: 10%; margin: 0 auto;}
 
   /* Offsets */
   .offset-by-one.column,
@@ -401,10 +401,25 @@ there.
   }
   div.one-half.column{
     margin-left: 0;
+    margin-top: 230px;
     width: 100%;
   }
   .navbar-item{
-     width:100%;
+     width:97%;
+     text-align: center;
+     border-radius: 4px;
+     padding: 2%;
+     margin-top: 2%;
+     border-bottom: 1px solid #bbb;
+     border-left: 1px solid #bbb;
+     border-right: 1px solid #bbb;
+}
+  .navbar-container{
+    margin-left: 0;
+  }
+
+li ul{
+  margin-left: 13%;
 }
   .submit_input{
     margin-left: 0;
