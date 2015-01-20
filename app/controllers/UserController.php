@@ -120,6 +120,7 @@ class UserController extends BaseController {
 		$user = User::where('email', $input['email'])->First();
 		if(!$user){ return View::make('account.forgot')->withErrors($error); }
 		$user->key = $input['key'];
+		$user->key_time = date_add(new DateTime('NOW'), date_interval_create_from_date_string('1 days'));
 		$user->save();
 		$sendto = $user->email;
 		//send email to user with reset link
@@ -132,7 +133,15 @@ class UserController extends BaseController {
 	//Show password reset when forget key is legit
 	public function showReset($string){
 		$user = User::where('key', $string)->First();
-		if(!isset($user->email)){return "Sorry deze resetlink werkt niet meer.";}
+		if(!isset($user->email)){
+			return "Sorry deze resetlink werkt niet meer.";
+		}
+		$date = new DateTime('NOW');
+		if($date->format('Y-m-d H:i:s') > $user->key_time){
+			$user->key = "";
+			$user->save(); 
+			return "Soryy deze resetlink werkt niet meer";
+		}
 		return View::make('account.reset');
 	}
 	//Deals with reset password
