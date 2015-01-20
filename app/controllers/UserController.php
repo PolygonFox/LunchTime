@@ -140,7 +140,7 @@ class UserController extends BaseController {
 		if($date->format('Y-m-d H:i:s') > $user->key_time){
 			$user->key = "";
 			$user->save(); 
-			return "Soryy deze resetlink werkt niet meer";
+			return "Sorry deze resetlink werkt niet meer";
 		}
 		return View::make('account.reset');
 	}
