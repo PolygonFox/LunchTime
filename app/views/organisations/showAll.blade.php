@@ -7,7 +7,7 @@ Groepen
 @section('content')
 
 <h1>Mijn groepen</h1>
-@if(!isset($organisations[0]))
+@if(isset($organisations[0]))
 	<ul class="overview">
 		@foreach($organisations as $organisation)
 		<li class='shop'><a href='#'>{{ucfirst($organisation->name)}}</a></li>

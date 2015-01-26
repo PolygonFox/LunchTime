@@ -7,11 +7,17 @@
 	    		<li class="navbar-item navbar-title">
 	    		Lunchtime
 				</li>
+				<a href="{{URL::to('groepen')}}">
+					<li class="navbar-item">
+						Groepen
+					</li>
+				</a>
+				@if(isset($organisation))
 				<a href="{{URL::to('boodschappenlijsten')}}">
 					<li class="navbar-item">
 						Boodschappenlijsten
 					</li>
-				</a>
+				</a>				
 				<a href="{{URL::to('controleitems')}}">
 					<li class="navbar-item">
 						Items ter controle
@@ -22,13 +28,17 @@
 						Standaarditems
 					</li>
 				</a>
-				@if(Auth::User()->admin)
+				@if(Auth::User()->id == $organisation->owner->id)
 					<a href="{{URL::to('beheer')}}">
 						<li class="navbar-item">
 							Beheer
 						</li>
 					</a>
 				@endif
+				@endif
+
+
+
 				<li class="navbar-item account">
 					<p>Mijn Account</p>
 					<ul>
