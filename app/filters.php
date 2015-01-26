@@ -72,6 +72,7 @@ Route::filter('organisationAccess', function($route){
 	else{
 		return App::abort(404, 'Deze groep is niet gevonden.');
 	}
+	View::share('organisation', $organisation);
 });
 
 Route::filter('beheerder', function(){
