@@ -18,6 +18,17 @@ Route::post('/account/new/{string}', 'UserController@Newaccount');
 /* Protected */
 Route::group(array('before' => 'auth'), function()
 {
+	/* Organisations */
+	Route::get('/', 'OrganisationsController@showOrganisations');
+	Route::get('/groepen', 'OrganisationsController@showOrganisations');
+
+	Route::group(array('before' => 'organisationAccess'), function(){
+		// Route naar de organisation.
+		Route::get('{organisation_id}/test', function(){
+			return "jeej je hebt toegang";
+		});
+	});
+
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
@@ -30,7 +41,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
 	Route::post('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
 	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
-	Route::get('/', 'ShoppinglistController@showLatest');
 	Route::get('/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
 	Route::post('/new', 'ShoppinglistController@postNew');
 	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');

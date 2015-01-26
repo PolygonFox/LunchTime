@@ -1,8 +1,9 @@
 <?php
-class ShoppinglistController extends BaseController {
+class OrganisationsController extends BaseController {
 
-	//Show shoppinglist with the requested id
-	public function show($id){
-		return View::make('organisations.createnew');
+	//Shows all organisations
+	public function showOrganisations(){
+		$organisations = Auth::user()->organisations;
+		return View::make('organisations.showAll')->withOrganisations($organisations);
 	}
 }

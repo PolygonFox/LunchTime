@@ -13,7 +13,7 @@ class Organisation extends Eloquent{
 	}
 
 	public function users(){
-		return $this->belongsToMany('User');
+		return $this->hasMany('User');
 	}
 	
 }

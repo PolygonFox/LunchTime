@@ -57,13 +57,26 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('organisationAccess', function($route){
+	$organisation_id = $route->getParameter('organisation_id');
+	$organisation = Organisation::find($organisation_id);
+	if($organisation){
+		if($organisation->users()->contains(Auth::user()->id))
+		{
+			return Redirect::to('groep/geentoegang');
+		}
+	}
+	else{
+		return App::abort(404, 'Deze groep is niet gevonden.');
+	}
+});
+
 Route::filter('beheerder', function(){
 	if(!Auth::User()->admin)
 	{
 		return App::abort(403, 'Alleen beheerders hebben toegang tot deze pagina.');
 	}
 });
-
 
 Route::filter('auth.basic', function()
 {
