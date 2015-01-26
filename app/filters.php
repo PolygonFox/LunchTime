@@ -61,7 +61,10 @@ Route::filter('organisationAccess', function($route){
 	$organisation_id = $route->getParameter('organisation_id');
 	$organisation = Organisation::find($organisation_id);
 	if($organisation){
-		if($organisation->users()->contains(Auth::user()->id))
+		if(DB::table('organisation_user')
+										->where('user_id', Auth::user()->id)
+										->where('organisation_id', $organisation_id) 
+										->count() == 0)
 		{
 			return Redirect::to('groep/geentoegang');
 		}
