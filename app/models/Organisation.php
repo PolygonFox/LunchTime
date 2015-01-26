@@ -11,5 +11,9 @@ class Organisation extends Eloquent{
 	public function owner(){
 		return $this->belongsTo('User', 'owner_id');
 	}
+
+	public function users(){
+		return $this->belongsToMany('User');
+	}
 	
 }
