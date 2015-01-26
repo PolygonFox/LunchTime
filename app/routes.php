@@ -51,10 +51,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('{organisation_id}/controleitems/add/{id}', 'CheckItemsController@add');
 
 	/* Staticitem List*/
-	Route::get('/standaarditems', 'StaticItemsController@show');
-	Route::post('/standaarditems', 'StaticItemsController@newItem');
-	Route::get('/standaarditems/del/{id}', 'StaticItemsController@delete');
-	Route::get('/standaarditems/add/{id}', 'StaticItemsController@add');
+	Route::get('{organisation_id}/standaarditems', 'StaticItemsController@show');
+	Route::post('{organisation_id}/standaarditems', 'StaticItemsController@newItem');
+	Route::get('{organisation_id}/standaarditems/del/{id}', 'StaticItemsController@delete');
+	Route::get('{organisation_id}/standaarditems/add/{id}', 'StaticItemsController@add');
 
 	});
 

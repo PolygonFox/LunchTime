@@ -35,7 +35,7 @@ class ShoppinglistController extends BaseController {
 		$shoppinglist->user_id = Auth::User()->id;
 		$shoppinglist->save();
 		//add all static items to the new list
-		$shoppinglist->importStaticItems();
+		$shoppinglist->importStaticItems($organisation_id);
 		//redirect to new shoppinglist
 		return Redirect::to($organisation_id .'/boodschappenlijst/'. $shoppinglist->id);
 	}
