@@ -8,4 +8,9 @@ class Staticitem extends Eloquent {
 	{
 		return $this->belongsTo("User");
 	}
+
+	public function organisation()
+	{
+		return $this->belongsTo("Organisation");
+	}
 }
