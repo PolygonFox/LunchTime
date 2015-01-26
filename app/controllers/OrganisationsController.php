@@ -29,6 +29,6 @@ class  OrganisationsController extends BaseController {
 		$Organisation->name = $input['name'];
 		$Organisation->save();
 		$Organisation->linkuser(Auth::User()->id,$Organisation->id);
-		return "REDIRECT TO GROEPEN -> MESSAGE SUCCESS!";
+		return Redirect::to('/groepen')->withMessage("De groep '". $input['name'] ."' is toegevoegd.");
 	}
 }
