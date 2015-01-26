@@ -39,21 +39,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('{organisation_id}/new', 'ShoppinglistController@postNew');
 	Route::post('{organisation_id}/boodschappenlijst/{id}','ShoppinglistController@newItem');
 	Route::get('{organisation_id}/boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
-		
-	});
-
-
-
-
-
-
-	/* Account */
-	Route::get('/account/edit', 'UserController@showEdit');
-	Route::post('/account/edit', 'UserController@edit');
-	Route::get('/account/show', 'UserController@return');
-	Route::get('/account', 'UserController@show');
-	Route::get('/logout', 'UserController@logout');
-
 	
 
 	/* Checkitem List */
@@ -67,6 +52,15 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/standaarditems', 'StaticItemsController@newItem');
 	Route::get('/standaarditems/del/{id}', 'StaticItemsController@delete');
 	Route::get('/standaarditems/add/{id}', 'StaticItemsController@add');
+
+	});
+
+	/* Account */
+	Route::get('/account/edit', 'UserController@showEdit');
+	Route::post('/account/edit', 'UserController@edit');
+	Route::get('/account/show', 'UserController@return');
+	Route::get('/account', 'UserController@show');
+	Route::get('/logout', 'UserController@logout');
 
 	/* Admin Only*/
 	Route::group(array('before' =>'beheerder'), function()

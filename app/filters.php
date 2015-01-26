@@ -60,6 +60,10 @@ Route::filter('auth', function()
 Route::filter('organisationAccess', function($route){
 	$organisation_id = $route->getParameter('organisation_id');
 	$organisation = Organisation::find($organisation_id);
+	if(isset($organisation_id))
+	{
+		View::share('organisation', $organisation);
+	}
 	if($organisation){
 		if(DB::table('organisation_user')
 										->where('user_id', Auth::user()->id)
@@ -72,7 +76,7 @@ Route::filter('organisationAccess', function($route){
 	else{
 		return App::abort(404, 'Deze groep is niet gevonden.');
 	}
-	View::share('organisation', $organisation);
+
 });
 
 Route::filter('beheerder', function(){
