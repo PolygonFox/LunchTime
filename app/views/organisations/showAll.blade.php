@@ -15,7 +15,7 @@ Groepen
 	</ul>
 @else
 	<p>U heeft nog geen groepen.</p>
-	<a href='{{URL::to('groep/nieuw')}}' class='button overview'>Nieuwe groep maken</a>
 @endif
+	<a href='{{URL::to('groep/nieuw')}}' class='button overview'>Nieuwe groep maken</a>
 
 @stop
