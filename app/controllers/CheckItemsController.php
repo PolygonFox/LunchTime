@@ -29,10 +29,10 @@ class CheckItemsController extends BaseController {
 	}
 
 	//Delete an item on the checkitemlist
-	public function delete($id)
-	{
-		$checklist = Checkitem::destroy($id);
-		return Redirect::to("/controleitems");
+	public function delete($organisation_id, $id)
+	{	
+			Checkitem::destroy($id);
+			return "Success";
 	}
 	
 	//Add a new item to the checkitemlist
@@ -50,9 +50,8 @@ class CheckItemsController extends BaseController {
 		return "Success||". Auth::User()->email ."||". $item->id;
 	}
 	//Add an item to the latest shoppinglist
-	public function add($id){
+	public function add($organisation_id, $id){
 		$list = shoppinglist::orderBy('id', 'desc')->First();
-
 		if($list->locked){
 			return "Kan het item niet toevoegen omdat de boodschappenlijst vergrendeld is.";
 		}

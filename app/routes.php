@@ -42,10 +42,10 @@ Route::group(array('before' => 'auth'), function()
 	
 
 	/* Checkitem List */
-	Route::get('/controleitems', 'CheckItemsController@show');
-	Route::post('/controleitems', 'CheckItemsController@newItem');
-	Route::get('/controleitems/del/{id}', 'CheckItemsController@delete');
-	Route::get('/controleitems/add/{id}', 'CheckItemsController@add');
+	Route::get('{organisation_id}/controleitems', 'CheckItemsController@show');
+	Route::post('{organisation_id}/controleitems', 'CheckItemsController@newItem');
+	Route::get('{organisation_id}/controleitems/del/{id}', 'CheckItemsController@delete');
+	Route::get('{organisation_id}/controleitems/add/{id}', 'CheckItemsController@add');
 
 	/* Staticitem List*/
 	Route::get('/standaarditems', 'StaticItemsController@show');
