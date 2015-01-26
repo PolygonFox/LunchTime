@@ -16,6 +16,7 @@ class AddStaticitemsTable extends Migration {
 			$table->increments('id');
 			$table->string('name', 255);
 			$table->string('amount', 255);
+			$table->integer('organisation_id');
 			$table->integer('user_id');
 		});
 	}
