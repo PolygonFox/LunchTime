@@ -21,6 +21,8 @@ Route::group(array('before' => 'auth'), function()
 	/* Organisations */
 	Route::get('/', 'OrganisationsController@showOrganisations');
 	Route::get('/groepen', 'OrganisationsController@showOrganisations');
+	Route::get('/groep/nieuw', 'OrganisationsController@createnew');
+	Route::post('/groep/nieuw', 'OrganisationsController@postcreatenew');
 
 	Route::group(array('before' => 'organisationAccess'), function(){
 		// Route naar de organisation.

@@ -13,7 +13,13 @@ class Organisation extends Eloquent{
 	}
 
 	public function users(){
-		return $this->hasMany('User');
+		return $this->belongsToMany('User');
+	}
+
+	public function linkuser($user_id,$organisation_id){
+		if(!empty($user_id|$organisation_id)){
+			DB::table('organisation_user')->insert(array('user_id' => $user_id, 'organisation_id' => $organisation_id));
+		}
 	}
 	
 }
