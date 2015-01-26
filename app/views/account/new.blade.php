@@ -1,24 +1,24 @@
-@extends('layouts.base')
+@extends('layouts.main')
 
 @section('title')
 Maak nieuw account
 @stop
 
-@section('content')
-<div class="user_data">
-<h1>Nieuwe gebruiker aanmaken</h1>
+@section('head')
+<link rel="stylesheet" type="text/css" href="{{URL::asset('css/login.css')}}" >
+@stop
 
+@section('vulling')
+<div class="main_page">
+<h1>Registeren</h1>
+<p>U krijgt een email waar u uw account mee kunt activeren.</p>
 {{$errors->first('email')}}<br>
 
 {{Form::open(array('class' => 'new'))}}
 
 {{Form::email('email', null, array('placeholder' => 'Email', 'class' => 'main_inp'))}}
-
-
-{{Form::checkbox('admin', '1')}}
-{{Form::label('admin','Beheerder')}}
 <br/>
-{{Form::submit('Maak nieuw account', array( 'class' => 'submit_input'))}}
+{{Form::submit('Registreer account', array( 'class' => 'submit_input'))}}
 {{Form::close()}}
 </div>
 @stop

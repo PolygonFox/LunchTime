@@ -214,5 +214,48 @@ class UserController extends BaseController {
 	    $user->activation = "";
 	    $user->save();
 	    return Redirect::to('login')->withErrors(array("Uw account is nu geactiveerd en kan nu worden gebruikt."));
-	}	
+	}
+
+	//Show new user form
+	public function Register()
+	{
+		return View::make('account.new');
+	}
+
+	//Create a new user
+	public function PostRegister()
+	{
+		$input = Input::all();
+		$input['activation'] = str_random(8);
+		$validator = Validator::make(
+		    $input,
+		    array(
+		        'email' => 'required|email|unique:users',
+		        'activation' => 'required|unique:users'
+	    	),
+	    	array(
+	    		'email.required' => 'E-mail is verplicht.',
+	    		'email.unique' => 'Dit e-mail adres is al in gebruik.',
+	    		'email.email' => 'Voer een geldig e-mail adres in.'
+	    	)
+	    );
+	    $failed = $validator->failed();if ($validator->fails())
+	    {
+	    	return View::make('account.new')->withErrors($validator);
+	    }
+	    //If checkbox issn't set default value set to 0
+	    if(!isset($input['admin'])){$input['admin'] = 0;}
+
+    	$user = new User();
+    	$user->email = $input['email'];
+    	$user->admin = $input['admin'];
+    	$user->activation = $input['activation'];
+    	$sendto = $user->email;
+    	Mail::send('emails.newaccount', array('key' => $input['activation']), function($message) use ($sendto)
+		{
+		    $message->to($sendto, $sendto)->from('LunchTime@G51.nl')->subject('LunchTime account activatie');
+		});
+		$user->save();
+    	return Redirect::to('beheer');
+	}
 }

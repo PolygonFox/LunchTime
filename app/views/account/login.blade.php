@@ -20,6 +20,8 @@ Login
 	<br>
 {{Form::submit('Inloggen', array('class' => 'color'))}}<br>
 {{Form::close()}}
+<a class="main_a" href='{{URL::to('register')}}'><button class="color"><p>Registreer account</p></button></a>
 <a class="main_a" href='{{URL::to('account/forgot')}}'><button class="color"><p>Wachtwoord Vergeten?</p></button></a>
+
 </div>
 @stop

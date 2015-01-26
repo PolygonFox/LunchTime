@@ -13,6 +13,8 @@ Route::post('/account/forgot/{string}', 'UserController@Reset');
 Route::get('/account/blocked', 'UserController@showBlocked');
 Route::get('/account/new/{string}', 'UserController@showNewaccount');
 Route::post('/account/new/{string}', 'UserController@Newaccount');
+Route::get('/register', 'UserController@Register');
+Route::post('/register', 'UserController@PostRegister');
 
 
 /* Protected */
