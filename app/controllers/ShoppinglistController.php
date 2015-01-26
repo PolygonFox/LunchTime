@@ -2,7 +2,7 @@
 class ShoppinglistController extends BaseController {
 
 	//Show shoppinglist with the requested id
-	public function show($id){
+	public function show($organisation_id,$id){
 		$shoppinglist = Shoppinglist::find($id);
 		return View::make('Shoppinglist.show')->withShoppinglist($shoppinglist)->with('disableMessages',true);
 	}
@@ -16,14 +16,14 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//Delete item from a shoppinglist
-	public function delete($lijst_id, $item_id){
+	public function delete($organisation_id, $lijst_id, $item_id){
 		Item::destroy($item_id);
 		return "Success";
 	}
 
 	//Show all shoppinglists
-	public function showShoppinglists(){
-		$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->get();
+	public function showShoppinglists($organisation_id){
+		$shoppinglists = Shoppinglist::orderBy('created_at', 'desc')->Where('organisation_id', $organisation_id)->get();
 		Shoppinglist::markDetailedTimestamps($shoppinglists);
 		return View::make('new')->withShoppinglists($shoppinglists);
 	}
@@ -40,7 +40,7 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//Locks a shoppinglist
-	public function lock($id, $lockStatus){
+	public function lock($organisation_id,$id, $lockStatus){
 		$list = Shoppinglist::find($id);
 		$list->locked = ($lockStatus == 0) ? 1 : 0;
 		$list->save();
@@ -49,7 +49,7 @@ class ShoppinglistController extends BaseController {
 	}
 	
 	//Add new item to shoppinglist
-	public function newItem($shoppinglist_id){
+	public function newItem($organisation_id,$shoppinglist_id){
 		//Check if shoppinglist isn't locked
 		if(!Shoppinglist::find($shoppinglist_id)->locked){
 			$input= Input::all();
@@ -81,7 +81,7 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//edit an item.
-	public function editItem($lijst_id, $id){
+	public function editItem($organisation_id,$lijst_id, $id){
 		$data = Input::all();
 		$item = Item::find($id);
 
@@ -98,7 +98,7 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//Toggle checked items on the list.
-	public function toggleItemCheck($lijst_id, $id){
+	public function toggleItemCheck($organisation_id,$lijst_id, $id){
 		$item = Item::find($id);
 		if($item->shoppinglist_id == $lijst_id)	{
 			$item->checked = !$item->checked;

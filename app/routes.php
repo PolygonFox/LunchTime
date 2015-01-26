@@ -29,7 +29,23 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('{organisation_id}/test', function(){
 			return "jeej je hebt toegang";
 		});
+		
+	/*	Shopping List */
+	Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
+	Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
+	Route::post('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
+	Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
+	Route::get('{organisation_id}/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
+	Route::post('{organisation_id}/new', 'ShoppinglistController@postNew');
+	Route::post('{organisation_id}/boodschappenlijst/{id}','ShoppinglistController@newItem');
+	Route::get('{organisation_id}/boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
+		
 	});
+
+
+
+
+
 
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
@@ -38,15 +54,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/account', 'UserController@show');
 	Route::get('/logout', 'UserController@logout');
 
-	/*	Shopping List */
-	Route::get('/boodschappenlijst/{id}', 'ShoppinglistController@show');
-	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
-	Route::post('/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
-	Route::get('/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
-	Route::get('/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
-	Route::post('/new', 'ShoppinglistController@postNew');
-	Route::post('/boodschappenlijst/{id}','ShoppinglistController@newItem');
-	Route::get('boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
+	
 
 	/* Checkitem List */
 	Route::get('/controleitems', 'CheckItemsController@show');
