@@ -12,24 +12,24 @@
 						Groepen
 					</li>
 				</a>
-				@if(isset($organisation))
-				<a href="{{URL::to('boodschappenlijsten')}}">
+				@if(isset($organisation->id))
+				<a href="{{URL::to($organisation->id . '/boodschappenlijsten')}}">
 					<li class="navbar-item">
 						Boodschappenlijsten
 					</li>
 				</a>				
-				<a href="{{URL::to('controleitems')}}">
+				<a href="{{URL::to($organisation->id . '/controleitems')}}">
 					<li class="navbar-item">
 						Items ter controle
 					</li>
 				</a>
-				<a href="{{URL::to('standaarditems')}}">	
+				<a href="{{URL::to($organisation->id . '/standaarditems')}}">	
 					<li class="navbar-item">
 						Standaarditems
 					</li>
 				</a>
 				@if(Auth::User()->id == $organisation->owner->id)
-					<a href="{{URL::to('beheer')}}">
+					<a href="{{URL::to($organisation->id . '/beheer')}}">
 						<li class="navbar-item">
 							Beheer
 						</li>

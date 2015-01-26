@@ -9,8 +9,8 @@ Groepen
 <h1>Mijn groepen</h1>
 @if(isset($organisations[0]))
 	<ul class="overview">
-		@foreach($organisations as $organisation)
-		<li class='shop'><a href='#'>{{ucfirst($organisation->name)}}</a></li>
+		@foreach($organisations as $org)
+		<li class='shop'><a href='{{$org->id . '/boodschappenlijsten'}}'>{{ucfirst($org->name)}}</a></li>
 		@endforeach
 	</ul>
 @else
