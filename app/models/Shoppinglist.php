@@ -13,8 +13,8 @@ class Shoppinglist extends Eloquent{
 		return $this->belongsTo("Organisation");
 	}
 
-	public function importStaticItems(){
-		$statics = Staticitem::all();
+	public function importStaticItems($organisation_id){
+		$statics = Staticitem::where('organisation_id', $organisation_id)->get();
 		foreach($statics as $static){
 			$item = new Item();
 			$item->user_id = 0;
