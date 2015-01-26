@@ -10,9 +10,9 @@ class ShoppinglistController extends BaseController {
 	public function showLatest(){
 		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
 		if($shoppinglist){
-			return Redirect::to('boodschappenlijst/'. $shoppinglist['id']);
+			return Redirect::to($organisation_id .'/boodschappenlijst/'. $shoppinglist['id']);
 		}
-		return Redirect::to('boodschappenlijsten');
+		return Redirect::to($organisation_id . '/boodschappenlijsten');
 	}
 
 	//Delete item from a shoppinglist
@@ -29,14 +29,15 @@ class ShoppinglistController extends BaseController {
 	}
 
 	//Add new shoppinglist
-	public function postNew(){
+	public function postNew($organisation_id){
 		$shoppinglist = new shoppinglist;
+		$shoppinglist->organisation_id = $organisation_id;
 		$shoppinglist->user_id = Auth::User()->id;
 		$shoppinglist->save();
 		//add all static items to the new list
 		$shoppinglist->importStaticItems();
 		//redirect to new shoppinglist
-		return Redirect::to('/boodschappenlijst/'. $shoppinglist->id);
+		return Redirect::to($organisation_id .'/boodschappenlijst/'. $shoppinglist->id);
 	}
 
 	//Locks a shoppinglist
@@ -45,7 +46,7 @@ class ShoppinglistController extends BaseController {
 		$list->locked = ($lockStatus == 0) ? 1 : 0;
 		$list->save();
 		// Redirect to the same page.
-		return Redirect::to('boodschappenlijst/'. $id);
+		return Redirect::to($organisation_id .'/boodschappenlijst/'. $id);
 	}
 	
 	//Add new item to shoppinglist

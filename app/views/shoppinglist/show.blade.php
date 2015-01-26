@@ -39,7 +39,7 @@
 			@endif
 		@endif
 	</div>
-	<a class="alt" href="{{URL::to("boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}">
+	<a class="alt" href='{{URL::to($organisation->id . "/boodschappenlijst/lock/{$shoppinglist->id}/{$shoppinglist->locked}")}}'>
 		@if($shoppinglist->locked == 0) 
 			<i class="fa shoplock fa-lock"><p>Vergrendel deze boodschapenlijst.</p></i>
 		@else
@@ -74,5 +74,5 @@
 			@endforeach
 		</tbody>
 	</table>
-	<a class="button submit_input" href="{{URL::to('/boodschappenlijsten')}}">Terug</a>
+	<a class="button submit_input" href="{{URL::to($organisation->id . '/boodschappenlijsten')}}">Terug</a>
 @stop

@@ -15,7 +15,7 @@
 				@if($shoppinglist->locked == 1)
 					<i class="fa listlock fa-lock"></i>
 				@endif
-				<a href="{{URL::to("boodschappenlijst/{$shoppinglist->id}")}}">Boodschappenlijst van:<br>
+				<a href='{{URL::to($organisation->id . "/boodschappenlijst/{$shoppinglist->id}")}}'>Boodschappenlijst van:<br>
 					<p class="smaller">
 					@if($shoppinglist->detailed)
 						{{ date('d M Y H:i:s',strtotime($shoppinglist->created_at)) }}
