@@ -16,6 +16,7 @@ class AddUserToOrg extends Migration {
 			$table->increments('id');
 			$table->integer('organisation_id');
 			$table->integer('user_id');
+			$table->boolean('mod', false);
 		});
 	}
 

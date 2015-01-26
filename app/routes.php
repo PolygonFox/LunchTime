@@ -31,7 +31,8 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('{organisation_id}/test', function(){
 			return "jeej je hebt toegang";
 		});
-		
+	Route::get('/{organisation_id}/beheer', 'OrganisationsController@showAdminpanel');
+	Route::get('/{organisation_id}/delete', 'OrganisationsController@delete');
 	/*	Shopping List */
 	Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
 	Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
