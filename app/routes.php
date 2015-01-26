@@ -18,6 +18,10 @@ Route::post('/account/new/{string}', 'UserController@Newaccount');
 /* Protected */
 Route::group(array('before' => 'auth'), function()
 {
+	/* Organisations */
+	Route::get('/groep/nieuw', 'OrganisationsController@createnew');
+	Route::post('/groep/nieuw', 'OrganisationsController@postcreatenew');
+
 	/* Account */
 	Route::get('/account/edit', 'UserController@showEdit');
 	Route::post('/account/edit', 'UserController@edit');
