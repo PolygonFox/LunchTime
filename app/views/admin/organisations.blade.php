@@ -8,7 +8,6 @@
 	<div class="user_man">
 		<h2>Groepen</h2>
 		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
-		<a href="{{URL::to('beheer')}}">Terug naar beheer</a>
 		@if(!isset($disableMessages))
     	<div class='messages_bar'>
         	@if(isset($message))
@@ -27,7 +26,7 @@
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{$organisation->name}}</td>
-    			<td><a href='{{URL::to('/')}}' style='color: #000'><i class='fa fa-trash fa-2x'/></a></td>
+    			<td><a href='{{URL::to($organisation->id .'/delete')}}' style='color: #000'><i class='fa fa-trash fa-2x'/></a></td>
     		</tr>	
     		@endforeach
     	

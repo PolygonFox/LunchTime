@@ -7,7 +7,7 @@
 @section('content')
 	<div class="user_man">
 		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
-		<a href="{{URL::to('beheer/groepen')}}"><button class="submit_input">Ga naar groepen</button></a>
+		<a href="{{URL::to('beheer/groepen')}}"><button class="submit_input">Groepen overzicht</button></a>
 		<h2>Gebruikers:</h2>
 		@if(!isset($disableMessages))
     	<div class='messages_bar'>
