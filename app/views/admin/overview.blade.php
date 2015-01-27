@@ -6,7 +6,6 @@
 
 @section('content')
 	<div class="user_man">
-		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 		<a href="{{URL::to('beheer/groepen')}}"><button class="submit_input">Groepen overzicht</button></a>
 		<h2>Gebruikers:</h2>
 		@if(!isset($disableMessages))
@@ -32,9 +31,9 @@
 					<a href='{{URL::to("beheer/user/{$user->id}/makeadmin")}}'>Maak<br> beheerder</a>
 				@endif
 				@if($user->blocked == 0)
-					</td><td><br><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'><i class="fa unblock-us fa-user"></i></a></td></tr>
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/delete")}}'><i class="fa unblock-us fa-user"></i></a></td></tr>
 				@else
-					</td><td><br><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'><i class="fa block-us fa-user"></a></td></tr>
+					</td><td><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'><i class="fa block-us fa-user"></a></td></tr>
 				@endif
 			@endforeach
 		</table>

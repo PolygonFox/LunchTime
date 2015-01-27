@@ -36,6 +36,6 @@
             Er zijn nog geen groepen aangemaakt.
         @endif
     </table>
-    <a class="button submit_input" href="{{URL::to('beheer')}}">Terug</a>
+    <a class="button submit_input" href="{{URL::to('beheer')}}">Terug naar gebruikersoverzicht</a>
 	</div>
 @stop
