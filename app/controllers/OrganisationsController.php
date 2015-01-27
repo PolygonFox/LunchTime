@@ -41,7 +41,8 @@ class  OrganisationsController extends BaseController {
 		if(!Organisation::isowner(Auth::user()->id,$organisation_id)->mod){
 			return "U heeft geen toegang tot het adminpanel.";
 		}
-		return View::make('organisations.adminpanel');
+		$members = Organisation::GetMembers($organisation_id);
+		return View::make('organisations.adminpanel')->withMembers($members);
 	}
 
 	public function addusertogroup($organisation_id){
@@ -50,12 +51,19 @@ class  OrganisationsController extends BaseController {
 		if(!$user){ return View::make('organisations.adminpanel')->withMessage('Deze gebruiker is niet gevonden en kan niet worden toegevoegd op dit moment.');}
 		$organisation = new Organisation;
 		if($organisation::linkuser($user->id, $organisation_id)){
-		return View::make('organisations.adminpanel')->withMessage('Gebruiker is toegevoegd.');
+		return Redirect::to($organisation_id."/beheer")->withMessage('Gebruiker is toegevoegd.');
 		}
-		return View::make('organisations.adminpanel')->withMessage('Gebruiker heeft al toegang.');
+		return Redirect::to($organisation_id."/beheer")->withMessage('Gebruiker heeft al toegang.');
 	}
 	public function delete($organisation_id){
 		Organisation::destroy($organisation_id);
+		if(!Request::ajax())
+		{
+			return Redirect::to('/beheer/groepen');
+		}
+	}
+	public function deleteuser($organisation_id,$user_id){
+		Organisation::DeleteUser($organisation_id, $user_id);
 		if(!Request::ajax())
 		{
 			return Redirect::to('/beheer/groepen');
