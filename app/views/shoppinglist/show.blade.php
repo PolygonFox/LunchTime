@@ -19,8 +19,9 @@
 @section('content')
 	<h1>Boodschappenlijst van: {{ date('d M Y',strtotime($shoppinglist->created_at)) }}</h1>
 		<div class="shoplistinfo">
-			<label class="madeby">Aangemaakt door: {{$shoppinglist->user->email}}</label><br>
-			<a class="refresh" onClick="window.location.reload()">Verversen</a><br><br>
+			<p>Aangemaakt door: <b>{{$shoppinglist->user->email}}</b></p>
+			<p>In de groep:  <b>{{$organisation->name}}</b></p>
+			<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 		</div>
 	@if(!$shoppinglist->locked)
 		<h3>Item toevoegen</h3>
