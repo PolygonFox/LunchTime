@@ -38,9 +38,8 @@
 				@endif
 			@endforeach
 		</table>
-		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
-
-		<br><p><i class="fa fa-asterisk "></i> = Beheerder, klik op het sterretje om hem weer een gebruiker te maken.</p>
+		
+		<p><i class="fa fa-asterisk "></i> = Beheerder, klik op het sterretje om hem weer een gebruiker te maken.</p>
 		<p><i class="fa unblock-us fa-user "></i> = Niet geblokkeerd. Klik op icoon om account te blokkeren.</p>
 		<p><i class="fa block-us fa-user "></i> = Geblokkeerd. Klik op icoon om account te activeren.</p><br>
 	</div>
