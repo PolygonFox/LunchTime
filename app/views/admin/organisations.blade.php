@@ -22,14 +22,17 @@
     	</div>
     @endif
     <table>
-    	
+    	@if(isset($organisations[0]))
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{$organisation->name}}</td>
     			<td><a href='{{URL::to($organisation->id .'/delete')}}' style='color: #000'><i class='fa fa-trash fa-2x'/></a></td>
     		</tr>	
     		@endforeach
-    	
+    	@else
+            Er zijn nog geen groepen aangemaakt.
+        @endif
     </table>
+    <a class="button submit_input" href="{{URL::to('beheer')}}">Terug</a>
 	</div>
 @stop
