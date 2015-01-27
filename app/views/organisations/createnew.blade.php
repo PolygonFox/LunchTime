@@ -17,6 +17,10 @@
 				@foreach($message as $msg)
 					<div>{{$msg}}</div>
 				@endforeach
+			@elseif(is_object($message))
+				@foreach($message->all() as $msg)
+					<div>{{$msg}}</div>
+				@endforeach
 			@else
 				<div>{{$message}}</div>
 			@endif

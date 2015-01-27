@@ -5,7 +5,7 @@
 @stop
 @section('content')
 
-			<h1>Boodschappenlijstjes</h1>
+			<h1>Boodschappenlijsten</h1>
 			{{Form::open(array('url' => URL::to($organisation->id .'/new')))}}
 				<p><input type="submit" class="submit_input"value="Maak een nieuwe lijst"/></p>
 			{{Form::close()}}
