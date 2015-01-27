@@ -41,7 +41,7 @@ class  OrganisationsController extends BaseController {
 			return "U heeft geen toegang tot het adminpanel.";
 		}
 		$members = Organisation::GetMembers($organisation_id);
-		if(Session::has('message')){ $message = Session::get('message');}else{$message = '';}
+		if(Session::has('message')){ $message = Session::get('message');}else{$message = Null;}
 		return View::make('organisations.adminpanel')->withMembers($members)->withMessage($message);
 	}
 
