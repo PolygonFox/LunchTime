@@ -16,9 +16,14 @@ class Organisation extends Eloquent{
 		return $this->belongsToMany('User');
 	}
 
-	public function linkuser($user_id,$organisation_id,$mod = false){
+	static function linkuser($user_id,$organisation_id,$mod = false){
 		if(!empty($user_id|$organisation_id)){
+			$check = DB::table('organisation_user')->where('user_id',$user_id)->where('organisation_id',$organisation_id)->First();
+			if(isset($check->user_id)){
+				return false;
+			}
 			DB::table('organisation_user')->insert(array('user_id' => $user_id, 'organisation_id' => $organisation_id, 'mod' => $mod));
+			return true;
 		}
 	}
 

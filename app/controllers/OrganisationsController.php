@@ -44,6 +44,16 @@ class  OrganisationsController extends BaseController {
 		return View::make('organisations.adminpanel');
 	}
 
+	public function addusertogroup($organisation_id){
+		$email = Input::get('email');
+		$user = User::where('email', $email)->First();
+		if(!$user){ return View::make('organisations.adminpanel')->withMessage('Deze gebruiker is niet gevonden en kan niet worden toegevoegd op dit moment.');}
+		$organisation = new Organisation;
+		if($organisation::linkuser($user->id, $organisation_id)){
+		return View::make('organisations.adminpanel')->withMessage('Gebruiker is toegevoegd.');
+		}
+		return View::make('organisations.adminpanel')->withMessage('Gebruiker heeft al toegang.');
+	}
 	public function delete($organisation_id){
 		Organisation::destroy($organisation_id);
 		if(!Request::ajax())
