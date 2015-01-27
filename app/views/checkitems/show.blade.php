@@ -13,9 +13,9 @@ Controle Items
 
 @section('content')
 	<h1>Items ter controle</h1>
-	<p class="descr">Items die altijd gecontroleerd in de vooraad moeten voor het boodschappen doen.</p>
+	<p class="descr">Items die altijd gecontroleerd moeten worden voor het boodschappen doen.</p>
 	@if(isset($nolist))
-	<p class="error">Er staat nog geen boodschappenlijst in het systeem, er zijn functions uitgeschakeld.</p>
+	<p class="error">Waarschuwing: Er is nog geen boodschappenlijst gemaakt in deze groep. Je kunt deze items dus nog niet toevoegen aan de lijst.</p>
 	@endif
 	<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
 			<h3>Item toevoegen</h3>
@@ -33,19 +33,30 @@ Controle Items
 			@endif
 		@endif
 	</div>
-	<table class='table-responsive shoppinglist'>
-	<tr><th>Hoeveelheid</td><th>Naam</td></td><th>Voeg toe aan lijst</td></tr>
-	@foreach($checklist as $i => $item)
-	<tr data-id="{{$item->id}}"
-	@if($item->active)
-	class="active"
-	@endif >
-		<td>{{$item->amount}}</td>
-		<td>{{$item->name}}</td>	
-		<td><i class="button_addtolist fa fa-2x fa-plus-square sudo-button" title="Toevoegen aan nieuwe lijst"></i></td>
-		<td><i class="button_delete fa fa-2x fa-trash sudo-button" title="Verwijderen"></i></td>
-	</tr>
-	@endforeach
-</table>
+
+		<table class='table-responsive shoppinglist'>
+		<tr>
+			<th>Hoeveelheid</th>
+			<th>Naam</th>
+			<th>Voeg toe aan lijst</th>
+		</tr>
+		@foreach($checklist as $i => $item)
+		<tr data-id="{{$item->id}}"
+			@if($item->active)
+			class="active"
+			@endif
+		>
+			<td>{{$item->amount}}</td>
+			<td>{{$item->name}}</td>	
+			<td><i class="button_addtolist fa fa-2x fa-plus-square sudo-button" 
+				@if(isset($nolist))
+					style="color: #CCC"
+				@endif
+				title="Toevoegen aan nieuwe lijst"></i></td>
+			<td><i class="button_delete fa fa-2x fa-trash sudo-button" title="Verwijderen"></i></td>
+		</tr>
+		@endforeach
+		</table>
+	
 @stop
 	

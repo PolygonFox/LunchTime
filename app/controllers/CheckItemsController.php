@@ -4,7 +4,7 @@ class CheckItemsController extends BaseController {
 
 	//Show Checkitem list
 	public function show($organisation_id){
-		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->First();
+		$shoppinglist = Shoppinglist::orderBy('created_at', 'desc')->where('organisation_id', $organisation_id)->First();
 		$checklist = Checkitem::where('organisation_id', $organisation_id)->get();
 		if(!$shoppinglist){return View::make('checkitems.show')->withChecklist($checklist)->withnolist(true);}
 		$checklist->user = User::where('user_id');
