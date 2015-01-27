@@ -8,7 +8,6 @@ class  OrganisationsController extends BaseController {
 		foreach($organisations as $organisation){
 			$organisation->beheerder = Organisation::isowner(Auth::user()->id,$organisation->id)->mod;
 		}
-		
 		return View::make('organisations.showAll')->withOrganisations($organisations);
 	}
 
@@ -41,24 +40,39 @@ class  OrganisationsController extends BaseController {
 		if(!Organisation::isowner(Auth::user()->id,$organisation_id)->mod){
 			return "U heeft geen toegang tot het adminpanel.";
 		}
-		return View::make('organisations.adminpanel');
+		$members = Organisation::GetMembers($organisation_id);
+		if(Session::has('message')){ $message = Session::get('message');}else{$message = Null;}
+		return View::make('organisations.adminpanel')->withMembers($members)->withMessage($message);
 	}
 
 	public function addusertogroup($organisation_id){
 		$email = Input::get('email');
 		$user = User::where('email', $email)->First();
-		if(!$user){ return View::make('organisations.adminpanel')->withMessage('Deze gebruiker is niet gevonden en kan niet worden toegevoegd op dit moment.');}
+		Session::flash('message', 'Deze gebruiker is niet gevonden en kan niet worden toegevoegd op dit moment.');
+		if(!$user){ return Redirect::to($organisation_id."/beheer");}
 		$organisation = new Organisation;
 		if($organisation::linkuser($user->id, $organisation_id)){
-		return View::make('organisations.adminpanel')->withMessage('Gebruiker is toegevoegd.');
+		Session::flash('message', 'Gebruiker is toegevoegd.');
+		return Redirect::to($organisation_id."/beheer");
 		}
-		return View::make('organisations.adminpanel')->withMessage('Gebruiker heeft al toegang.');
+		Session::flash('message', "Gebruiker heeft al toegang.");
+		return Redirect::to($organisation_id."/beheer");
 	}
 	public function delete($organisation_id){
-		Organisation::destroy($organisation_id);
+		Organisation::Remove($organisation_id);
 		if(!Request::ajax())
 		{
 			return Redirect::to('/beheer/groepen');
 		}
+	}
+	public function deleteuser($organisation_id,$user_id){
+		Organisation::DeleteUser($organisation_id, $user_id);
+		if(!Request::ajax())
+		{
+			return Redirect::to('/beheer/groepen');
+		}
+	}
+	public function changerank($organisation_id,$user_id){
+		Organisation::ChangeRank($organisation_id,$user_id);
 	}
 }

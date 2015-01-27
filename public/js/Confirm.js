@@ -16,11 +16,20 @@ ConfirmBox.prototype.Confirm = function(message, returnCallback){
 	this.callback = returnCallback;
 }
 
-ConfirmBox.prototype.Delete = function (item_name, returnCallback){
-	this.Confirm("Weet je zeker dat je '" + item_name + "' wilt verwijderen?", returnCallback);
+ConfirmBox.prototype.Delete = function (item_name, returnCallback, customMessage){
+	var message;
+	if(customMessage)
+	{
+		message = item_name;
+	}
+	else
+	{
+		message = "Weet je zeker dat je '" + item_name + "' wilt verwijderen?";
+	}
+	this.Confirm(message, returnCallback);
 }
 
-ConfirmBox.prototype.TouchDelete = function (item_name, url, done){
+ConfirmBox.prototype.TouchDelete = function (item_name, url, done, customMessage){
 	if(url == undefined)
 		url = document.url;
 	this.Delete(item_name, function(val){
@@ -31,7 +40,7 @@ ConfirmBox.prototype.TouchDelete = function (item_name, url, done){
 				}
 			});
 		}
-	});
+	}, customMessage);
 }
 /**
 	Prepare Events and Elements.
