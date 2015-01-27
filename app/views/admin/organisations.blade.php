@@ -24,20 +24,18 @@
         	@endif
     	</div>
     @endif
-
-    @if(isset($organisations[0]))
     <table>
-    	
+    	@if(isset($organisations[0]))
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{$organisation->name}}</td>
     			<td><button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('/beheer/groepen')}}')})">Verwijderen</button></td>
     		</tr>	
     		@endforeach
-    	
+    	@else
+            Er zijn nog geen groepen aangemaakt.
+        @endif
     </table>
-    @else
-        <p>Er zijn geen groepen op dit moment.</p>
-    @endif
+    <a class="button submit_input" href="{{URL::to('beheer')}}">Terug</a>
 	</div>
 @stop
