@@ -310,7 +310,7 @@ li.email{
 .overview li:first-child{
 	border-top:none;
 }
-.overview li:hover{
+.overview li.shop:hover{
 	background-color: #555;
 }
 .overview a{
@@ -321,7 +321,23 @@ li.email{
 	width: 100%;
 	height: 100%;
 }
-.overview li:hover a{
+a.group_ttl{
+	margin-top: 2%;
+}
+a.group_stngs{
+	width:30%;
+	margin: 0 auto;
+	padding: 1%;
+}
+a.group_stngs:hover{
+	background-color: #1EAEDB; 
+	border-radius: 10px;
+}
+.groups:hover{
+	background-color: #bbb;
+	color:#fff;
+}
+.overview li.shops:hover a{
 		color: white;
 }
 .overview a:hover, .overview a:focus{
