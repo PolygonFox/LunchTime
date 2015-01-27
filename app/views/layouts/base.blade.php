@@ -1,4 +1,4 @@
-@extends('layouts.main')
+	@extends('layouts.main')
 @section('vulling')
 <div class="container">
 	
@@ -28,15 +28,15 @@
 						Standaarditems
 					</li>
 				</a>
-				@if(Auth::User()->id == $organisation->owner->id)
-					<a href="{{URL::to($organisation->id . '/beheer')}}">
+
+				@endif
+				@if(Auth::User()->admin)
+					<a href="{{URL::to('beheer')}}">
 						<li class="navbar-item">
 							Beheer
 						</li>
 					</a>
 				@endif
-				@endif
-
 
 
 				<li class="navbar-item account">

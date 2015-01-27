@@ -46,5 +46,9 @@ class  OrganisationsController extends BaseController {
 
 	public function delete($organisation_id){
 		Organisation::destroy($organisation_id);
+		if(!Request::ajax())
+		{
+			return Redirect::to('/beheer/groepen');
+		}
 	}
 }

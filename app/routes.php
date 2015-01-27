@@ -27,35 +27,29 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/groep/nieuw', 'OrganisationsController@postcreatenew');
 
 	Route::group(array('before' => 'organisationAccess'), function(){
-		// Route naar de organisation.
-		Route::get('{organisation_id}/test', function(){
-			return "jeej je hebt toegang";
-		});
-	Route::get('/{organisation_id}/beheer', 'OrganisationsController@showAdminpanel');
-	Route::get('/{organisation_id}/delete', 'OrganisationsController@delete');
-	/*	Shopping List */
-	Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
-	Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
-	Route::post('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
-	Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
-	Route::get('{organisation_id}/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
-	Route::post('{organisation_id}/new', 'ShoppinglistController@postNew');
-	Route::post('{organisation_id}/boodschappenlijst/{id}','ShoppinglistController@newItem');
-	Route::get('{organisation_id}/boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
-	
+		Route::get('/{organisation_id}/beheer', 'OrganisationsController@showAdminpanel');
+		Route::get('/{organisation_id}/delete', 'OrganisationsController@delete');
+		/*	Shopping List */
+		Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
+		Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');
+		Route::post('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}', 'ShoppinglistController@editItem');
+		Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/check', 'ShoppinglistController@toggleItemCheck');
+		Route::get('{organisation_id}/boodschappenlijsten', 'ShoppinglistController@showShoppinglists');
+		Route::post('{organisation_id}/new', 'ShoppinglistController@postNew');
+		Route::post('{organisation_id}/boodschappenlijst/{id}','ShoppinglistController@newItem');
+		Route::get('{organisation_id}/boodschappenlijst/lock/{id}/{lockStatus}', 'ShoppinglistController@lock');
+		
+		/* Checkitem List */
+		Route::get('{organisation_id}/controleitems', 'CheckItemsController@show');
+		Route::post('{organisation_id}/controleitems', 'CheckItemsController@newItem');
+		Route::get('{organisation_id}/controleitems/del/{id}', 'CheckItemsController@delete');
+		Route::get('{organisation_id}/controleitems/add/{id}', 'CheckItemsController@add');
 
-	/* Checkitem List */
-	Route::get('{organisation_id}/controleitems', 'CheckItemsController@show');
-	Route::post('{organisation_id}/controleitems', 'CheckItemsController@newItem');
-	Route::get('{organisation_id}/controleitems/del/{id}', 'CheckItemsController@delete');
-	Route::get('{organisation_id}/controleitems/add/{id}', 'CheckItemsController@add');
-
-	/* Staticitem List*/
-	Route::get('{organisation_id}/standaarditems', 'StaticItemsController@show');
-	Route::post('{organisation_id}/standaarditems', 'StaticItemsController@newItem');
-	Route::get('{organisation_id}/standaarditems/del/{id}', 'StaticItemsController@delete');
-	Route::get('{organisation_id}/standaarditems/add/{id}', 'StaticItemsController@add');
-
+		/* Staticitem List*/
+		Route::get('{organisation_id}/standaarditems', 'StaticItemsController@show');
+		Route::post('{organisation_id}/standaarditems', 'StaticItemsController@newItem');
+		Route::get('{organisation_id}/standaarditems/del/{id}', 'StaticItemsController@delete');
+		Route::get('{organisation_id}/standaarditems/add/{id}', 'StaticItemsController@add');
 	});
 
 	/* Account */
@@ -71,6 +65,9 @@ Route::group(array('before' => 'auth'), function()
 		Route::get('/beheer/GebruikerToevoegen', 'AdminController@showNewuser');
 		Route::post('/beheer/GebruikerToevoegen', 'AdminController@newuser');
 		Route::get('/beheer', 'AdminController@overview');
+
+		Route::get('/beheer/groepen', 'AdminController@showOrganisations');
+
 		Route::get('/beheer/user/{id}/makeadmin', 'AdminController@makeadmin');
 		Route::get('/beheer/user/{id}/makeuser', 'AdminController@makeuser');
 		Route::get('/beheer/user/{id}/delete', 'AdminController@deleteUser');
