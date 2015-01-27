@@ -3,7 +3,10 @@
 @section('title')
 	Beheer - Groepen
 @stop
-
+@section("head") 
+    <script type="text/javascript" src="{{URL::asset('js/Confirm.js')}}"></script>
+    <script type="text/javascript" src="{{URL::asset('js/Errors.js')}}"></script>
+@stop
 @section('content')
 	<div class="user_man">
 		<h2>Groepen</h2>
@@ -21,15 +24,20 @@
         	@endif
     	</div>
     @endif
+
+    @if(isset($organisations[0]))
     <table>
     	
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{$organisation->name}}</td>
-    			<td><a href='{{URL::to($organisation->id .'/delete')}}' style='color: #000'><i class='fa fa-trash fa-2x'/></a></td>
+    			<td><button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('/beheer/groepen')}}')})">Verwijderen</button></td>
     		</tr>	
     		@endforeach
     	
     </table>
+    @else
+        <p>Er zijn geen groepen op dit moment.</p>
+    @endif
 	</div>
 @stop
