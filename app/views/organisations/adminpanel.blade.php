@@ -32,7 +32,7 @@
 		@foreach($members as $member)
 		<li>
 			{{$member->user->email}} - @if($member->mod)Beheerder @else Gebruiker @endif
-			<button class=""  onclick="confirmBox.TouchDelete('{{$member->user->email}}', '{{URL::to($organisation->id."/deleteuser/".$member->user->id)}}', function(){window.location.replace(document.URL)})">
+			<button class=""  onclick="confirmBox.TouchDelete('Weet u zeker dat u {{$member->user->email}} @if($member->mod)gebruiker @else beheerder @endif wilt maken?', '{{URL::to($organisation->id."/changerank/".$member->user->id)}}', function(){window.location.replace(document.URL)}, true)">
 				@if($member->mod)Maak gebruiker @else Maak beheerder @endif
 			</button>
 			<button class=""  onclick="confirmBox.TouchDelete('{{$member->user->email}}', '{{URL::to($organisation->id."/deleteuser/".$member->user->id)}}', function(){window.location.replace(document.URL)})">Verwijder Gebruiker</button>

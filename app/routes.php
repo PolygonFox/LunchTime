@@ -31,6 +31,7 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('/{organisation_id}/beheer', 'OrganisationsController@addusertogroup');
 		Route::get('/{organisation_id}/delete', 'OrganisationsController@delete');
 		Route::get('/{organisation_id}/deleteuser/{user_id}', 'OrganisationsController@deleteuser');
+		Route::get('/{organisation_id}/changerank/{user_id}', 'OrganisationsController@changerank');
 		/*	Shopping List */
 		Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
 		Route::get('{organisation_id}/boodschappenlijst/{lijst_id}/item/{item_id}/verwijderen', 'ShoppinglistController@delete');

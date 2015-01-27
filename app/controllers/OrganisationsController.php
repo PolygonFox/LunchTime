@@ -56,7 +56,7 @@ class  OrganisationsController extends BaseController {
 		return Redirect::to($organisation_id."/beheer")->withMessage('Gebruiker heeft al toegang.');
 	}
 	public function delete($organisation_id){
-		Organisation::destroy($organisation_id);
+		Organisation::Remove($organisation_id);
 		if(!Request::ajax())
 		{
 			return Redirect::to('/beheer/groepen');
@@ -68,5 +68,8 @@ class  OrganisationsController extends BaseController {
 		{
 			return Redirect::to('/beheer/groepen');
 		}
+	}
+	public function changerank($organisation_id,$user_id){
+		Organisation::ChangeRank($organisation_id,$user_id);
 	}
 }

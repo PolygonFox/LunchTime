@@ -43,4 +43,16 @@ class Organisation extends Eloquent{
 		return DB::table('organisation_user')->where('user_id', $user_id)->where('organisation_id', $organisation_id)->delete();
 	}
 	
+	static function Remove($organisation_id){
+		DB::table('organisation_user')->where('organisation_id', $organisation_id)->delete();
+		Organisation::destroy($organisation_id);
+	}
+	static function ChangeRank($organisation_id,$user_id){
+		$member = DB::table('organisation_user')->where('user_id', $user_id)->where('organisation_id', $organisation_id)->first();
+		if($member->mod == 1){ $member->mod = 0;}else{$member->mod = 1;}
+		if(DB::table('organisation_user')->where('user_id', $user_id)->where('organisation_id', $organisation_id)->update(array('mod' => $member->mod))){
+			return true;
+		}
+		return false;
+	}
 }
