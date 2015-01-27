@@ -17,6 +17,8 @@
 				@foreach($message as $msg)
 					<div>{{$msg}}</div>
 				@endforeach
+			@elseif(Session::has('message'))
+				<div>{{ Session::get('message') }}</div>
 			@else
 				<div>{{$message}}</div>
 			@endif
