@@ -38,7 +38,7 @@ class  OrganisationsController extends BaseController {
 
 	public function showAdminpanel($organisation_id){
 		if(!Organisation::isowner(Auth::user()->id,$organisation_id)->mod){
-			return "U heeft geen toegang tot het adminpanel.";
+			return App::abort(403, 'Alleen beheerders hebben toegang tot deze pagina.');
 		}
 		$members = Organisation::GetMembers($organisation_id);
 		if(Session::has('message')){ $message = Session::get('message');}else{$message = Null;}
@@ -66,10 +66,13 @@ class  OrganisationsController extends BaseController {
 		}
 	}
 	public function deleteuser($organisation_id,$user_id){
-		Organisation::DeleteUser($organisation_id, $user_id);
-		if(!Request::ajax())
-		{
-			return Redirect::to('/beheer/groepen');
+		$check = Organisation::find($organisation_id);
+		if($check->owner_id != $user_id){
+			Organisation::DeleteUser($organisation_id, $user_id);
+			if(!Request::ajax())
+			{
+				return Redirect::to('/beheer/groepen');
+			}
 		}
 	}
 	public function changerank($organisation_id,$user_id){
