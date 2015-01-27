@@ -29,7 +29,7 @@
     		@foreach($organisations as $organisation)
     		<tr>
     			<td>{{$organisation->name}}</td>
-    			<td><button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('/beheer/groepen')}}')})">Verwijderen</button></td>
+    			<td><button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to('/beheer/groepen/' . $organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('/beheer/groepen')}}')})">Verwijderen</button></td>
     		</tr>	
     		@endforeach
     	@else
