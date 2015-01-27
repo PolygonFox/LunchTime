@@ -28,6 +28,7 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::group(array('before' => 'organisationAccess'), function(){
 		Route::get('/{organisation_id}/beheer', 'OrganisationsController@showAdminpanel');
+		Route::post('/{organisation_id}/beheer', 'OrganisationsController@addusertogroup');
 		Route::get('/{organisation_id}/delete', 'OrganisationsController@delete');
 		/*	Shopping List */
 		Route::get('{organisation_id}/boodschappenlijst/{id}', 'ShoppinglistController@show');
