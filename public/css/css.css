@@ -42,6 +42,7 @@ a{
 }
 a.refresh{
 	text-decoration: none;
+	margin-left: 42%;
 }
 a.refresh:hover{
 	cursor: pointer;
@@ -166,14 +167,14 @@ input.checkbox{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	width: 98%;
+	width: 85%;
 	text-align: center;	
 }
 .fa-lock{
 	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	width: 98%;
+	width: 85%;
 	text-align: center;
 }
 .shoplistinfo{
@@ -187,6 +188,7 @@ input.checkbox{
 	background-color: #bbb;
 	border: 1px solid #bbb;
 	margin-top: 10px;
+	margin-left: 7%;
 	margin-bottom: 40px;
 	width: 100%;
 	max-width: 400px;
