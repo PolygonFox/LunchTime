@@ -24,8 +24,6 @@
         	@endif
     	</div>
     @endif
-
-    @if(isset($organisations[0]))
     <table>
     	@if(isset($organisations[0]))
     		@foreach($organisations as $organisation)
