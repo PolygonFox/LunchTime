@@ -21,10 +21,10 @@ Groepen
 @if(isset($organisations[0]))
 	<ul class="overview">
 		@foreach($organisations as $org)
-		<li class='shop'>
-			<a href='{{$org->id . '/boodschappenlijsten'}}'>{{ucfirst($org->name)}}</a>
+		<li class="shop">
+			<a href='{{URL::to($org->id . '/boodschappenlijsten')}}'>{{ucfirst($org->name)}}</a>
 			@if($org->beheerder)
-				<a href="#">Owner</a>
+				<a style="background-color: #1EAEDB;" href="{{URL::to($org->id.'/beheer')}}">Instellingen</a>
 			@endif
 		</li>
 		@endforeach

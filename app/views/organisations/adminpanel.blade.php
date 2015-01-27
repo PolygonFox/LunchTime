@@ -27,7 +27,6 @@
 	{{Form::text('email', null, array('placeholder' => 'E-mail van gebruiker', 'class' => 'item_inp'))}}<br>
 	{{Form::submit('Voeg gebruiker toe', array('class' => 'item_inp'))}}<br>
 	{{Form::close()}}
-	<button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', 
-	function(){window.location.replace({{URL::to('groepen')}})})">Verwijder groep</button>
-	<a class="button submit_input" href="{{URL::to('/boodschappenlijsten')}}">Terug</a>
+	<button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('groepen')}}')})">Verwijder groep</button>
+	<a class="button submit_input" href="{{URL::to('/groepen')}}">Terug</a>
 @stop
