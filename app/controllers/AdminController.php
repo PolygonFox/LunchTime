@@ -62,5 +62,12 @@ class AdminController extends BaseController {
 		}
 		return Redirect::to('beheer')->with("Message", $message);
 	}
+
+	//Show a list of all organisations.
+	public  function showOrganisations()
+	{
+		$organisations = Organisation::all();
+		return View::make('admin.organisations')->withOrganisations($organisations);
+	}
 }
 ?>

@@ -6,10 +6,10 @@
 
 @section('content')
 	<div class="user_man">
-		<h2>Gebruikers:</h2>
 		<a class="refresh" onClick="window.location.reload()"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Verversen</a><br><br>
-		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
-		    @if(!isset($disableMessages))
+		<a href="{{URL::to('beheer/groepen')}}"><button class="submit_input">Ga naar groepen</button></a>
+		<h2>Gebruikers:</h2>
+		@if(!isset($disableMessages))
     	<div class='messages_bar'>
         	@if(isset($message))
         		@if(is_array($message))
@@ -37,8 +37,9 @@
 					</td><td><br><a href='{{URL::to("beheer/user/{$user->id}/activate")}}'><i class="fa block-us fa-user"></a></td></tr>
 				@endif
 			@endforeach
-
 		</table>
+		<a href="{{URL::to('beheer/GebruikerToevoegen')}}"><button class="submit_input">Gebruiker Toevoegen</button></a>
+
 		<br><p><i class="fa fa-asterisk "></i> = Beheerder, klik op het sterretje om hem weer een gebruiker te maken.</p>
 		<p><i class="fa unblock-us fa-user "></i> = Niet geblokkeerd. Klik op icoon om account te blokkeren.</p>
 		<p><i class="fa block-us fa-user "></i> = Geblokkeerd. Klik op icoon om account te activeren.</p><br>
