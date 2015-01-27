@@ -69,8 +69,8 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('/beheer/GebruikerToevoegen', 'AdminController@newuser');
 		Route::get('/beheer', 'AdminController@overview');
 
+		Route::get('/beheer/groepen/{id}/delete', 'OrganisationsController@delete');
 		Route::get('/beheer/groepen', 'AdminController@showOrganisations');
-
 		Route::get('/beheer/user/{id}/makeadmin', 'AdminController@makeadmin');
 		Route::get('/beheer/user/{id}/makeuser', 'AdminController@makeuser');
 		Route::get('/beheer/user/{id}/delete', 'AdminController@deleteUser');

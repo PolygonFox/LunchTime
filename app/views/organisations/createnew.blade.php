@@ -27,7 +27,7 @@
 		@endif
 	</div>
 	{{Form::open()}}
-	{{Form::text('name', null, array('placeholder' => 'Groep naam', 'class' => 'item_inp'))}}<br>
+	{{Form::text('name', null, array('placeholder' => 'Groepsnaam', 'class' => 'item_inp'))}}<br>
 	{{Form::submit('Maak nieuwe groep', array('class' => 'item_inp'))}}<br>
 	{{Form::close()}}
 	<a class="button submit_input" href="{{URL::to('/boodschappenlijsten')}}">Terug</a>

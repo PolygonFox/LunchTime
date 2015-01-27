@@ -24,7 +24,7 @@
 			@endif
 		@endif
 	</div>
-	<strong>Voeg gebruiker toe aan uw groep</strong>
+	<strong>Voeg een gebruiker toe aan uw groep</strong>
 	{{Form::open()}}
 	{{Form::text('email', null, array('placeholder' => 'E-mail van gebruiker', 'class' => 'item_inp'))}}<br>
 	{{Form::submit('Voeg gebruiker toe', array('class' => 'item_inp'))}}<br>
@@ -37,10 +37,10 @@
 			<button class=""  onclick="confirmBox.TouchDelete('Weet u zeker dat u {{$member->user->email}} @if($member->mod)gebruiker @else beheerder @endif wilt maken?', '{{URL::to($organisation->id."/changerank/".$member->user->id)}}', function(){window.location.replace(document.URL)}, true)">
 				@if($member->mod)Maak gebruiker @else Maak beheerder @endif
 			</button>
-			<button class=""  onclick="confirmBox.TouchDelete('{{$member->user->email}}', '{{URL::to($organisation->id."/deleteuser/".$member->user->id)}}', function(){window.location.replace(document.URL)})">Verwijder Gebruiker</button>
+			<button class=""  onclick="confirmBox.TouchDelete('{{$member->user->email}}', '{{URL::to($organisation->id."/deleteuser/".$member->user->id)}}', function(){window.location.replace(document.URL)})">Gebruiker verwijderen</button>
 		</li>
 		@endforeach
 	</ul>
-	<button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('groepen')}}')})">Verwijder groep</button>
+	<button class="submit_input" style="background-color: #FF5252;color: #fff" onclick="confirmBox.TouchDelete('deze groep', '{{URL::to($organisation->id."/delete")}}', function(){window.location.replace('{{URL::to('groepen')}}')})">Groep verwijderen</button>
 	<a class="button submit_input" href="{{URL::to('/groepen')}}">Terug</a>
 @stop

@@ -70,13 +70,12 @@ Route::filter('organisationAccess', function($route){
 										->where('organisation_id', $organisation_id) 
 										->count() == 0)
 		{
-			return Redirect::to('groep/geentoegang');
+			return App::abort(403, 'U heeft geen toegang tot deze groep.');
 		}
 	}
 	else{
 		return App::abort(404, 'Deze groep is niet gevonden.');
 	}
-
 });
 
 Route::filter('beheerder', function(){
